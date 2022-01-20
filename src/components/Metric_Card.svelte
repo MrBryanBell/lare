@@ -42,5 +42,5 @@
 
 
 <style lang="scss">
-	@import './styles/_metricCard.scss';
+	@import '../styles/_metricCard.scss';
 </style>

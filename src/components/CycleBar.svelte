@@ -43,5 +43,5 @@
 
 
 <style lang="scss">
-    @import './styles/_cycleBar.scss';
+    @import '../styles/_cycleBar.scss';
 </style>

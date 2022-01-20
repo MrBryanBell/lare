@@ -35,7 +35,7 @@
 
 
 <style lang="scss">
-    @import './styles/Navbar.scss';
+    @import '../styles/Navbar.scss';
 
 
 </style>
