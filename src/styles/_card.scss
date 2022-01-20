@@ -1,0 +1,125 @@
+//------------------------
+// IMPORTS
+//------------------------
+
+@import './utils/_mixins.scss';
+
+
+
+//------------------------
+// VARIABLES
+//------------------------
+
+$card-background: #ecf1fe;
+
+$card-text-details: #a5b2cf;
+$card-text-primary: #677cad;
+
+$checkmark-icon: #7be5bb;
+$info-icon: #b8cdff;
+$vertical-menu-icon: #c5cfe7;
+
+// * { outline: 1px solid red; }
+
+
+
+//------------------------
+// Card Container
+//------------------------
+
+.main-container {
+	padding: 28px 24px 34px;
+	background-color: $card-background;
+	border-radius: 0.5rem;
+	max-width: 14rem;
+}
+
+
+
+//------------------------
+// SUBJECT ID
+//------------------------
+
+.subject-id {
+
+    @include text-mixin
+        ('Barlow', 0.625rem, 1, var(--barlow-medium), 
+        $card-text-details, -0.02em);
+
+    margin-bottom: 4px;
+	font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+
+//------------------------
+// SUBJECT NAME
+//------------------------
+
+.subject-name {
+    @include text-mixin
+        ('Inter', 1rem, 1.25, var(--inter-semibold),
+        $card-text-primary, -0.02em);
+
+    font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+
+//------------------------
+// SUBJECT UV
+//------------------------
+
+.subject-uv {
+    @include text-mixin
+        ('Barlow', 0.75rem, 1, var(--barlow-medium),
+        $card-text-details, -0.02em);
+
+    font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+//------------------------
+// SUBJECT GRADE
+//------------------------
+
+.subject-grade {
+    @include text-mixin
+        ('Barlow', 1.25rem, 1, var(--barlow-semibold),
+        $card-text-primary, -0.04em);
+
+    font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+
+//------------------------
+// REORDER
+//------------------------
+
+
+.card-footer,
+.card-data {
+    @include flex-container(row, space-between, 0);
+}
+
+.card-status {
+    display: flex;
+    gap: 4px;
+}
+
+span {
+    @include flex-container(column, flex-end, 0);
+}
+
+.card-data-data {
+    @include flex-container(column, flex-start, 0.25rem);
+}
+
+.card-header {
+    margin-bottom: 32px;
+}
+
+.card-data {
+    margin-bottom: 24px;
+}
+
+img {
+    user-select: none;
+}
