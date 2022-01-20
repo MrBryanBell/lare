@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+//------------------------
+// VARIABLES
+//------------------------
+    $toggle-bg-disabled: #C5CFE7;
+    $toggle-bg-active: #578AFF;
+    $toggle-knob: #F5F5F5;
+
+
+
+//------------------------
+// ESTILOS SWITCH
+//------------------------
+    div {
+        width: 2.75rem;
+        height: 1.5rem;
+        padding: 0.25rem;
+        border-radius: 0.75rem;
+
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+    }
+
+    .active-sw {
+        background-color: $toggle-bg-active;
+    }
+
+    .disabled-sw {
+        background-color: $toggle-bg-disabled;
+    }
+
+
+    
+//------------------------
+// ESTILOS KNOB
+//------------------------
+    div div {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        
+        background-color: $toggle-knob;
+
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+ 
+    .active-kn {
+        transform: translateX(calc(100% + 4px));
+    }
+        
+    .disabled-kn {
+        transform: translateX(0);
+    }
