@@ -1,0 +1,142 @@
+//------------------------
+// IMPORTS
+//------------------------
+
+@import './utils/_mixins.scss';
+
+// * { outline: 1px solid red; }
+
+
+
+//------------------------
+// VARIABLES
+//------------------------
+$text-light-color: hsla(210, 100%, 98%, 1);
+$text-default-color: hsla(208, 100%, 92%, 1);
+
+
+
+
+//------------------------
+// STYLES
+//------------------------
+
+.main-container {
+	// --- MAIN-CONTAINER --- //
+
+	background: linear-gradient(
+		130.03deg,
+		#37a0fb 16.61%,
+		#0b87fe 83.16%,
+		#0f8cfa 83.16%
+	);
+	box-shadow: inset 1px 1px 4px #88bbfc;
+	border-radius: 0.5rem;
+	padding: 1.75rem 1.5rem;
+
+	position: relative;
+
+	// TODO: BORRAR
+	width: 234px;
+
+	// --- METRIC-TITTLE --- //
+	& > p {
+		@include text-mixin(
+			'Barlow',
+			0.875rem,
+			1,
+			var(--barlow-semibold),
+			#d7ecff,
+			-0.01em
+		);
+
+		font-feature-settings: 'tnum' on, 'lnum' on;
+		margin-bottom: 1.25rem;
+	}
+
+	// --- METRIC-IMPROVE-CONTAINER
+	div {
+		display: flex;
+		gap: 2px;
+        margin-bottom: 2px;
+	}
+
+	// --- SMALL NUMBER --- //
+	& > div > p {
+		@include text-mixin(
+			'Barlow',
+			1rem,
+			1,
+			var(--barlow-medium),
+			#9acffe,
+			0.005em
+		);
+
+		font-feature-settings: 'tnum' on, 'lnum' on;
+	}
+
+	// --- BIG-NUMBER --- //
+	h4 {
+		padding-left: 4px;
+
+		@include text-mixin(
+			'Barlow',
+			28px,
+			1,
+			var(--barlow-semibold),
+			// #d7ecff,
+            var(--text-color),
+			-0.02em
+		);
+
+		font-feature-settings: 'tnum' on, 'lnum' on;
+	}
+
+	// --- INFO-ICON --- //
+	.info-icon {
+		position: absolute;
+		bottom: 1rem;
+		right: 1rem;
+	}
+}
+
+
+
+//------------------------
+// LIGHT-THEME
+//------------------------
+
+.default-box-theme {
+	background: linear-gradient(
+		130.03deg,
+		#37a0fb 16.61%,
+		#0b87fe 83.16%,
+		#0f8cfa 83.16%
+	);
+
+	box-shadow: inset 1px 1px 4px #88bbfc;
+}
+
+.default-text-theme {
+    color: $text-default-color;
+}
+
+
+
+//------------------------
+// DEFAULT-THEME
+//------------------------
+
+.light-theme {
+	background: linear-gradient(
+        132.84deg, 
+        #92c0fc 16.96%, 
+        #6aa9fb 81.91%
+    );
+
+	box-shadow: inset 1px 1px 4px #bad7fd;
+}
+
+.light-text-theme {
+    color: $text-light-color
+}
