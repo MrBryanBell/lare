@@ -61,6 +61,7 @@ $vertical-menu-icon: #c5cfe7;
         $card-text-primary, -0.02em);
 
     font-feature-settings: 'tnum' on, 'lnum' on;
+    height: 60px;
 }
 
 
@@ -113,7 +114,7 @@ span {
 }
 
 .card-header {
-    margin-bottom: 32px;
+    margin-bottom: 12px;
 }
 
 .card-data {
