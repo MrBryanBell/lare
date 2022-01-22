@@ -1,38 +1,48 @@
-# create-svelte
+# Aprendizaje
+---
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
-## Creating a project
+### Enviar un ID simulado (forEach)
 
-If you're seeing this, you've probably already done this step. Congrats!
+Recuerda, los forEach poseen un segundo parámetro: el index del elemento. Para efectos experimentales, podemos utilizar el valor de ese **Index** como **ID**.
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+Est manera me parece muy peculiar porque necesitamos modificar la data directamente en el store, así que enviamos el index de ese elemento entre la data que recibe cada componente.
 
-# create a new project in my-app
-npm init svelte@next my-app
+```html
+{#each $materias as materia, index}
+	<Card data={{...materia, id: index}} />
+{:else}
+	<p>No hay data aún</p>
+{/each}
 ```
 
-> Note: the `@next` is temporary
+De esta forma, la función que modifica la nota vive en el componente y no en su padre.
 
-## Developing
+---
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Actualizar un Store complejo y de forma externa
 
-```bash
-npm run dev
+Imagina que deseamos actualizar el valor de un **writable store** que almacena un objeto y deseamos hacerlo desde un archivo **.js** para efectos de conseguir un código modularizado.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```JavaScript
+import { writable } from 'svelte/store';
+
+let datos = writable( { name: 'Bryan', nota: 10 }); 
 ```
 
-## Building
+Desafíos:
+- **Acceder al valor de un store desde un archivo .js**: Recuerda que las suscripciones automáticas **($)** solo funcionan en componentes de svelte. Para acceder al valor de un store desde un archivo JS, Svelte nos proporciona el método **.get()**.
 
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+```JavaScript
+import { get } from 'svelte/store';
+import { datos } from './store.js';
 
-```bash
-npm run build
+get(datos) //OUTPUT: { name: 'Bryan', nota: 10 }
+
 ```
 
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+Lamentablemente el método **.get()** solo nos será útil para conseguir el valor del store, pues según la documentación oficial, este de desuscribe automáticamente.
+
+> Svelte's [get function](https://svelte.dev/docs#get) (which subscribes to the store to get the value and immediately unsubscribes).
+
+Afortunadamente, basta combinar lo anterior con el método **.update()** para modifica el valor del store de forma reactiva.
