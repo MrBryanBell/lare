@@ -45,4 +45,17 @@ Lamentablemente el método **.get()** solo nos será útil para conseguir el val
 
 > Svelte's [get function](https://svelte.dev/docs#get) (which subscribes to the store to get the value and immediately unsubscribes).
 
-Afortunadamente, basta combinar lo anterior con el método **.update()** para modifica el valor del store de forma reactiva.
+Afortunadamente, basta combinar lo anterior con el método **.update()** para modifica el valor del store de forma reactiva. 
+
+**Avertencia:** Únicamente deseamos modificar la propiedad nota del store, por lo tando debemos ejecutar el método **.update()** de la siguiente forma:
+
+```JavaScript
+let dataRef = get(datos).nota;
+
+datos.update(d => {
+	d.nota = dataRef + 0.1;
+	return d;
+})
+```
+
+Lo más importante es retornar la data entera luego de las modificaciones.
