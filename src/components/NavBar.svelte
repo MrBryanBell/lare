@@ -17,9 +17,9 @@
         
         <!-- MENU DE NAVEGACIÓN -->
         <nav>
-            <a href="#"> <img src="/icons/dashboard.svg" alt=""> </a>
-            <a href="#"> <img src="/icons/metrics.svg" alt=""> </a>
-            <a href="#"> <img src="/icons/ranking.svg" alt=""> </a>
+            <a href="/materias"> <img src="/icons/dashboard.svg" alt=""> </a>
+            <a href="/"> <img src="/icons/metrics.svg" alt=""> </a>
+            <a href="/newData"> <img src="/icons/ranking.svg" alt=""> </a>
         </nav>
 
     </section>
