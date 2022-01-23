@@ -1,10 +1,6 @@
 <script>
-	// your script goes here
-	let data = {
-		cum: 8.642,
-	};
+	export let data = 8.642;
 
-	let { cum } = data;
 
 	export let isPrimary = true;
 
@@ -29,7 +25,7 @@
 		    <img src="/icons/up-arrow-lightTheme.svg" alt="" />
         {/if}
 	</div>
-	<h4 style:color={textColor} >{cum}</h4>
+	<h4 style:color={textColor} >{data}</h4>
 	{#if isPrimary}
 		<img class="info-icon" src="/icons/info-metric-default.svg" alt="" />
 	{:else}

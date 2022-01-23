@@ -1,5 +1,9 @@
 <script>
     // your script goes here
+    import { cicloActual, cycles } from '../stores/cycle_store';
+    import { changeCycle } from '../algoritmos/changeCycle';
+
+
     let data = {
         carrera: 'c. de la Comunicación',
         pensum: '2018 - 2021',
@@ -7,6 +11,7 @@
     };
 
     let { carrera, pensum, ciclo } = data;
+
 </script>
 
 
@@ -15,7 +20,7 @@
 
     <!-- CYCLE-STATE-BAR -->
 
-    <div class="cycle-state-bar">
+    <div class="cycle-state-bar" on:wheel={changeCycle}>
         <img class="luckImage" src="/images/graphics.png" alt="">
         <div>
             <img src="/icons/cloud-sync.svg" alt="">

@@ -1,25 +1,15 @@
 <script>
     import Toggle from './Switch.svelte';
+    import { changeNote } from '../algoritmos/changeNote.js'
+    
     let Switch;
 
-    function changeNote(e){
-            if ((e.shiftKey)){
-                (e.deltaY < 0) ? (grade += 1) : (grade -= 1)
-
-            } else {
-                (e.deltaY < 0) ? (grade += 0.1) : (grade -= 0.1)
-            }
-    }
-
-
-    let subject = {
-        id: '04OPT1',
-        name: 'Introducción a la Comunicación',
+    export let data = {
+        id: 'b92ba872-b74d-447b-b33d-970d3b2dc8ef',
+        materia: 'Introducción a la Comunicación',
         uv: 4,
-        grade: 9.6,
+        nota: 9.6,
     }
-
-    let {id, name, uv, grade } = subject;
 
     let state = false;
 
@@ -34,12 +24,12 @@
 
 
 
-<div class="main-container" on:wheel|preventDefault={changeNote} >
+<div class="main-container" on:wheel|preventDefault={(e) => changeNote(e, data.id)} >
 
     <!-- CABECERA: NOMBRE Y CÓDIGO MATERIA -->
     <div class="card-header" >
-        <p class="subject-id">{ id }</p>
-        <h4 class="subject-name" >{ name }</h4>
+        <p class="subject-id">{ data.id }</p> <!-- '04OPT1' -->
+        <h4 class="subject-name" >{ data.materia }</h4>
     </div>
     
 
@@ -48,11 +38,11 @@
 
         <div class="card-data-data" >
             <!-- UV -->
-            <p class="subject-uv" >0{ uv } UV</p>
+            <p class="subject-uv" >0{ data.uv } UV</p>
             
             <!-- GRADE & CHECKMARK-ICON -->
             <div class="card-status" >
-                <h4 class="subject-grade" >{ grade.toFixed(1) }</h4>
+                <h4 class="subject-grade" >{ data.nota.toFixed(1) }</h4>
                 <img src="/icons/checkmark.svg" alt="">
             </div>
         </div>

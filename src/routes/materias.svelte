@@ -1,24 +1,49 @@
 <script>
-    import { db } from '../firebase/firebaseConfig';
-    import { getDoc, doc, collection, addDoc } from 'firebase/firestore';
-    import { onMount } from 'svelte';
-    import { getData } from '../firebase/firebaseFunctions';
-
-    let materias = [ ];
+    import { materias, promedio } from '../stores/materia_store.js';
+    import { cicloActual } from '../stores/cycle_store';
+    import Card from '../components/Card.svelte';
+    import MetricCard from '../components/Metric_Card.svelte';
+    import CycleBar from '../components/CycleBar.svelte';
     
-    onMount(async () => {
-        materias = await getData('lareData', 'bryanbell');
-        console.log(materias);
-    });
+    
+    $: materiasAct = $materias.filter((mt) => mt.ciclo === $cicloActual);
+    
+    $: console.log(materiasAct);
+    $: console.log($promedio);
+
 </script>
 
-<h1>Lista de Materias</h1>
 
-{#each materias as item}
-     <!-- content here -->
-     <p>{item.materia}</p>
-     <p>{item.nota}</p>
-{:else}
-     <p>No hay data aún</p>
-     <!-- empty list -->
-{/each}
+<section>
+    <MetricCard data={$promedio}/>
+    <MetricCard isPrimary={false} data={$promedio}/>
+</section>
+
+<article><CycleBar /></article>
+<div>
+    {#each materiasAct as materia }
+        <Card data={{...materia}} />
+    {:else}
+        <p>No hay data aún</p>
+    {/each}
+</div>
+
+
+<style>
+    div {
+        padding: 24px;
+        padding-left: 100px;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+    }
+
+    section, article {
+        padding-left: 100px;
+        padding-top: 24px;
+
+        display: flex;
+        gap: 16px;
+    }
+</style>
