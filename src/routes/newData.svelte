@@ -1,7 +1,6 @@
 <script>
     import { onMount } from "svelte";
     import { getData } from "../firebase/firebaseFunctions";
-    import { v4 } from 'uuid';
     import { updateDoc, doc } from 'firebase/firestore';
     import { db } from '../firebase/firebaseConfig';
     
@@ -16,15 +15,10 @@
     function addID() {
         
         materias.forEach((mat) => {
-            let newID = v4();
-            mat.id = newID;
+            let uuid = self.crypto.randomUUID();
+            console.log(uuid);
         })
 
-        const docRef = doc(db, 'lareData', 'bryanbell');
-        updateDoc(docRef, {
-            ciclo1: [...materias]
-        })
-        .then(() => console.log('se completó con éxito'))
     };
 
 </script>
