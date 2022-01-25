@@ -17,7 +17,6 @@
   },
   "type": "module",
   "dependencies": {
-    "firebase": "^9.6.3",
-    "uuid": "^8.3.2"
+    "firebase": "^9.6.3"
   }
 }
