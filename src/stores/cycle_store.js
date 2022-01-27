@@ -1,6 +1,14 @@
-import { writable } from "svelte/store";
+import { derived, writable } from "svelte/store";
 
-let cycles = ['Primero', 'Segundo', 'Tercero', 'Cuarto', 'Quinto', 'Sexto', 'Septimo', 'Octavo', 'Noveno', 'Decimo'];
+let nombreCiclos = ['primero', 'segundo', 'tercero', 'cuarto', 'quinto', 'sexto', 'séptimo', 'octavo', 'noveno', 'décimo'];
 let cicloActual = writable(1);
 
-export { cycles, cicloActual }; 
+let cicloActualEnTexto = derived(cicloActual, 
+                            ($cicloActual) => {
+                            
+                                let index = $cicloActual;
+                                return nombreCiclos[index - 1];
+                            }
+                        );
+
+export { cicloActualEnTexto, cicloActual };
