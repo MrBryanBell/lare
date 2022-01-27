@@ -1,0 +1,23 @@
+
+
+
+
+//------------------------
+// MAIN CONTAINER
+//------------------------
+
+div {
+	height: 150px;
+	background: 
+        linear-gradient(90deg, 
+            #0b85fe 0%, 
+            #6f99fc 99.26%
+        );
+	box-shadow: 
+        inset 1px 1px 4px #9dddf1, 
+        inset -1px -1px 4px #74affb;
+	border-radius: 0.5rem;
+    grid-area: toolbar;
+
+    // outline: 1px solid red;
+}
