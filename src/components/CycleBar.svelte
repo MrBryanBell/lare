@@ -1,16 +1,15 @@
 <script>
     // your script goes here
-    import { cicloActual, cycles } from '../stores/cycle_store';
+    import { cicloActualEnTexto } from '../stores/cycle_store';
     import { changeCycle } from '../algoritmos/changeCycle';
 
 
     let data = {
         carrera: 'c. de la Comunicación',
         pensum: '2018 - 2021',
-        ciclo: 'octavo',
     };
 
-    let { carrera, pensum, ciclo } = data;
+    let { carrera, pensum } = data;
 
 </script>
 
@@ -20,12 +19,12 @@
 
     <!-- CYCLE-STATE-BAR -->
 
-    <div class="cycle-state-bar" on:wheel={changeCycle}>
+    <div class="cycle-state-bar" on:wheel|preventDefault={changeCycle}>
         <img class="luckImage" src="/images/graphics.png" alt="">
         <div>
             <img src="/icons/cloud-sync.svg" alt="">
             <p>CICLO /</p>
-            <h4>{ ciclo.toUpperCase() }</h4>
+            <h4>{ $cicloActualEnTexto.toUpperCase() }</h4>
         </div>
 
         <section>
