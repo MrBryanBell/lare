@@ -17,6 +17,7 @@
   },
   "type": "module",
   "dependencies": {
-    "firebase": "^9.6.3"
+    "firebase": "^9.6.3",
+    "sortablejs": "^1.14.0"
   }
 }
