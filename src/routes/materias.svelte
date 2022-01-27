@@ -1,9 +1,14 @@
 <script>
     import { materias, promedio } from '../stores/materia_store.js';
     import { cicloActual } from '../stores/cycle_store';
+    
     import Card from '../components/Card.svelte';
     import MetricCard from '../components/Metric_Card.svelte';
     import CycleBar from '../components/CycleBar.svelte';
+    import AssistantBar from "../components/Assistant_Bar.svelte";
+    import MetricContainer from "../components/MetricContainer.svelte";
+    import CircularChart from "../components/Circular_Chart.svelte";
+
     
     
     $: materiasAct = $materias.filter((mt) => mt.ciclo === $cicloActual);
@@ -13,37 +18,83 @@
 
 </script>
 
+<main>
 
-<section>
-    <MetricCard data={$promedio}/>
-    <MetricCard isPrimary={false} data={$promedio}/>
-</section>
+    <AssistantBar />
+    <section>
+        <MetricCard isPrimary={false} data={$promedio}/>
+        <MetricCard data={$promedio}/>
+        <MetricContainer>
+            <CircularChart />
+        </MetricContainer>
+    </section>
 
-<article><CycleBar /></article>
-<div>
-    {#each materiasAct as materia }
-        <Card data={{...materia}} />
-    {:else}
-        <p>No hay data aún</p>
-    {/each}
-</div>
+    <div>
+        <CycleBar />
+        <article>
+            {#each materiasAct as materia }
+                <Card data={{...materia}} />
+            {:else}
+                <p>No hay data aún</p>
+            {/each}
+        </article>
+    </div>
 
 
-<style>
-    div {
-        padding: 24px;
-        padding-left: 100px;
+</main>
+
+
+<style lang="scss">
+    div{
+        margin-bottom: 100px;
+        grid-area: materias;
+        
+        // outline: 1px solid red;
+
+    }
+
+    section {
+        grid-area: metrics;
 
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 136px auto;
         gap: 16px;
+        // align-items: flex-start;
+
+
+
+        // outline: 1px solid red;
     }
 
-    section, article {
-        padding-left: 100px;
-        padding-top: 24px;
+    article {
+        margin-top: 20px;
 
-        display: flex;
-        gap: 16px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-auto-rows: 230px;
+        gap: 1rem;
+        // outline: 1px solid red;
     }
+    main {
+        padding-left: 140px;
+        padding-right: 54px;
+        padding-top: 32px;
+        min-height: 100vh;
+
+        background: linear-gradient(233.25deg, #E3EBFC 0%, #FFFFFF 48.63%);
+
+        display: grid;
+        grid-template-columns: minmax(460px, 900px) minmax(360px, 500px);
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+            "toolbar toolbar"
+            "materias metrics"
+        ;
+
+        row-gap: 72px;
+        column-gap: 92px;
+        // outline: 1px solid red;
+    }
+
 </style>
