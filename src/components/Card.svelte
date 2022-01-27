@@ -28,7 +28,7 @@
 
     <!-- CABECERA: NOMBRE Y CÓDIGO MATERIA -->
     <div class="card-header" >
-        <p class="subject-id">{ data.id }</p> <!-- '04OPT1' -->
+        <p class="subject-id">04OPT1</p> <!-- '04OPT1' -->
         <h4 class="subject-name" >{ data.materia }</h4>
     </div>
     
