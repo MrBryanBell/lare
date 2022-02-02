@@ -1,11 +1,21 @@
 <script>
-	export let data = 8.642;
-
+    import { onMount } from "svelte";
+    import { tweened } from "svelte/motion";
 
 	export let isPrimary = true;
 
-	$: textColor = isPrimary ? '#D7ECFF' : '#F5FAFF';
+    $: text = isPrimary ? 'Egresado' : 'Acumulado';
+	$: textColor = isPrimary ? '#F5FAFF' : '#F5FAFF';
     $: smallTextColor = isPrimary ? '#9ACFFE' : '#C2E2FF';
+
+	export let data;
+    const localValue = tweened(0);
+
+    $: data, localValue.set(data);
+
+    onMount(() => {
+        localValue.set(0);
+    });
 </script>
 
 
@@ -16,7 +26,7 @@
 	class:light-theme={!isPrimary}
 	class:default-theme={isPrimary}
 >
-	<p style:color={textColor} >CUM Egresado</p>
+	<p style:color={textColor} >CUM {text}</p>
 	<div>
 		<p style:color={smallTextColor} >+03</p>
         {#if isPrimary}
@@ -25,11 +35,11 @@
 		    <img src="/icons/up-arrow-lightTheme.svg" alt="" />
         {/if}
 	</div>
-	<h4 style:color={textColor} >{data}</h4>
+	<h4 style:color={textColor} >{$localValue.toFixed(3)}</h4>
 	{#if isPrimary}
 		<img class="info-icon" src="/icons/info-metric-default.svg" alt="" />
-	{:else}
-		<img class="info-icon" src="/icons/info-metric-light.svg" alt="" />
+    {:else}
+        <img class="info-icon" src="/icons/info-metric-light.svg" alt="" />
 	{/if}
 </div>
 
