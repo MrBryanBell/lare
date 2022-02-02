@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { tweened } from "svelte/motion";
+    import { isFirstTimeRendered } from '../stores/session_store';
 
 	export let isPrimary = true;
 
@@ -38,8 +39,10 @@
 	<h4 style:color={textColor} >{$localValue.toFixed(3)}</h4>
 	{#if isPrimary}
 		<img class="info-icon" src="/icons/info-metric-default.svg" alt="" />
+        <img class="info-image" src="/images/default-image.png" alt="" />
     {:else}
         <img class="info-icon" src="/icons/info-metric-light.svg" alt="" />
+		<img class="info-image" src="/images/light-image.png" alt="" />
 	{/if}
 </div>
 

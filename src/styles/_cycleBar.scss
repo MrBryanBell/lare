@@ -12,7 +12,7 @@ img {display: block;}
 // VARIABLES
 //------------------------
 
-$infoBar-background-color: #8CBDFC;
+$infoBar-background-color: #72ACFD;;
 $infoBar-text-color: #F5FAFF;
 
 
@@ -64,9 +64,10 @@ div.main-container {
 
 
 .cycle-state-bar {
-    background-color: #3998FF;
+    background: linear-gradient(90deg, #0B85FE 0%, #215DEE 50.66%, #1A7DFD 99.26%), #1C7AFC;;
     border-radius: 0.5rem 0.5rem 0 0;
-    box-shadow: 2px 2px 4px 0px hsla(214, 94%, 76%, 1) inset;
+    box-shadow: inset 1px 1px 12px #9CC6FC;
+    opacity: 0.9;
 
     display: flex;
     justify-content: center;
@@ -76,7 +77,7 @@ div.main-container {
 
     
     // TODO: BORRAR
-    min-height: 112px;
+    min-height: 132px;
     // width: 700px;
 
     div {
@@ -99,24 +100,38 @@ div.main-container {
         }
     }
 
-    section {
-        display: flex;
-        position: absolute;
-        right: 1.25rem;
+}
 
-        img {
-            margin: 0;
-        }
 
-        img:nth-of-type(2){
-            transform: rotate(180deg);
-        }
+//------------------------
+// BUTTONS
+//------------------------
+
+section {
+    display: flex;
+    position: absolute;
+    right: 1.25rem;
+
+    img {
+        margin: 0;
+        opacity: 0.6;
+        transition: all 0.2s  ease-in;
+    }
+
+    img:hover {
+        opacity: 1;
+    }
+
+    img:nth-of-type(2){
+        transform: rotate(180deg);
     }
 }
+
+
 
 .luckImage {
     position: absolute;
     bottom: 0;
-    left: 1.25rem;
+    left: 4px;
     cursor: auto;
 }

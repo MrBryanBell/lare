@@ -12,20 +12,18 @@
 
 div {
     height: 100vh;
-    background: linear-gradient(
-        180deg, 
-        #53AEFF 0%, 
-        #5398FF 100%
-    );
+    background: linear-gradient(180deg, #1B7EFD 0%, #2163F1 51.04%, #1B7EFD 100%);
+    box-shadow: inset 0px 1px 8px #A7CEFB;;
+    opacity: 0.9;
 
     // border-radius: 0px 8px 8px 0px;
-    padding: 24px 12px 0px;
+    padding: 24px 16px 0px;
 
     position: fixed;
     top: 0;
 
     // TODO: BORRAR
-    width: 76px;
+    width: 88px;
     
 
     section {
@@ -41,8 +39,8 @@ div {
 
 
 nav {
-    padding: 12px 8px;
-    background: #A3D4FF;
+    padding: 12px 10px;
+    background: #87B6FC;;
     border-radius: 8px;
 
     display: flex;
