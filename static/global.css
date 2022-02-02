@@ -1,6 +1,6 @@
 
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Inter:wght@500;600&display=swap');
 
 
 :root {
@@ -8,7 +8,9 @@
     --barlow-semibold: 600;
     --barlow-bold: 700;
 
+    --inter-medium: 500;
     --inter-semibold: 600;
+    --opacity-card: 1;
 }
 
 * {
@@ -25,6 +27,18 @@ img {
 
 h1, h2, h3, h4, p {
     user-select: none;
+}
+
+.sortable-ghost {
+    opacity: 0.4 !important;
+    border: 2px solid #F2B652;
+    /* background-color: transparent !important; */
+}
+
+.sortdrag {
+    opacity: 1 !important;
+    box-shadow: -13.57px -15.72px 38px rgba(21, 52, 148, 0.13), 38.79px 43.4036px 35.9904px rgba(21, 52, 148, 0.094016), -12.57px 22.2915px 16.8912px rgba(21, 52, 148, 0.073008), 8.21681px 8.96379px 7.3968px rgba(21, 52, 148, 0.056992), 1.83797px 2.00506px 3.2016px rgba(21, 52, 148, 0.035984);
+    /* transform: rotate(-3deg); */
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
