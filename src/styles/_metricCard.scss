@@ -24,13 +24,6 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 .main-container {
 	// --- MAIN-CONTAINER --- //
 
-	background: linear-gradient(
-		130.03deg,
-		#37a0fb 16.61%,
-		#0b87fe 83.16%,
-		#0f8cfa 83.16%
-	);
-	box-shadow: inset 1px 1px 4px #88bbfc;
 	border-radius: 0.5rem;
 	padding: 1.75rem 1.5rem;
 
@@ -103,10 +96,10 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 
 
 //------------------------
-// LIGHT-THEME
+// DEFAULT-THEME
 //------------------------
 
-.default-box-theme {
+.default-theme {
 	background: linear-gradient(
 		130.03deg,
 		#37a0fb 16.61%,
@@ -124,7 +117,7 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 
 
 //------------------------
-// DEFAULT-THEME
+// LIGHT-THEME
 //------------------------
 
 .light-theme {
