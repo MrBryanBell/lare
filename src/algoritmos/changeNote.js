@@ -5,7 +5,7 @@ import { materias } from '../stores/materia_store';
 function changeNote(e, ID){
 
     let currentElement = get(materias).find((mt) => mt.id === ID)
-    let currentGrade = currentElement.nota.toFixed(1);
+    let currentGrade = currentElement.grade.toFixed(1);
 
     // ¿PRESIONÓ SHIFT?
     if ((e.shiftKey))
@@ -15,7 +15,7 @@ function changeNote(e, ID){
                 {
                     materias.update((m) => {
                         let index = m.findIndex((mt) => mt.id === ID);
-                        m[index].nota += 1; 
+                        m[index].grade += 1; 
                         return m;
                     })
                 } 
@@ -25,7 +25,7 @@ function changeNote(e, ID){
                 {
                     materias.update((m) => {
                         let index = m.findIndex((mt) => mt.id === ID);
-                        m[index].nota -= 1; 
+                        m[index].grade -= 1; 
                         return m;
                     })
                 }
@@ -40,7 +40,7 @@ function changeNote(e, ID){
                 {
                     materias.update((m) => {
                         let index = m.findIndex((mt) => mt.id === ID);
-                        m[index].nota += 0.1; 
+                        m[index].grade += 0.1; 
                         return m;
                     })
                 } 
@@ -50,7 +50,7 @@ function changeNote(e, ID){
                 {
                     materias.update((m) => {
                         let index = m.findIndex((mt) => mt.id === ID);
-                        m[index].nota -= 0.1; 
+                        m[index].grade -= 0.1; 
                         return m;
                     })
                 }

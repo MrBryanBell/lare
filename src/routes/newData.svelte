@@ -26,7 +26,7 @@
 <div>
     {#each materias as item}
          <!-- content here -->
-         <p>{item.nota}</p>
+         <p>{item.grade}</p>
     {:else}
          <!-- empty list -->
     {/each}

@@ -6,7 +6,7 @@
 
     let data = {
         code: '',
-        nota: '',
+        grade: '',
     };
 
     $: materiaActual = listOfSubjects[listOfSubjects.findIndex((mt) => data.code === mt.code)];
@@ -16,13 +16,10 @@
     
     function addNewMateria() {
         let newMateria = {
-            ciclo: $cicloActual,
+            cycle: $cicloActual,
             id: self.crypto.randomUUID(),
-            ...materiaActual,
             ...data,
         }
-
-        newMateria.uv = Number(newMateria.uv);
 
         console.log(newMateria);
 
@@ -48,7 +45,7 @@
 
         <section>
             <label>Nota</label>
-            <input type="number" bind:value={data.nota} >
+            <input type="number" bind:value={data.grade} >
         </section>
 
         <button on:click={addNewMateria} >SEND DATA</button>

@@ -1,237 +1,237 @@
 let listOfSubjects = [
     {
         "code": "03GC01",
-        "materia": "análisis sociopolítico",
+        "name": "Análisis Sociopolítico",
         "uv": 3
     },
     {
         "code": "03GC02",
-        "materia": "introducción a la comunicación",
+        "name": "Introducción a la Comunicación",
         "uv": 4
     },
     {
         "code": "03GC03",
-        "materia": "fundamentos de la investigación",
+        "name": "Fundamentos de la Investigación",
         "uv": 4
     },
     {
         "code": "03GC04",
-        "materia": "gramática y redacción",
+        "name": "Gramática y Redacción",
         "uv": 4
     },
     {
         "code": "03GC05",
-        "materia": "taller de expresión plástica",
+        "name": "Taller de Expresión Plástica",
         "uv": 4
     },
     {
         "code": "03GC06",
-        "materia": "sociología de la comunicación",
+        "name": "Sociología de la Comunicación",
         "uv": 3
     },
     {
         "code": "03GC07",
-        "materia": "teoría de la comunicación",
+        "name": "Teoría de la Comunicación",
         "uv": 4
     },
     {
         "code": "03GC08",
-        "materia": "investigación cuantitativa",
+        "name": "Investigación Cuantitativa",
         "uv": 4
     },
     {
         "code": "03GC09",
-        "materia": "redacción periodística",
+        "name": "Redacción Periodística",
         "uv": 4
     },
     {
         "code": "03GC10",
-        "materia": "fundamentos de diseño gráfico y digital",
+        "name": "Fundamentos de Diseño Gráfico y Digital",
         "uv": 4
     },
     {
         "code": "03GC11",
-        "materia": "psicología de la comunicación y persuasión",
+        "name": "Psicología de la Comunicación y Persuasión",
         "uv": 3
     },
     {
         "code": "03GC12",
-        "materia": "teoría administrativa",
+        "name": "Teoría Administrativa",
         "uv": 3
     },
     {
         "code": "03GC13",
-        "materia": "investigación cualitativa",
+        "name": "Investigación Cualitativa",
         "uv": 4
     },
     {
         "code": "03GC14",
-        "materia": "periodismo digital",
+        "name": "Periodismo Digital",
         "uv": 4
     },
     {
         "code": "03GC15",
-        "materia": "semiótica de la imagen",
+        "name": "Semiótica de la Imagen",
         "uv": 3
     },
     {
         "code": "03FC01",
-        "materia": "literatura aplicada a las comunicaciones",
+        "name": "Literatura Aplicada a las Comunicaciones",
         "uv": 4
     },
     {
         "code": "03FC02",
-        "materia": "mercadeo",
+        "name": "Mercadeo",
         "uv": 4
     },
     {
         "code": "03FC03",
-        "materia": "investigación aplicada a las comunicaciones",
+        "name": "Investigación Aplicada a las Comunicaciones",
         "uv": 4
     },
     {
         "code": "03FC04",
-        "materia": "diseño y producción impresa",
+        "name": "Diseño y Producción Impresa",
         "uv": 4
     },
     {
         "code": "03FC05",
-        "materia": "fotografía básica",
+        "name": "Fotografía Básica",
         "uv": 4
     },
     {
         "code": "03FC06",
-        "materia": "historia de las ideas políticas y comunicación",
+        "name": "Historia de las Ideas Políticas y Comunicación",
         "uv": 3
     },
     {
         "code": "03FC07",
-        "materia": "relaciones públicas",
+        "name": "Relaciones Públicas",
         "uv": 3
     },
     {
         "code": "03FC08",
-        "materia": "análisis de públicos y audiencias",
+        "name": "Análisis de Públicos y Audiencias",
         "uv": 3
     },
     {
         "code": "03FC09",
-        "materia": "comunicación radiofónica",
+        "name": "Comunicación Radiofónica",
         "uv": 4
     },
     {
         "code": "03FC10",
-        "materia": "fotografía avanzada",
+        "name": "Fotografía Avanzada",
         "uv": 4
     },
     {
         "code": "03FC11",
-        "materia": "legislación de la comunicación",
+        "name": "Legislación de la Comunicación",
         "uv": 4
     },
     {
         "code": "03FC12",
-        "materia": "comunicación organizacional",
+        "name": "Comunicación Organizacional",
         "uv": 3
     },
     {
         "code": "03FC13",
-        "materia": "diseño y gestión de sitios web",
+        "name": "Diseño y Gestión de Sitios Web",
         "uv": 4
     },
     {
         "code": "03FC14",
-        "materia": "comunicación televisiva",
+        "name": "Comunicación Televisiva",
         "uv": 4
     },
     {
         "code": "03FC15",
-        "materia": "presupuesto y diseño de proyectos",
+        "name": "Presupuesto y Diseño de Proyectos",
         "uv": 4
     },
     {
         "code": "03FC16",
-        "materia": "gerencia de empresas de medios de comunicación",
+        "name": "Gerencia de Empresas de Medios de Comunicación",
         "uv": 4
     },
     {
         "code": "03FC17",
-        "materia": "comunicación institucional",
+        "name": "Comunicación Institucional",
         "uv": 3
     },
     {
         "code": "03FC18",
-        "materia": "comunicación y emprendimiento",
+        "name": "Comunicación y Emprendimiento",
         "uv": 4
     },
     {
         "code": "03FC19",
-        "materia": "producción audiovisual",
+        "name": "Producción Audiovisual",
         "uv": 4
     },
     {
         "code": "03FC20",
-        "materia": "introducción a la publicidad",
+        "name": "Introducción a la Publicidad",
         "uv": 4
     },
     {
         "code": "03PCI0",
-        "materia": "proyecto cultural impreso",
+        "name": "Proyecto Cultural Impreso",
         "uv": 5
     },
     {
         "code": "03TAM0",
-        "materia": "taller de animación",
+        "name": "Taller de Animación",
         "uv": 3
     },
     {
         "code": "03CINO",
-        "materia": "comunicación intercultural",
+        "name": "Comunicación Intercultural",
         "uv": 3
     },
     {
         "code": "03CYE0",
-        "materia": "comunicación y educación",
+        "name": "Comunicación y Educación",
         "uv": 3
     },
     {
         "code": "03PCA0",
-        "materia": "proyecto cultural audiovisual",
+        "name": "Proyecto Cultural Audiovisual",
         "uv": 5
     },
     {
         "code": "03CGI0",
-        "materia": "comunicación, género e inclusión",
+        "name": "Comunicación, Género e Inclusión",
         "uv": 3
     },
     {
         "code": "03TGU0",
-        "materia": "taller de guiones",
+        "name": "Taller de Guiones",
         "uv": 3
     },
     {
         "code": "03IYS0",
-        "materia": "innovación y sostenibilidad",
+        "name": "Innovación y Sostenibilidad",
         "uv": 3
     },
     {
         "code": "03PMC0",
-        "materia": "proyecto cultural multimedia",
+        "name": "Proyecto Cultural Multimedia",
         "uv": 5
     },
     {
         "code": "03LCI0",
-        "materia": "lenguaje cinematográfico",
+        "name": "Lenguaje Cinematográfico",
         "uv": 3
     },
     {
         "code": "03ADM0",
-        "materia": "aplicaciones en dispositivos móviles",
+        "name": "Aplicaciones en Dispositivos Móviles",
         "uv": 3
     },
     {
         "code": "03SIC0",
-        "materia": "seminario de investigación en comunicación",
+        "name": "Seminario de Investigación en Comunicación",
         "uv": 3
     }
 ]
