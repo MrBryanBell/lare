@@ -19,8 +19,11 @@
 
     <!-- CYCLE-STATE-BAR -->
 
-    <div class="cycle-state-bar" on:wheel|preventDefault={changeCycle}>
-        <img class="luckImage" src="/images/graphics.png" alt="">
+    <div 
+        class="cycle-state-bar" 
+        on:wheel|preventDefault={(e) => changeCycle(e)}
+        >
+        <img class="luckImage" src="/images/embud.png" alt="">
         <div>
             <img src="/icons/cloud-sync.svg" alt="">
             <p>CICLO /</p>
@@ -28,8 +31,16 @@
         </div>
 
         <section>
-            <img src="/icons/arrow-circle.svg" alt="">
-            <img src="/icons/arrow-circle.svg" alt="">
+            <img 
+                src="/icons/arrow-circle.svg" 
+                alt="" 
+                on:click={(e) => changeCycle(e, -1)} 
+                >
+            <img 
+                src="/icons/arrow-circle.svg" 
+                alt="" 
+                on:click={(e) => changeCycle(e, 1)} 
+                >
         </section>
     </div>
 
