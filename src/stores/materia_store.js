@@ -1,13 +1,20 @@
 import { writable, derived } from 'svelte/store';
 import { getData } from '../firebase/firebaseFunctions';
-
+import { MateriaClass } from '../classes/materia_class';
+import { listOfSubjects } from './listOfSubjects';
 
 // HACE LA PETICIÓN AL SERVIDOR Y HACE BIND DE LA DATA
     let materias = writable([]);
 
     async function bindData() {
         let data = await getData('lareData', 'bryanbell');
-        materias.set(data);
+        let parsedData = data.map((data) => {
+            const currentSubject = listOfSubjects.find((sub) => sub.code == data.code);
+            const dataCombined = {...data, ...currentSubject};
+            const subjectFromClass = new MateriaClass(dataCombined);
+            return subjectFromClass;
+        })
+        materias.set(parsedData);
     };
 
     bindData();
@@ -18,7 +25,7 @@ import { getData } from '../firebase/firebaseFunctions';
     let totalUMG = derived(materias, 
                         ($materias) => {
                     	    let UMG = $materias
-                    	    	.map(({ nota, uv }) => nota * uv)
+                    	    	.map(({ grade, uv }) => grade * uv)
                     	    	.reduce((acc, elem) => {
                     	    		return acc + elem;
                     	    	}, 0);
@@ -48,7 +55,7 @@ import { getData } from '../firebase/firebaseFunctions';
     let promedio = derived([totalUMG, totalUV], 
                         ($array) => {
                             const [ totalUMG, totalUV ] = $array;
-                            return (totalUMG / totalUV).toFixed(3);
+                            return (totalUMG / totalUV);
                         }
                     );
 
