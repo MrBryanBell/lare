@@ -2,6 +2,8 @@
     import { materias, promedio } from '../stores/materia_store.js';
     import { cicloActual } from '../stores/cycle_store';
     
+    import Sortable from 'sortablejs';
+
     import Card from '../components/Card.svelte';
     import MetricCard from '../components/Metric_Card.svelte';
     import CycleBar from '../components/CycleBar.svelte';
@@ -9,12 +11,32 @@
     import MetricContainer from "../components/MetricContainer.svelte";
     import CircularChart from "../components/Circular_Chart.svelte";
 
+    import { onMount } from 'svelte';
+
+
+    $: materiasAct = $materias.filter((mt) => mt.cycle === $cicloActual);
     
-    
-    $: materiasAct = $materias.filter((mt) => mt.ciclo === $cicloActual);
-    
+    let domElement;
+
+    onMount(() => {
+        let sortList = Sortable.create(domElement, {
+	        group: {
+	        	name: 'cuteList',
+	        },
+
+            dragClass: "sortdrag",
+            ghostClass: "sortable-ghost",
+            forceFallback: true,
+            
+	        easing: "cubic-bezier(1, 0, 0, 1)",
+
+        });
+    })
+
+
     $: console.log(materiasAct);
     $: console.log($promedio);
+    $: console.log(domElement);
 
 </script>
 
@@ -31,7 +53,7 @@
 
     <div>
         <CycleBar />
-        <article>
+        <article bind:this={domElement} >
             {#each materiasAct as materia }
                 <Card data={{...materia}} />
             {:else}
@@ -69,6 +91,7 @@
 
     article {
         margin-top: 20px;
+        min-height: 476px;
 
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -81,8 +104,8 @@
         padding-right: 54px;
         padding-top: 32px;
         min-height: 100vh;
-
         background: linear-gradient(233.25deg, #E3EBFC 0%, #FFFFFF 48.63%);
+        // background: linear-gradient(228.58deg, #E3EBFC 0%, #FFFFFF 62.57%);
 
         display: grid;
         grid-template-columns: minmax(460px, 900px) minmax(360px, 500px);
