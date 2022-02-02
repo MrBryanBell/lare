@@ -6,9 +6,9 @@
 
     export let data = {
         id: 'b92ba872-b74d-447b-b33d-970d3b2dc8ef',
-        materia: 'Introducción a la Comunicación',
+        name: 'Introducción a la Comunicación',
         uv: 4,
-        nota: 9.6,
+        grade: 9.6,
     }
 
     let state = false;
@@ -28,8 +28,8 @@
 
     <!-- CABECERA: NOMBRE Y CÓDIGO MATERIA -->
     <div class="card-header" >
-        <p class="subject-id">04OPT1</p> <!-- '04OPT1' -->
-        <h4 class="subject-name" >{ data.materia }</h4>
+        <p class="subject-id">{data.code}</p> <!-- '04OPT1' -->
+        <h4 class="subject-name" >{ data.name }</h4>
     </div>
     
 
@@ -42,7 +42,7 @@
             
             <!-- GRADE & CHECKMARK-ICON -->
             <div class="card-status" >
-                <h4 class="subject-grade" >{ data.nota.toFixed(1) }</h4>
+                <h4 class="subject-grade" >{ data.grade.toFixed(1) }</h4>
                 <img src="/icons/checkmark.svg" alt="">
             </div>
         </div>
