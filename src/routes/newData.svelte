@@ -3,11 +3,12 @@
     import { getData } from "../firebase/firebaseFunctions";
     import { updateDoc, doc } from 'firebase/firestore';
     import { db } from '../firebase/firebaseConfig';
-    
+    import { userUID } from '../stores/session_store';
+
     let materias = [];
     
     onMount(async () => {
-        materias = await getData('lareData', 'bryanbell');
+        materias = await getData('lareData', `${$userUID}`);
     });
 
     $: console.log(materias);

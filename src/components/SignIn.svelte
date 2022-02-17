@@ -5,7 +5,6 @@
 		getRedirectResult,
 		signInWithRedirect,
 		signOut,
-		onAuthStateChanged,
 	} from 'firebase/auth';
     import { userUID } from '../stores/session_store';
 
@@ -20,10 +19,12 @@
         .then(() => console.log('Se cerró la sesión'));
 	}
 
+
 </script>
 
 <div>
-    <h1>Hey You {$userUID}</h1>
+    <h1>ID: {$userUID}</h1>
+	<button on:click={signIn}>Iniciar Sesión</button>
 	<button on:click={signOutUser}>Cerrar Sesión</button>
 </div>
 

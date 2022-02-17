@@ -6,8 +6,8 @@ import { listOfSubjects } from './listOfSubjects';
 // HACE LA PETICIÓN AL SERVIDOR Y HACE BIND DE LA DATA
     let materias = writable([]);
 
-    async function bindData() {
-        let data = await getData('lareData', 'bryanbell');
+    export async function bindData(uid) {
+        let data = await getData('lareData', `${uid}`);
         let parsedData = data.map((data) => {
             const currentSubject = listOfSubjects.find((sub) => sub.code == data.code);
             const dataCombined = {...data, ...currentSubject};
@@ -16,8 +16,6 @@ import { listOfSubjects } from './listOfSubjects';
         })
         materias.set(parsedData);
     };
-
-    bindData();
 
 
 

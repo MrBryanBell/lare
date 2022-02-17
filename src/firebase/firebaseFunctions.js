@@ -5,7 +5,7 @@ async function getData(collectionID, documentID) {
     const docRef = doc(db, collectionID, documentID);
     const docSnap = await getDoc(docRef);
     
-    return docSnap.data().ciclo1;
+    return docSnap.data().materias;
 }
 
 
