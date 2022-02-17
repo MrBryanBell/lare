@@ -13,9 +13,9 @@
 
     $: data, localValue.set(data);
 
-    onMount(() => {
-        localValue.set(0);
-    });
+    // onMount(() => {
+    //     localValue.set(0);
+    // });
 </script>
 
 
