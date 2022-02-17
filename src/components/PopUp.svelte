@@ -3,6 +3,9 @@
     import { listOfSubjects } from '../stores/listOfSubjects';
     import { db } from '../firebase/firebaseConfig';
     import { updateDoc, doc, arrayUnion } from 'firebase/firestore';
+    import { userUID, isPopUpActive } from '../stores/session_store';
+    import { materias } from '../stores/materia_store';
+    import { MateriaClass } from '../classes/materia_class';
 
     let data = {
         code: '',
@@ -23,19 +26,33 @@
 
         console.log(newMateria);
 
-        const docRef = doc(db, 'lareData', 'bryanbell');
+        const docRef = doc(db, 'lareData', `${$userUID}`);
         updateDoc(docRef, {
-            ciclo1: arrayUnion(newMateria),
+            materias: arrayUnion(newMateria),
         })
         .then(() => {
             console.log('Se añadió con éxito');
+            const newSubject = new MateriaClass({...newMateria, ...materiaActual})
+            
+            console.log(newSubject);
+            
+            $materias = [...$materias, newSubject];
+            console.log('Se agregó al array');
+            $isPopUpActive = false;
         })
+    };
 
+    function goOut(e) {
+        if (e.key === 'Escape'){
+            $isPopUpActive = false;
+        }
     };
 </script>
 
 <!-- markup (zero or more items) goes here -->
-<div class="overlay">
+
+<svelte:window on:keydown={(e) => goOut(e) }/>
+<div class="overlay" >
     <div class="main-container" >
 
         <section>

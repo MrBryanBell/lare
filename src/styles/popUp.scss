@@ -9,18 +9,25 @@
 //------------------------
 
 .overlay {
-    background-color: black;
-    // opacity: 0.5;
+    background-color: rgba(60, 105, 187, 0.548);
     height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    z-index: 100;
 
     display: grid;
     place-content: center;
+
+    position: absolute;
+
     
     .main-container {
         padding: 48px 36px;
         min-width: 380px;
         background-color: white;
         border-radius: 8px;
+        opacity: 1;
+
     }
 
     section {
