@@ -1,6 +1,7 @@
 <script>
     import { materias, promedio } from '../stores/materia_store.js';
     import { cicloActual } from '../stores/cycle_store';
+    import { isPopUpActive } from '../stores/session_store';
     
     import Sortable from 'sortablejs';
 
@@ -10,6 +11,7 @@
     import AssistantBar from "../components/Assistant_Bar.svelte";
     import MetricContainer from "../components/MetricContainer.svelte";
     import CircularChart from "../components/Circular_Chart.svelte";
+    import PopUp from "../components/PopUp.svelte";
 
     import { onMount } from 'svelte';
 
@@ -40,6 +42,12 @@
 
 </script>
 
+
+{#if $isPopUpActive }
+<!-- content here -->
+<PopUp />
+{/if}
+
 <main>
 
     <AssistantBar />
@@ -60,6 +68,10 @@
                 <p>No hay data aún</p>
             {/each}
         </article>
+        <button
+            on:click={() => $isPopUpActive = true}
+            >Añadir Materia
+        </button>
     </div>
 
 
