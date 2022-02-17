@@ -35,6 +35,10 @@ h1, h2, h3, h4, p {
     /* background-color: transparent !important; */
 }
 
+.sortable-ghost h4 {
+    color: transparent !important;
+}
+
 .sortdrag {
     opacity: 1 !important;
     box-shadow: -13.57px -15.72px 38px rgba(21, 52, 148, 0.13), 38.79px 43.4036px 35.9904px rgba(21, 52, 148, 0.094016), -12.57px 22.2915px 16.8912px rgba(21, 52, 148, 0.073008), 8.21681px 8.96379px 7.3968px rgba(21, 52, 148, 0.056992), 1.83797px 2.00506px 3.2016px rgba(21, 52, 148, 0.035984);
