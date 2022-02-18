@@ -1,5 +1,7 @@
-import { writable } from 'svelte/store';
+import { get, writable } from 'svelte/store';
+
+let currentTab = writable(1);
 
 let isFirstTimeRendered = writable(true);
 
-export { isFirstTimeRendered };
+export { isFirstTimeRendered, currentTab };
