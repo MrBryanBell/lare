@@ -1,4 +1,4 @@
-import anime from 'animejs/lib/anime.es.js';
+import anime from 'animejs';
 import { currentTab } from '../stores/session_store';
 import { get } from 'svelte/store';
 
