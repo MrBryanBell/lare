@@ -1,7 +1,6 @@
 <script>
     import { onMount } from "svelte";
     import { tweened } from "svelte/motion";
-    import { isFirstTimeRendered } from '../stores/session_store';
 
 	export let isPrimary = true;
 
