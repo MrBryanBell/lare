@@ -35,12 +35,12 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 	// --- METRIC-TITTLE --- //
 	& > p {
 		@include text-mixin(
-			'Barlow',
-			0.875rem,
+			'Inter',
+			0.75rem,
 			1,
-			var(--barlow-semibold),
+			var(--inter-medium),
 			#d7ecff,
-			-0.01em
+			-0.011em
 		);
 
 		font-feature-settings: 'tnum' on, 'lnum' on;
@@ -88,8 +88,15 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 	// --- INFO-ICON --- //
 	.info-icon {
 		position: absolute;
-		bottom: 1rem;
+		top: 1rem;
 		right: 1rem;
+	}
+
+    // --- INFO-IMAGE --- //
+	.info-image {
+		position: absolute;
+		bottom: 0rem;
+		right: 0rem;
 	}
 }
 
@@ -100,14 +107,8 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 //------------------------
 
 .default-theme {
-	background: linear-gradient(
-		130.03deg,
-		#37a0fb 16.61%,
-		#0b87fe 83.16%,
-		#0f8cfa 83.16%
-	);
-
-	box-shadow: inset 1px 1px 4px #88bbfc;
+	background: linear-gradient(244.66deg, #1C84FE 0%, #1F5BEC 38.54%, #1C84FE 77.09%);
+    box-shadow: inset 2px 2px 8px #76B2FA, inset -2px -2px 8px #0863CE;
 }
 
 .default-text-theme {
@@ -121,13 +122,8 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 //------------------------
 
 .light-theme {
-	background: linear-gradient(
-        132.84deg, 
-        #92c0fc 16.96%, 
-        #6aa9fb 81.91%
-    );
-
-	box-shadow: inset 1px 1px 4px #bad7fd;
+	background: linear-gradient(110.62deg, #268FF8 47.84%, #439EF9 80.89%);
+    box-shadow: inset 2px 2px 8px #A7CEFB, inset -2px -2px 8px #2786F6;
 }
 
 .light-text-theme {

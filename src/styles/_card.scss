@@ -10,7 +10,7 @@
 // VARIABLES
 //------------------------
 
-$card-background: #ecf1fe;
+$card-background: #ECF1FE;
 
 $card-text-details: #a5b2cf;
 $card-text-primary: #677cad;
@@ -31,6 +31,9 @@ $vertical-menu-icon: #c5cfe7;
 	padding: 28px 24px 34px;
 	background-color: $card-background;
 	border-radius: 0.5rem;
+    box-shadow: inset 2px 2px 4px #F7F7F7, inset -2px -2px 4px #E8EEFD;
+
+    // TODO: BORRAR
 	// max-width: 14rem;
 }
 

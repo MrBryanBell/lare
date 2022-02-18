@@ -4,69 +4,89 @@
 
 // * { outline: 1px solid red; }
 
-
-
 //------------------------
 // MAIN-CONTAINER
 //------------------------
 
 div {
-    height: 100vh;
-    background: linear-gradient(
-        180deg, 
-        #53AEFF 0%, 
-        #5398FF 100%
-    );
+	height: 100vh;
+	padding: 20px 8px 20px;
+	background: linear-gradient(180deg, #1b7efd 0%, #2163f1 51.04%, #1b7efd 100%);
 
-    // border-radius: 0px 8px 8px 0px;
-    padding: 24px 12px 0px;
+	position: fixed;
+	top: 0;
 
-    position: fixed;
-    top: 0;
-
-    // TODO: BORRAR
-    width: 76px;
-    
-
-    section {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        
-    }
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+}
 
 
+//------------------------
+// NAV-BAR
+//------------------------
+
+nav {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	position: relative;
+
+
+	a {
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		svg {
+			width: 28px;
+			aspect-ratio: 1/1;
+            fill: #69AEFC;
+		}
+
+        svg.active {
+            fill: #2388fa;
+        }
+
+	}
+}
+
+
+//------------------------
+// DIVIDER
+//------------------------
+
+.box {
+	padding: 4px 10px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	background-color: #4a9ffc;
 }
 
 
 
-nav {
-    padding: 12px 8px;
-    background: #A3D4FF;
-    border-radius: 8px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+//------------------------
+// ACTIVE-INDICATOR
+//------------------------
 
+.active-indicator {
+	width: 44px;
+	aspect-ratio: 1/1;
+	background: #c3dffe;
+	box-shadow: inset 1px 1px 4px #ebf4ff;
+	border-radius: 0.5rem;
 
-    a {
-        padding: 6px;
-        background: #FFFFFF;
+	position: absolute;
+	z-index: -1;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        
-        img {
-            width: 24px;
-            height: 24px;
-        }
-        
-    }
-
-    a:not(a:first-child) {
-        background: #CDE4FE;
-    }
 }

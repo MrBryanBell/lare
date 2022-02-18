@@ -1,9 +1,9 @@
 <script>
 	import { totalUMG as inputValue } from '../stores/materia_store';
 
-    $: console.log($inputValue);
+	$: console.log($inputValue);
 
-    
+
 	// let inputValue = 1522;
 	$: chartValue = $inputValue * 0.2319526627 - 392;
 	$: leftOffset =
@@ -66,7 +66,7 @@
 		<tspan x="58.7455" y="111.318">unidades de </tspan>
 		<tspan x="50.5629" y="124.318">mérito ganadas </tspan>
 	</text>
-
+    
 	<defs>
 		<filter
 			id="filter0_d_1021_1898"
@@ -146,9 +146,8 @@
 			y2="190.89"
 			gradientUnits="userSpaceOnUse"
 		>
-			<stop stop-color="#2581F9" />
-			<stop offset="0.0001" stop-color="#0C73F8" />
-			<stop offset="1" stop-color="#6AA9FB" />
+			<stop stop-color="#124DD9" />
+			<stop offset="1" stop-color="#3993FE" />
 		</linearGradient>
 	</defs>
 </svg>

@@ -7,15 +7,9 @@
 //------------------------
 
 div {
-	height: 150px;
-	background: 
-        linear-gradient(90deg, 
-            #0b85fe 0%, 
-            #6f99fc 99.26%
-        );
-	box-shadow: 
-        inset 1px 1px 4px #9dddf1, 
-        inset -1px -1px 4px #74affb;
+	height: 130px;
+	background: linear-gradient(90deg, #3E8DF9 0%, #257EF9 100%);
+box-shadow: inset 1px 1px 4px #9DDDF1, inset -1px -1px 4px #398DF9;
 	border-radius: 0.5rem;
     grid-area: toolbar;
 

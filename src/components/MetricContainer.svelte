@@ -16,8 +16,8 @@
 
         position: relative;
 
-        background: radial-gradient(45.97% 45.97% at 47.53% 50%, #B0D1FD 0%, #92C0FC 100%);
-        box-shadow: inset 1px 1px 2px #EBF4FE;
+        background: radial-gradient(105.25% 42.89% at 50.21% 57.11%, #97CAFC 0%, #3597F8 100%);
+        box-shadow: inset 2px 2px 8px #A7CEFB, inset -2px -2px 8px #2786F6;
         border-radius: 12px;
     }
 
