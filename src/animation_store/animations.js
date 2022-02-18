@@ -9,14 +9,14 @@ const getCoord = (x) => {
 };
 
 // NAV-BAR (ACTIVE-INDICATOR)
-    function fade(node){
+    function fade(node = undefined) {
         let num = get(currentTab);
-        let finalNum = getCoord(num)
+        let coord = getCoord(num)
 
         anime({
             targets: node,
             translateY: [
-                { value: finalNum, duration: 400 },
+                { value: coord, duration: 400 },
             ],
             opacity: [
                 { value: 0.5, duration: 100, easing: 'linear' },
