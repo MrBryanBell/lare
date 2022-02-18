@@ -17,6 +17,7 @@
   },
   "type": "module",
   "dependencies": {
+    "animejs": "^3.2.1",
     "firebase": "^9.6.3",
     "sortablejs": "^1.14.0"
   }
