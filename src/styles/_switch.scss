@@ -17,9 +17,9 @@
 // ESTILOS SWITCH
 //------------------------
     div {
-        width: 2.75rem;
-        height: 1.5rem;
-        padding: 0.25rem;
+        width: 36px;
+        height: 20px;
+        padding: 4px 0.25rem;
         border-radius: 0.75rem;
 
         transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -42,8 +42,8 @@
 // ESTILOS KNOB
 //------------------------
     div div {
-        width: 1rem;
-        height: 1rem;
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
         
         background-color: $toggle-knob;
