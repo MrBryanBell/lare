@@ -61,17 +61,20 @@
 
     <div>
         <CycleBar />
-        <article bind:this={domElement} >
-            {#each materiasAct as materia }
-                <Card data={{...materia}} />
-            {:else}
-                <p>No hay data aún</p>
-            {/each}
-        </article>
-        <button
+        <nav>
+            <article bind:this={domElement} >
+                {#each materiasAct as materia }
+                    <Card data={{...materia}} />
+                {:else}
+                    <p>No hay data aún</p>
+                {/each}
+            </article>
+        </nav>
+
+        <!-- <button
             on:click={() => $isPopUpActive = true}
             >Añadir Materia
-        </button>
+        </button> -->
     </div>
 
 
@@ -102,34 +105,43 @@
     }
 
     article {
-        margin-top: 20px;
         min-height: 476px;
+        background-color: #F6F6F6;
+        padding: 20px 16px;
+        border-radius: 8px;
 
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        grid-auto-rows: 230px;
-        gap: 1rem;
+        // grid-template-columns: repeat(auto-fill, minmax(180px, 200px));
+        grid-auto-rows: 204px;
+        gap: 12px;
         // outline: 1px solid red;
     }
     main {
-        padding-left: 140px;
+        padding-left: 102px;
         padding-right: 54px;
-        padding-top: 32px;
+        padding-top: 28px;
         min-height: 100vh;
-        background: linear-gradient(233.25deg, #E3EBFC 0%, #FFFFFF 48.63%);
+        background: #F5F5F5;
         // background: linear-gradient(228.58deg, #E3EBFC 0%, #FFFFFF 62.57%);
 
         display: grid;
         grid-template-columns: minmax(460px, 900px) minmax(360px, 500px);
-        grid-template-rows: auto auto;
+        grid-template-rows: 62px auto;
         grid-template-areas: 
             "toolbar toolbar"
             "materias metrics"
         ;
 
-        row-gap: 72px;
-        column-gap: 92px;
+        row-gap: 48px;
+        column-gap: 80px;
         // outline: 1px solid red;
+    }
+
+    nav {
+        background: #FFFFFF;
+        border-radius: 0px 0px 8px 8px;
+        padding: 20px 12px;
     }
 
 </style>

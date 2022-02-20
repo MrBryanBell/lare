@@ -1,15 +1,7 @@
 <script>
-    // your script goes here
+    import CycleChart from './cycleChart.svelte';
     import { cicloActualEnTexto } from '../stores/cycle_store';
     import { changeCycle } from '../algoritmos/changeCycle';
-
-
-    let data = {
-        carrera: 'c. de la Comunicación',
-        pensum: '2018 - 2021',
-    };
-
-    let { carrera, pensum } = data;
 
 </script>
 
@@ -19,38 +11,30 @@
 
     <!-- CYCLE-STATE-BAR -->
 
-    <div 
-        class="cycle-state-bar" 
+    <div class="cycle-state-bar" 
         on:wheel|preventDefault={(e) => changeCycle(e)}
         >
-        <img class="luckImage" src="/images/embud.png" alt="">
-        <div>
-            <img src="/icons/cloud-sync.svg" alt="">
+            <img class="icon" src="/icons/cloud-sync.svg" alt="">
             <p>CICLO /</p>
             <h4>{ $cicloActualEnTexto.toUpperCase() }</h4>
-        </div>
-
-        <section>
-            <img 
-                src="/icons/arrow-circle.svg" 
-                alt="" 
-                on:click={(e) => changeCycle(e, -1)} 
-                >
-            <img 
-                src="/icons/arrow-circle.svg" 
-                alt="" 
-                on:click={(e) => changeCycle(e, 1)} 
-                >
-        </section>
     </div>
 
-    
-    <!-- INFO-BAR -->
+    <section class="buttons-container">
+        <img 
+            src="/icons/arrow-circle.svg" 
+            alt="" 
+            on:click={(e) => changeCycle(e, -1)} 
+            >
+        <img 
+            src="/icons/arrow-circle.svg" 
+            alt="" 
+            on:click={(e) => changeCycle(e, 1)} 
+            >
+    </section>
 
-    <div class="cycle-info-bar">
-        <p>{carrera.toUpperCase()}</p>
-        <p>PENSUM {pensum}</p>
-    </div>
+    <CycleChart />
+
+    <img class="luckImage" src="/images/embud.png" alt="">
 
 </div>
 

@@ -1,9 +1,5 @@
-//------------------------
-// IMPORTS
-//------------------------
-
 @import './utils/_mixins.scss';
-img {display: block;}
+
 // * { outline: 1px solid red; }
 
 
@@ -22,39 +18,23 @@ $infoBar-text-color: #F5FAFF;
 //------------------------
 
 div.main-container {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
+    background: #FFFFFF;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 0 20px;
+
+    position: relative;
 
 
-//------------------------
-// INFO-BAR
-//------------------------
+    display: grid;
+    grid-template-columns: 90px 1fr 90px;
+    grid-template-rows: 1fr 12px;
+    grid-template-areas:
+        "tittle tittle tittle"
+        "lineBar lineBar lineBar"
+    ;
 
-.cycle-info-bar {
-    padding: 1rem 1.25rem;
-    background-color: $infoBar-background-color;
-    border-radius: 0 0 0.25rem 0.25rem;
-
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
     //TODO: BORRAR
-    flex-grow: 1;
-    //width: 700px;
-
-
-    p {
-        @include 
-        text-mixin('Barlow', 0.625rem, 1, var(--barlow-medium),
-        $infoBar-text-color, 0.04em);
-        
-        font-feature-settings: 'tnum' on, 'lnum' on;        
-    }
-    
+    min-height: 116px;
 }
 
 
@@ -64,41 +44,28 @@ div.main-container {
 
 
 .cycle-state-bar {
-    background: linear-gradient(90deg, #0B85FE 0%, #215DEE 50.66%, #1A7DFD 99.26%), #1C7AFC;;
-    border-radius: 0.5rem 0.5rem 0 0;
-    box-shadow: inset 1px 1px 12px #9CC6FC;
-    opacity: 0.9;
+    
+    grid-area: tittle;
 
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: relative;
-
+    justify-content: center;
 
     
-    // TODO: BORRAR
-    min-height: 132px;
-    // width: 700px;
-
-    div {
-        display: flex;
-        align-items: center;
-
-        & > img {
-            margin-right: 12px;
+        & > .icon {
+            margin-right: 8px;
         }
         
         p {
-            @include text-mixin('Barlow', 1.25rem, 1, var(--barlow-medium),
-            #DBEEFF, 0.04em);
-            margin-right: 0.25rem;
+            @include text-mixin('Barlow', 16px, 1, var(--barlow-medium),
+            #586B9D, 0.04em);
+            margin-right: 4px;
         }
     
         h4 {
-            @include text-mixin('Barlow', 1.625rem, 1, var(--barlow-bold),
-            #F5FAFF, 0.04em);
+            @include text-mixin('Barlow', 24px, 1, var(--barlow-bold),
+            #586B9D, 0.04em);
         }
-    }
 
 }
 
@@ -107,14 +74,20 @@ div.main-container {
 // BUTTONS
 //------------------------
 
-section {
+.buttons-container {
+    grid-column: 3 / 4;
+    grid-row: 1 / span 1;
+
     display: flex;
-    position: absolute;
-    right: 1.25rem;
+    align-items: center;
+    justify-content: flex-end;
+
 
     img {
-        margin: 0;
+        width: 42px;
+        aspect-ratio: 1/1;
         opacity: 0.6;
+
         transition: all 0.2s  ease-in;
     }
 
