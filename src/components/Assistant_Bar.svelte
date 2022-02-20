@@ -4,7 +4,21 @@
 
 <!-- markup (zero or more items) goes here -->
 
-<div></div>
+<div>
+
+    <!-- SALUDO -->
+    <section class="saludo">
+        <span>¡Hola Bryan! 👋</span>
+        <p>Tus comentarios son importantes. Cuéntanos qué piensas sobre <b>Proyecto Laré</b>.</p>
+    </section>
+
+    <!-- BUTTONS -->
+    <section class="cta" >
+        <button class="secondary">Quizá Luego</button>
+        <button class="primary">Aceptar</button>
+    </section>
+
+</div>
 
 
 
