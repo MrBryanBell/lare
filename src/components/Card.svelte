@@ -27,10 +27,7 @@
 <div class="main-container" on:wheel|preventDefault={(e) => changeNote(e, data.id)} >
 
     <!-- CABECERA: NOMBRE Y CÓDIGO MATERIA -->
-    <div class="card-header" >
-        <p class="subject-id">{data.code}</p> <!-- '04OPT1' -->
-        <h4 class="subject-name" >{ data.name }</h4>
-    </div>
+    <h4 class="subject-name" >{ data.name }</h4>
     
 
     <!-- DATA: NOTA, UV & VERTICAL MENU -->
