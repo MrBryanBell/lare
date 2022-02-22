@@ -1,120 +1,29 @@
 <script>
-    import { materias, promedio } from '../stores/materia_store.js';
-    import { cicloActual } from '../stores/cycle_store';
+    import { promedio } from '../stores/materia_store.js';
     import { isPopUpActive } from '../stores/session_store';
     
-    import Sortable from 'sortablejs';
-
-    import Card from '../components/Card.svelte';
-    import MetricCard from '../components/Metric_Card.svelte';
-    import CycleBar from '../components/CycleBar.svelte';
     import AssistantBar from "../components/Assistant_Bar.svelte";
-    import Medal from "../components/Medal.svelte"
-
+    import NoteBook from "../components/NoteBook.svelte"
+    import SideBar from "../components/SideBar.svelte";
     import PopUp from "../components/PopUp.svelte";
 
-    import { onMount } from 'svelte';
-
-
-    $: materiasAct = $materias.filter((mt) => mt.cycle === $cicloActual);
-    
-    let domElement;
-
-    onMount(() => {
-        let sortList = Sortable.create(domElement, {
-	        group: {
-	        	name: 'cuteList',
-	        },
-
-            dragClass: "sortdrag",
-            ghostClass: "sortable-ghost",
-            forceFallback: true,
-            
-	        easing: "cubic-bezier(1, 0, 0, 1)",
-
-        });
-    })
-
-
-    $: console.log(materiasAct);
     $: console.log($promedio);
-    $: console.log(domElement);
 
 </script>
 
 
-{#if $isPopUpActive }
-<!-- content here -->
-<PopUp />
-{/if}
-
 <main>
-
     <AssistantBar />
-    <section>
-        <MetricCard isPrimary={false} data={$promedio}/>
-        <MetricCard data={$promedio}/>
-        <Medal />
-    </section>
-
-    <div>
-        <CycleBar />
-        <nav>
-            <article bind:this={domElement} >
-                {#each materiasAct as materia }
-                    <Card data={{...materia}} />
-                {:else}
-                    <p>No hay data aún</p>
-                {/each}
-            </article>
-        </nav>
-
-        <!-- <button
-            on:click={() => $isPopUpActive = true}
-            >Añadir Materia
-        </button> -->
-    </div>
-
-
+    <NoteBook />
+    <SideBar />
 </main>
+
+{#if $isPopUpActive }
+    <PopUp />
+{/if}
 
 
 <style lang="scss">
-    div{
-        margin-bottom: 100px;
-        grid-area: materias;
-        
-        // outline: 1px solid red;
-
-    }
-
-    section {
-        grid-area: metrics;
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 136px 244px auto;
-        gap: 16px;
-        // align-items: flex-start;
-
-
-
-        // outline: 1px solid red;
-    }
-
-    article {
-        min-height: 476px;
-        background-color: #F2F2F2;
-        padding: 20px 16px;
-        border-radius: 8px;
-
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        // grid-template-columns: repeat(auto-fill, minmax(180px, 200px));
-        grid-auto-rows: 204px;
-        gap: 12px;
-        // outline: 1px solid red;
-    }
     main {
         padding-left: 110px;
         padding-right: 48px;
@@ -134,12 +43,6 @@
         row-gap: 48px;
         column-gap: 80px;
         // outline: 1px solid red;
-    }
-
-    nav {
-        background: #FFFFFF;
-        border-radius: 0px 0px 8px 8px;
-        padding: 16px 16px 20px;
     }
 
 </style>
