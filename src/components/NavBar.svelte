@@ -5,7 +5,7 @@
     import { fade } from '../animation_store/animations';
 
 	let elem;
-    let routes = [ '/', '/newComponent', '/materias' ];
+    let routes = [ '/', '/newComponent', '/playground' ];
 
 	function setCurrentTab(x){
         $currentTab = x;
@@ -75,7 +75,7 @@
 			</a>
 
 			<!-- MATERIAS ICON -->
-			<a href="/materias" on:click={() => setCurrentTab(3)} >
+			<a href="/playground" on:click={() => setCurrentTab(3)} >
 				<svg
 					width="28"
 					height="28"
