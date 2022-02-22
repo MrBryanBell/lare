@@ -9,8 +9,8 @@
     import MetricCard from '../components/Metric_Card.svelte';
     import CycleBar from '../components/CycleBar.svelte';
     import AssistantBar from "../components/Assistant_Bar.svelte";
-    import MetricContainer from "../components/MetricContainer.svelte";
-    import CircularChart from "../components/Circular_Chart.svelte";
+    import Medal from "../components/Medal.svelte"
+
     import PopUp from "../components/PopUp.svelte";
 
     import { onMount } from 'svelte';
@@ -54,9 +54,7 @@
     <section>
         <MetricCard isPrimary={false} data={$promedio}/>
         <MetricCard data={$promedio}/>
-        <MetricContainer>
-            <CircularChart />
-        </MetricContainer>
+        <Medal />
     </section>
 
     <div>
@@ -95,7 +93,7 @@
 
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 136px auto;
+        grid-template-rows: 136px 244px auto;
         gap: 16px;
         // align-items: flex-start;
 
@@ -106,7 +104,7 @@
 
     article {
         min-height: 476px;
-        background-color: #F6F6F6;
+        background-color: #F2F2F2;
         padding: 20px 16px;
         border-radius: 8px;
 
@@ -118,16 +116,16 @@
         // outline: 1px solid red;
     }
     main {
-        padding-left: 102px;
-        padding-right: 54px;
-        padding-top: 28px;
+        padding-left: 110px;
+        padding-right: 48px;
+        padding-top: 20px;
         min-height: 100vh;
-        background: #F5F5F5;
+        background: #F2F2F2;
         // background: linear-gradient(228.58deg, #E3EBFC 0%, #FFFFFF 62.57%);
 
         display: grid;
         grid-template-columns: minmax(460px, 900px) minmax(360px, 500px);
-        grid-template-rows: 62px auto;
+        grid-template-rows: 70px auto;
         grid-template-areas: 
             "toolbar toolbar"
             "materias metrics"
@@ -141,7 +139,7 @@
     nav {
         background: #FFFFFF;
         border-radius: 0px 0px 8px 8px;
-        padding: 20px 12px;
+        padding: 16px 16px 20px;
     }
 
 </style>
