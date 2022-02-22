@@ -1,6 +1,6 @@
 <div>
     <slot></slot>
-    <img class="info-icon" src="../../static/icons/info-metric-light.svg" alt="" />
+    <img class="info-icon" src="/icons/info-metric-light.svg" alt="" />
 </div>
 
 <style lang="scss">

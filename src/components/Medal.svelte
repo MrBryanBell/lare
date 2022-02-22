@@ -5,7 +5,7 @@
 
 
 <MetricContainer>
-    <img src="../../static/images/candado.png" alt="">
+    <img src="/images/candado.png" alt="">
 </MetricContainer>
 
 
