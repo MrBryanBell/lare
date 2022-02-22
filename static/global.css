@@ -1,9 +1,10 @@
 
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 
 :root {
+    --barlow-regular: 400;
     --barlow-medium: 500;
     --barlow-semibold: 600;
     --barlow-bold: 700;
