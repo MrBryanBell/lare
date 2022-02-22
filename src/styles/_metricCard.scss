@@ -1,31 +1,22 @@
-//------------------------
-// IMPORTS
-//------------------------
-
 @import './utils/_mixins.scss';
-
-// * { outline: 1px solid red; }
-
-
 
 //------------------------
 // VARIABLES
 //------------------------
-$text-light-color: hsla(210, 100%, 98%, 1);
+$text-light-color: #c2e2ff;
 $text-default-color: hsla(208, 100%, 92%, 1);
 
-
-
-
 //------------------------
-// STYLES
+// --- MAIN-CONTAINER --- //
 //------------------------
 
 .main-container {
-	// --- MAIN-CONTAINER --- //
-
 	border-radius: 0.5rem;
-	padding: 1.75rem 1.5rem;
+	padding: 24px 24px 32px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
 	position: relative;
 
@@ -38,20 +29,28 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 			'Inter',
 			0.75rem,
 			1,
-			var(--inter-medium),
+			var(--inter-regular),
 			#d7ecff,
-			-0.011em
+			-0.004em
 		);
 
 		font-feature-settings: 'tnum' on, 'lnum' on;
-		margin-bottom: 1.25rem;
 	}
 
+	// --- INFO-ICON --- //
+	.info-icon {
+		position: absolute;
+		bottom: 1rem;
+		right: 1rem;
+	}
+}
+
+.data-container {
 	// --- METRIC-IMPROVE-CONTAINER
 	div {
 		display: flex;
 		gap: 2px;
-        margin-bottom: 2px;
+		margin-bottom: 2px;
 	}
 
 	// --- SMALL NUMBER --- //
@@ -62,7 +61,7 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 			1,
 			var(--barlow-medium),
 			#9acffe,
-			0.005em
+			0.02em
 		);
 
 		font-feature-settings: 'tnum' on, 'lnum' on;
@@ -78,54 +77,52 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 			1,
 			var(--barlow-semibold),
 			// #d7ecff,
-            var(--text-color),
-			-0.02em
+			var(--text-color),
+			0
 		);
 
 		font-feature-settings: 'tnum' on, 'lnum' on;
 	}
-
-	// --- INFO-ICON --- //
-	.info-icon {
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-	}
-
-    // --- INFO-IMAGE --- //
-	.info-image {
-		position: absolute;
-		bottom: 0rem;
-		right: 0rem;
-	}
 }
-
-
 
 //------------------------
 // DEFAULT-THEME
 //------------------------
 
 .default-theme {
-	background: linear-gradient(244.66deg, #1C84FE 0%, #1F5BEC 38.54%, #1C84FE 77.09%);
-    box-shadow: inset 2px 2px 8px #76B2FA, inset -2px -2px 8px #0863CE;
+	background: linear-gradient(
+		244.66deg,
+		#1c84fe 0%,
+		#1f5bec 38.54%,
+		#1c84fe 77.09%
+	);
+	box-shadow: 
+        inset 2px 2px 8px #4e91f9, 
+        inset -2px -2px 8px #3068ed
+    ;
 }
 
 .default-text-theme {
-    color: $text-default-color;
+	color: $text-default-color;
 }
-
-
 
 //------------------------
 // LIGHT-THEME
 //------------------------
 
 .light-theme {
-	background: linear-gradient(110.62deg, #268FF8 47.84%, #439EF9 80.89%);
-    box-shadow: inset 2px 2px 8px #A7CEFB, inset -2px -2px 8px #2786F6;
+	background: linear-gradient(
+        110.62deg, 
+        #268ff8 47.84%, 
+        #439ef9 80.89%
+    );
+
+	box-shadow: 
+        inset 2px 2px 8px #4DA4F9, 
+        inset -2px -2px 8px #318CF7
+    ;
 }
 
 .light-text-theme {
-    color: $text-light-color
+	color: $text-light-color;
 }

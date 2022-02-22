@@ -26,22 +26,30 @@
 	class:light-theme={!isPrimary}
 	class:default-theme={isPrimary}
 >
-	<p style:color={textColor} >CUM {text}</p>
-	<div>
-		<p style:color={smallTextColor} >+03</p>
-        {#if isPrimary}
-		    <img src="/icons/up-arrow-defaultTheme.svg" alt="" />
-        {:else}
-		    <img src="/icons/up-arrow-lightTheme.svg" alt="" />
-        {/if}
-	</div>
-	<h4 style:color={textColor} >{$localValue.toFixed(3)}</h4>
+    <!-- TÍTULO DE LA METRIC CARD -->
+	<p style:color={textColor} >Promedio {text}</p>
+
+    <section class="data-container">
+        <!-- NÚMERO PEQUEÑO -->
+	    <div>
+	    	<p style:color={smallTextColor} >+24</p>
+            {#if isPrimary}
+	    	    <img src="/icons/up-arrow-defaultTheme.svg" alt="" />
+            {:else}
+	    	    <img src="/icons/up-arrow-lightTheme.svg" alt="" />
+            {/if}
+	    </div>
+
+        <!-- NÚMERO GRANDE (CUM) -->
+	    <h4 style:color={textColor} >{$localValue.toFixed(3)}</h4>
+    </section>
+    
+
+    <!-- ÍCONO DE INFORMACIÓN -->
 	{#if isPrimary}
 		<img class="info-icon" src="/icons/info-metric-default.svg" alt="" />
-        <img class="info-image" src="/images/default-image.png" alt="" />
     {:else}
         <img class="info-icon" src="/icons/info-metric-light.svg" alt="" />
-		<img class="info-image" src="/images/light-image.png" alt="" />
 	{/if}
 </div>
 

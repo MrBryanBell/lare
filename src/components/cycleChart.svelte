@@ -32,7 +32,7 @@
 
         height: 100%;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         z-index: 10;
     }
 
