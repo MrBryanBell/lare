@@ -16,6 +16,7 @@ import { bindData } from './materia_store';
 let userUID = writable(null);
 let currentTab = writable(1);
 let isPopUpActive = writable(false);
+let isAdderActive = writable(false);
 
 
 onAuthStateChanged(auth, async (user) => {
@@ -48,4 +49,4 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 
-export { userUID, currentTab, isPopUpActive };
+export { userUID, currentTab, isPopUpActive, isAdderActive };
