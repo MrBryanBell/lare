@@ -2,8 +2,12 @@
     import { onMount } from "svelte";
     import { tweened } from "svelte/motion";
     import { barPerc } from '../stores/cycle_store';
+    import { cubicOut } from 'svelte/easing';
 
-    let localValue = tweened(0);
+    let localValue = tweened(0, {
+        duration: 400,
+        easing: cubicOut,
+    });
 
     onMount(() => {
         localValue.set($barPerc)
@@ -28,7 +32,9 @@
 <style lang="scss" >
 
     main {
-        grid-area: lineBar;
+        grid-column: 1 / 4;
+        grid-row: 2 / span 1;
+        
 
         height: 100%;
         display: flex;

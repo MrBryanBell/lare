@@ -2,6 +2,7 @@
     import MetricCard from "./Metric_Card.svelte";   
     import Medal from "./Medal.svelte";
     import { promedio } from '../stores/materia_store';
+    import { isAdderActive } from "../stores/session_store";
 
 
 </script>
@@ -9,7 +10,9 @@
 
 
 
-<section>
+<section
+    style:opacity={($isAdderActive) ? 0.5 : 1}
+    >
     <MetricCard isPrimary={false} data={$promedio}/>
     <MetricCard data={$promedio}/>
     <Medal />
@@ -26,6 +29,7 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 136px 244px auto;
         gap: 16px;
+        transition: all 4s cubic-bezier(0.16, 1, 0.3, 1) ;
         // align-items: flex-start;
 
         // outline: 1px solid red;
