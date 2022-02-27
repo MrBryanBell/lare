@@ -30,7 +30,7 @@ div.main-container {
     grid-template-rows: 1fr 12px;
     grid-template-areas:
         "tittle tittle tittle"
-        "lineBar lineBar lineBar"
+        "tittle tittle tittle"
     ;
 
     //TODO: BORRAR
@@ -104,7 +104,7 @@ div.main-container {
 
 .luckImage {
     position: absolute;
-    bottom: 0;
+    bottom: 6px;
     left: 20px;
     cursor: auto;
 }

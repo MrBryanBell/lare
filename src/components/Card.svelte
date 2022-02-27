@@ -1,8 +1,10 @@
 <script>
     import Toggle from './Switch.svelte';
     import { changeNote } from '../algoritmos/changeNote.js'
+    import { fly } from 'svelte/transition';
     
     let Switch;
+    export let index;
 
     export let data = {
         id: 'b92ba872-b74d-447b-b33d-970d3b2dc8ef',
@@ -24,7 +26,10 @@
 
 
 
-<div class="main-container" on:wheel|preventDefault={(e) => changeNote(e, data.id)} >
+<div
+    in:fly={ { y: 20, duration: 250, delay: ++index * 50 }}
+    class="main-container" 
+    on:wheel|preventDefault={(e) => changeNote(e, data.id)} >
 
     <!-- CABECERA: NOMBRE Y CÓDIGO MATERIA -->
     <h4 class="subject-name" >{ data.name }</h4>
@@ -35,7 +40,7 @@
 
         <div class="card-data-data" >
             <!-- UV -->
-            <p class="subject-uv" >0{ data.uv } UV</p>
+            <p class="subject-uv" >0{ data.uv } uv</p>
             
             <!-- GRADE & CHECKMARK-ICON -->
             <div class="card-status" >

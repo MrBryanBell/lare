@@ -1,6 +1,8 @@
 <script>
     import { onMount } from "svelte";
+import { quintOut } from "svelte/easing";
     import { tweened } from "svelte/motion";
+    import { fade, fly } from "svelte/transition";
 
 	export let isPrimary = true;
 
@@ -30,6 +32,7 @@
 	<p style:color={textColor} >Promedio {text}</p>
 
     <section class="data-container">
+
         <!-- NÚMERO PEQUEÑO -->
 	    <div>
 	    	<p style:color={smallTextColor} >+24</p>
@@ -41,7 +44,14 @@
 	    </div>
 
         <!-- NÚMERO GRANDE (CUM) -->
-	    <h4 style:color={textColor} >{$localValue.toFixed(3)}</h4>
+        {#key $localValue}
+	        <h4 
+                in:fly={{y: 0, duration: 50, opacity: 0.6, easing: quintOut }}
+                style:color={textColor} 
+                > {$localValue.toFixed(3)}
+            </h4>
+        {/key}
+        
     </section>
     
 

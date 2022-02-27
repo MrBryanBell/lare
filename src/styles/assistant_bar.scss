@@ -25,6 +25,8 @@ div {
 
     // TODO: BORRAR
     // max-height: 62px;
+    width: 686px;
+    transition: all 0.6s;
 
 }
 
@@ -92,4 +94,9 @@ div {
         color: #1B7CFD;
         padding: 12px 24px;
     }
+}
+
+
+.meq {
+    @include text-mixin('Inter', 14px, 1, var(--inter-medium), #FDFDFF, -0.004em );
 }

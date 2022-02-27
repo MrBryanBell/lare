@@ -28,9 +28,15 @@ $vertical-menu-icon: #c5cfe7;
 	background-color: $card-background;
 	border-radius: 0.5rem;
     
+    cursor: pointer;
     // TODO: BORRAR
     //outline: 1px solid red;
 	// max-width: 14rem;
+
+    &:hover {
+        background-color: #FCFCFC;
+    }
+
 }
 
 
@@ -43,8 +49,8 @@ $vertical-menu-icon: #c5cfe7;
 
 .subject-name {
     @include text-mixin
-        ('Inter', 14px, 18px, var(--inter-semibold),
-        #7494BD, -0.025em);
+        ('Inter', 14px, 18px, var(--inter-medium),
+        #7494BD, -0.008em);
 
     font-feature-settings: 'tnum' on, 'lnum' on;
     height: 60px;

@@ -5,13 +5,12 @@
     import { materias } from '../stores/materia_store.js';
     import { cicloActual } from '../stores/cycle_store';
 
-
     let domElement;
 
     $: materiasAct = $materias.filter((mt) => mt.cycle === $cicloActual);
 
-
     onMount(() => {
+
         let sortList = Sortable.create(domElement, {
 	        group: {
 	        	name: 'cuteList',
@@ -24,19 +23,23 @@
 	        easing: "cubic-bezier(1, 0, 0, 1)",
 
         });
+
     });
+
 </script>
 
 
 
 <nav>
+    
     <article bind:this={domElement} >
-        {#each materiasAct as materia }
-            <Card data={{...materia}} />
-        {:else}
-            <p>No hay data aún</p>
-        {/each}
+            {#each materiasAct as materia, i (materia.id) }
+                <Card data={{...materia}} index={i}/>
+            {:else}
+                <p>No hay data aún</p>
+            {/each}
     </article>
+    
 </nav>
 
 

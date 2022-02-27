@@ -2,21 +2,31 @@
     import CycleChart from './cycleChart.svelte';
     import { cicloActualEnTexto } from '../stores/cycle_store';
     import { changeCycle } from '../algoritmos/changeCycle';
+    import { fly } from 'svelte/transition';
+    import { cubicOut } from 'svelte/easing';
+    
 
 </script>
 
 
 
-<div class="main-container">
+<div class="main-container" >
 
     <!-- CYCLE-STATE-BAR -->
 
-    <div class="cycle-state-bar" 
+    <div 
+        class="cycle-state-bar" 
         on:wheel|preventDefault={(e) => changeCycle(e)}
         >
             <img class="icon" src="/icons/cloud-sync.svg" alt="">
             <p>CICLO /</p>
-            <h4>{ $cicloActualEnTexto.toUpperCase() }</h4>
+        
+            {#key $cicloActualEnTexto}
+                <h4 
+                    in:fly={{ duration: 260, easing: cubicOut}}
+                    >{ $cicloActualEnTexto.toUpperCase() }
+                </h4>
+            {/key}
     </div>
 
     <section class="buttons-container">
