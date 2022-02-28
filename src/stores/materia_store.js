@@ -1,4 +1,4 @@
-import { writable, derived } from 'svelte/store';
+import { writable, derived, get } from 'svelte/store';
 import { getData } from '../firebase/firebaseFunctions';
 import { MateriaClass } from '../classes/materia_class';
 import { listOfSubjects } from './listOfSubjects';
@@ -8,8 +8,20 @@ import { listOfSubjects } from './listOfSubjects';
 
     export async function bindData(uid) {
         let data = await getData('lareData', `${uid}`);
+
+        let localSubjects = get(listOfSubjects)
+
         let parsedData = data.map((data) => {
-            const currentSubject = listOfSubjects.find((sub) => sub.code == data.code);
+            const currentSubject = localSubjects.find((sub) => sub.code == data.code);
+            
+            //UPDATE LIST OF SUBJECTS IN APP
+            listOfSubjects.update((subjects) => {
+                let index = subjects.findIndex((sub) => sub.code === currentSubject.code)
+                subjects[index].isAdded = true;
+                return subjects;
+            })
+
+            //BUILDING THE CLASS 
             const dataCombined = {...data, ...currentSubject};
             const subjectFromClass = new MateriaClass(dataCombined);
             return subjectFromClass;
