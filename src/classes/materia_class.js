@@ -2,9 +2,9 @@ class MateriaClass {
 	constructor({
 		code = '03GC02',
 		id = 'GTYS-DER',
-		name = 'introducción a la comunicación',
+		name = 'Materia Provisional',
 		uv = 4,
-		grade = 9,
+		grade = 0,
 		cycle = 1,
 	}) {
 		this.code = code;
