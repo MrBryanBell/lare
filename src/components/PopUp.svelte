@@ -12,7 +12,7 @@
         grade: '',
     };
 
-    $: materiaActual = listOfSubjects[listOfSubjects.findIndex((mt) => data.code === mt.code)];
+    $: materiaActual = $listOfSubjects[$listOfSubjects.findIndex((mt) => data.code === mt.code)];
 
     $: console.log(materiaActual);
     $: console.log($cicloActual);
@@ -34,10 +34,20 @@
             console.log('Se añadió con éxito');
             const newSubject = new MateriaClass({...newMateria, ...materiaActual})
             
+            //UPDATE LIST OF SUBJECTS IN APP
+            listOfSubjects.update((subjects) => {
+                let currentSub = subjects.find((sub) => sub.code === newSubject.code)
+                currentSub.isAdded = true;
+                return subjects;
+            })
+
+            console.table($listOfSubjects)
             console.log(newSubject);
-            
+
+            //UPDATE STORED MATERIAS 
             $materias = [...$materias, newSubject];
             console.log('Se agregó al array');
+            console.table($materias);
             $isPopUpActive = false;
         })
     };
