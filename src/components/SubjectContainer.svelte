@@ -4,6 +4,8 @@
     import { onMount } from 'svelte';
     import { materias } from '../stores/materia_store.js';
     import { cicloActual } from '../stores/cycle_store';
+    import { MateriaClass } from "../classes/materia_class";
+    import { listOfSubjects } from "../stores/listOfSubjects";
 
     let domElement;
 
@@ -21,6 +23,38 @@
             forceFallback: true,
             
 	        easing: "cubic-bezier(1, 0, 0, 1)",
+            onAdd: function (evt) {
+                let index = evt.newIndex;
+
+                let code = evt.item.getAttribute('data-subject-code');
+                
+                let selectedSubject = $listOfSubjects.find((sub) => sub.code === code );
+                let newSubject = {...selectedSubject, cycle: $cicloActual, id: self.crypto.randomUUID() }
+                delete newSubject.area
+                delete newSubject.isAdded
+                
+                let newSubjectParsed = new MateriaClass({...newSubject});
+                let otherMaterias = $materias.filter((mt) => mt.cycle !== $cicloActual);
+                let currentMaterias = $materias.filter((mt) => mt.cycle === $cicloActual);
+                
+                currentMaterias.splice(index, 0, newSubjectParsed);
+ 
+                //UPDATE THE DOM
+                evt.item.remove();
+                $materias = [...otherMaterias, ...currentMaterias];
+
+                //UPDATE THE $LIST_OF_SUBJECTS
+                listOfSubjects.update((subjects) => {
+                    let index = subjects.findIndex((sub) => sub.code === selectedSubject.code)
+                    subjects[index].isAdded = true;
+                    return subjects;
+                })
+                selectedSubject.isAdded = true;
+                // console.table($listOfSubjects);
+
+                //SIDE EFFECTS
+                $listOfSubjects = $listOfSubjects;
+            }
 
         });
 

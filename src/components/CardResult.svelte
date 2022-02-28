@@ -1,16 +1,21 @@
 <script>
     export let data = {
-        name: 'Teoría de la Comunicación',
+        name: 'Introducción a la Comunicación',
         uv: 4,
+        code: "03GC02",
     };
 </script>
 
-    <div>
-        <h2>{data.name}</h2>
-        <span>
-            <img class="dividend-icon" src="/icons/dividend.svg" alt="">
-        </span>
-        <img class="info-icon" src="/icons/cardResult-info-icon.svg" alt="">
+    <div 
+        data-subject-code={data.code}
+        data-subject-uv={data.uv}
+        data-subject-name={data.name}
+        >
+            <h2>{data.name}</h2>
+            <span>
+                <img class="dividend-icon" src="/icons/dividend.svg" alt="">
+            </span>
+            <img class="info-icon" src="/icons/cardResult-info-icon.svg" alt="">
     </div>
 
 
@@ -30,6 +35,7 @@
         padding: 24px 20px;
 
         position: relative;
+        cursor: pointer;
     }
 
     .info-icon {
@@ -44,4 +50,5 @@
         margin-bottom: 12px;
         
     }
+
 </style>

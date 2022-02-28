@@ -1,33 +1,15 @@
 <script>
-    let group1 = [], group2 = [], group3 = [];
+    import { listOfSubjects } from '../stores/listOfSubjects';
+    
+    $: g1 = $listOfSubjects.filter((sub) => sub.area === 'gc');
+    $: g2 = $listOfSubjects.filter((sub) => sub.area === 'fc');
+    $: g3 = $listOfSubjects.filter((sub) => sub.area === 'pc');
 
-    for (let i = 0; i < 15; i++) {
-        if (i % 2 === 0) {
-            group1 = [...group1, true];
-        } else {
-            group1 = [...group1, false];
-        }
-    };
-
-    for (let i = 0; i < 20; i++) {
-        if (i % 2 === 0) {
-            group2 = [...group2, true];
-        } else {
-            group2 = [...group2, false];
-        }
-    };
-
-    for (let i = 0; i < 12; i++) {
-        if (i % 2 === 0) {
-            group3 = [...group3, true];
-        } else {
-            group3 = [...group3, false];
-        }
-    };
+    $: console.table($listOfSubjects);
 
     function getColor(value) {
-        if (value) return "#2982FA"
-        if (!value) return "#60A2FB"
+        if (!value) return "#2982FA"
+        if (value) return "#60A2FB"
     }
 
 
@@ -38,22 +20,22 @@
 
         <section class="first-row" >
             <section class="group-1" >
-                {#each group1 as item}
-                     <div style:background-color={getColor(item)} ></div>
+                {#each g1 as item}
+                     <div style:background-color={getColor(item.isAdded)} ></div>
                 {/each}
             </section>
 
             <section class="group-3" >
-                {#each group3 as item}
-                    <div style:background-color={getColor(item)} ></div>
+                {#each g3 as item}
+                    <div style:background-color={getColor(item.isAdded)} ></div>
                 {/each}
             </section>
         </section>
 
 
         <section class="group-2" >
-            {#each group2 as item}
-                <div style:background-color={getColor(item)} ></div>
+            {#each g2 as item}
+                <div style:background-color={getColor(item.isAdded)} ></div>
             {/each}
         </section>
 
