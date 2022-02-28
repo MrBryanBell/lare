@@ -5,7 +5,8 @@
     "dev": "svelte-kit dev --host",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
-    "preview": "svelte-kit preview"
+    "preview": "svelte-kit preview",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
@@ -21,6 +22,7 @@
     "d3": "^7.3.0",
     "d3-scale": "^4.0.2",
     "firebase": "^9.6.3",
+    "patch-package": "^6.4.7",
     "sortablejs": "^1.14.0"
   }
 }
