@@ -8,8 +8,8 @@ import { get } from 'svelte/store';
 // NAV-BAR (ACTIVE-INDICATOR)
     const getCoord = (x) => {
         if (x === 1) return 0;
-        if (x === 2) return 52;
-        if (x === 3) return 104;
+        if (x === 2) return 49;
+        if (x === 3) return 99;
     };
 
     function fade(node = undefined) {

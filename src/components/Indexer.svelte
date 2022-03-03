@@ -3,8 +3,9 @@
     import { listOfSubjects } from '../stores/listOfSubjects';
     import Sortable from 'sortablejs';
     import { onMount } from 'svelte';
+    import { indexerText } from '../stores/session_store';
 
-    let cardContainer;
+    let cardContainer, input
 
     onMount(() => {
         let sortList = Sortable.create(cardContainer, {
@@ -17,42 +18,55 @@
             forceFallback: true,
 	        easing: "cubic-bezier(1, 0, 0, 1)",
         })
+
     });
 
-    let text = "";
+    export function focus() {
+        input.focus();
+    }
 
-    $: results = $listOfSubjects.filter(({name}) => name.toLowerCase().startsWith(text));
 
-    $: console.log(results);
+    $: results = $listOfSubjects.filter(({name}) => name.toLowerCase().startsWith($indexerText.toLocaleLowerCase()));
+
+    // $: console.log(results);
+    $: console.log('Indexer text is ' + $indexerText);
 
 </script>
 
-<div>
+<div class="main-container" >
     
     <input 
         type="text" 
         placeholder="Escribe el nombre de una materia..." 
-        bind:value={text} 
+        bind:value={$indexerText}
+        bind:this={input}
     >
 
     <section
         bind:this={cardContainer}
         class="cardResult-container" 
         >
-        {#key text}
+        {#key $indexerText}
             {#each results as materia}
                 <CardResult data={materia}/>
             {:else}
                 <p>No se encontraron resultados</p>
             {/each}
         {/key }
+
     </section>
+
+    <div class="overlay"></div>
+
 </div>
 
 
 <style lang="scss" >
     @import '../styles/utils/_mixins.scss';
 
+    .main-container {
+        position: relative;
+    }
 
     input {
         border: 1px solid #88BDFB;
@@ -74,19 +88,30 @@
     }
 
     .cardResult-container {
-        width: 432px;
+        width: 404px;
         height: 400px;
         overflow-y: scroll;
 
         background-color: #4B9EFB;
-        border-radius: 8px;
+        border-radius: 8px 8px 0px 0px;
         padding: 20px 16px;
 
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: 148px;
-        gap: 16px;
+        gap: 12px;
 
+    }
+
+    .overlay {
+        width: 100%;
+        height: 86px;
+        background: linear-gradient(180deg, rgba(30, 114, 248, 0) 0%, #1E74F9 100%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        pointer-events: none;
     }
 
     ::-webkit-scrollbar {
@@ -106,18 +131,18 @@
   background: #ffffff;
 }
 ::-webkit-scrollbar-thumb:active {
-  background: #000000;
+  background: #0363c3;
 }
 ::-webkit-scrollbar-track {
-  background: #666666;
+  background: #9ab7d8;
   border: 0px none #ffffff;
   border-radius: 58px;
 }
 ::-webkit-scrollbar-track:hover {
-  background: #666666;
+  background: #9ab7d8;
 }
 ::-webkit-scrollbar-track:active {
-  background: #333333;
+  background: #9ab7d8;
 }
 ::-webkit-scrollbar-corner {
   background: transparent;

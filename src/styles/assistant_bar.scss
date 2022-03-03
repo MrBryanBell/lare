@@ -10,13 +10,8 @@ div {
     // outline: 1px solid red;
 	grid-area: toolbar;
 
-	padding: 20px 20px;
-	background: linear-gradient(
-		90deg,
-		#0b85fe 0%,
-		#215dee 50.66%,
-		#1a7dfd 99.26%
-	);
+	padding: 14px 20px;
+	background: #0B84FE;
 	border-radius: 0.25rem;
 
     display: flex;
@@ -42,7 +37,7 @@ div {
     display: flex;
     gap: 0.5rem;
 
-    @include text-mixin('Inter', 14px, 1, var(--inter-medium), #FDFDFF, -0.004em );
+    @include text-mixin('Inter', 13px, 1, var(--inter-medium), #FFFFFF, -0.004em );
     
     span {
         font-weight: var(--inter-semibold)
@@ -98,5 +93,5 @@ div {
 
 
 .meq {
-    @include text-mixin('Inter', 14px, 1, var(--inter-medium), #FDFDFF, -0.004em );
+    @include text-mixin('Inter', 13px, 1, var(--inter-medium), #FDFDFF, -0.004em );
 }

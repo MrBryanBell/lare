@@ -29,9 +29,9 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 			'Inter',
 			0.75rem,
 			1,
-			var(--inter-regular),
-			#d7ecff,
-			-0.004em
+			var(--inter-medium),
+			#FFFFFF,
+			0.004em
 		);
 
 		font-feature-settings: 'tnum' on, 'lnum' on;
@@ -90,12 +90,7 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 //------------------------
 
 .default-theme {
-	background: linear-gradient(
-		244.66deg,
-		#1c84fe 0%,
-		#1f5bec 38.54%,
-		#1c84fe 77.09%
-	);
+	background: #1C84FE;
 	box-shadow: 
         inset 2px 2px 8px #4e91f9, 
         inset -2px -2px 8px #3068ed
@@ -111,11 +106,7 @@ $text-default-color: hsla(208, 100%, 92%, 1);
 //------------------------
 
 .light-theme {
-	background: linear-gradient(
-        110.62deg, 
-        #268ff8 47.84%, 
-        #439ef9 80.89%
-    );
+	background: #268FF8;
 
 	box-shadow: 
         inset 2px 2px 8px #4DA4F9, 

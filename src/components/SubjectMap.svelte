@@ -1,5 +1,6 @@
 <script>
     import { listOfSubjects } from '../stores/listOfSubjects';
+    import { indexerText } from '../stores/session_store';
     
     $: g1 = $listOfSubjects.filter((sub) => sub.area === 'gc');
     $: g2 = $listOfSubjects.filter((sub) => sub.area === 'fc');
@@ -21,13 +22,20 @@
         <section class="first-row" >
             <section class="group-1" >
                 {#each g1 as item}
-                     <div style:background-color={getColor(item.isAdded)} ></div>
+                     <div 
+                        style:background-color={getColor(item.isAdded)} 
+                        on:click={() => $indexerText = item.name.toLowerCase()}>
+                    </div>
                 {/each}
             </section>
 
             <section class="group-3" >
                 {#each g3 as item}
-                    <div style:background-color={getColor(item.isAdded)} ></div>
+                    <div 
+                        style:background-color={getColor(item.isAdded)}
+                        on:click={() => $indexerText = item.name.toLowerCase()}
+                        >
+                    </div>
                 {/each}
             </section>
         </section>
@@ -35,7 +43,11 @@
 
         <section class="group-2" >
             {#each g2 as item}
-                <div style:background-color={getColor(item.isAdded)} ></div>
+                <div 
+                    style:background-color={getColor(item.isAdded)} 
+                    on:click={() => $indexerText = item.name.toLowerCase()}
+                    >
+                </div>
             {/each}
         </section>
 
@@ -50,16 +62,16 @@
         display: grid;
         place-content: center;
 
-        margin-bottom: 68px;
+        margin-bottom: 48px;
     }
 
 
     .group-1, .group-2 {
-        // background-color: red;
+        cursor: pointer;
 
         display: grid;
-        grid-template-columns: repeat(5, 30px);
-        grid-auto-rows: 30px;
+        grid-template-columns: repeat(5, 28px);
+        grid-auto-rows: 28px;
         gap: 2px;
 
         div {
@@ -74,11 +86,11 @@
     }
 
     .group-3 {
-        // background-color: red;
+        cursor: pointer;
 
         display: grid;
-        grid-template-columns: 62px repeat(3, 30px);
-        grid-auto-rows: 30px;
+        grid-template-columns: 62px repeat(3, 28px);
+        grid-auto-rows: 28px;
 
         gap: 2px;
 
@@ -93,6 +105,9 @@
         gap: 24px;
     }
 
+    section section div:hover {
+        outline: 2px solid white;
+    }
 </style>
 
 

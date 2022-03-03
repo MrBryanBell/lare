@@ -4,6 +4,8 @@
     import { fly } from "svelte/transition";
     import { quartInOut } from 'svelte/easing'
 
+    let indexer;
+
     let outAn = { 
         x: 480, 
         duration: 500, 
@@ -16,18 +18,20 @@
         duration: 800, 
         opacity: 0.8,
         easing: quartInOut
-    }
+    };
+
 
 </script>
 
 
 <div 
     out:fly={outAn} 
-    in:fly={inAn} 
+    in:fly={inAn}
+    on:introend="{() => indexer.focus()}"
 
     >
         <SubjectMap />
-        <Indexer />
+        <Indexer bind:this={indexer}/>
 </div>
 
 
@@ -37,7 +41,7 @@
 <style lang="scss" >
     div {
         background: linear-gradient(180deg, #1B7EFD 0%, #2163F1 51.04%, #1B7EFD 100%);
-        padding: 48px 24px;
+        padding: 40px 24px 48px;
         padding-right: 96px;
         height: 100vh;
 

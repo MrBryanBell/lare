@@ -51,14 +51,14 @@
         
         <!-- VERTICAL-MENU-ICON -->
         <span>
-            <img src="/icons/menu-vertical.svg" alt="">
+            <img src="/icons/options-menu.svg" alt="">
         </span>
     </div>
     
     
     <!-- CARD FOOTER: INFO-ICON & TOGGLE -->
     <div class="card-footer">
-        <img src="/icons/info.svg" alt="">
+        <img src="/icons/card-infoIcon.svg" alt="">
         <Toggle 
             bind:this={Switch} 
             on:click={toggleState}

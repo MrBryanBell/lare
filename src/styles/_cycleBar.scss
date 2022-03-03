@@ -18,7 +18,11 @@ $infoBar-text-color: #F5FAFF;
 //------------------------
 
 div.main-container {
-    background: #FFFFFF;
+    
+    //TODO: BORRAR
+    min-height: 124px;
+
+    background: linear-gradient(114.49deg, #FBFEFF 0%, #F5FCFF 100.78%);
     border-radius: 0.5rem 0.5rem 0 0;
     padding: 0 24px;
 
@@ -33,8 +37,6 @@ div.main-container {
         "tittle tittle tittle"
     ;
 
-    //TODO: BORRAR
-    min-height: 128px;
 }
 
 
@@ -53,18 +55,21 @@ div.main-container {
 
     
         & > .icon {
+            margin-left: 16px;
             margin-right: 8px;
         }
         
         p {
             @include text-mixin('Barlow', 16px, 1, var(--barlow-medium),
-            #586B9D, 0.04em);
-            margin-right: 4px;
+            #425076, 0.04em);
+            margin-right: 2px;
         }
     
         h4 {
             @include text-mixin('Barlow', 24px, 1, var(--barlow-bold),
-            #586B9D, 0.04em);
+            #3B4768, 0.05em);
+            margin-right: 16px;
+
         }
 
 }
@@ -76,17 +81,18 @@ div.main-container {
 
 .buttons-container {
     grid-column: 3 / 4;
-    grid-row: 1 / span 1;
+    grid-row: 1 / span 2;
 
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    height: 100%;
 
 
     img {
         width: 42px;
         aspect-ratio: 1/1;
-        opacity: 0.6;
+        opacity: 0.5;
 
         transition: all 0.2s  ease-in;
     }

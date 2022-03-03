@@ -81,21 +81,27 @@
 
 <style lang="scss">
     nav {
-        background: #FFFFFF;
+        background: linear-gradient(114.49deg, #FBFEFF 0%, #F5FCFF 100.78%);
         border-radius: 0px 0px 8px 8px;
-        padding: 16px 16px 20px;
+        padding: 4px 16px 20px;
+        
+        // ACTIVE THE NEXT LINE WHEN COMPONENT ADDER IS ACTIVE
+        // filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.04));
     }
 
     article {
-        min-height: 476px;
-        background-color: #F2F2F2;
-        padding: 20px 16px;
+        
+        //TODO: AJUSTAR ESTO A MENOS DE 476px
+        min-height: 528px;
+
+        background-color: #E2ECFE;
+        padding: 24px 20px;
         border-radius: 8px;
 
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
         // grid-template-columns: repeat(auto-fill, minmax(180px, 200px));
-        grid-auto-rows: 204px;
+        grid-auto-rows: 184px;
         gap: 12px;
         // outline: 1px solid red;
     }

@@ -7,9 +7,11 @@
 //------------------------
 // VARIABLES
 //------------------------
-    $toggle-bg-disabled: #C5CFE7;
-    $toggle-bg-active: #578AFF;
-    $toggle-knob: #F5F5F5;
+    $toggle-bg-disabled: #E8EAED;
+    $toggle-bg-active: #56A9FB;
+    
+    $knob-disabled: #FAFAFA;
+    $knob-active: #F5F5F5;
 
 
 
@@ -46,17 +48,18 @@
         height: 12px;
         border-radius: 50%;
         
-        background-color: $toggle-knob;
 
         transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
  
     .active-kn {
         transform: translateX(calc(100% + 4px));
+        background-color: $knob-active;
     }
         
     .disabled-kn {
         transform: translateX(0);
+        background-color: $knob-disabled;
     }
 
 

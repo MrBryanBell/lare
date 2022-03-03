@@ -27,7 +27,7 @@
 <div>
 	<section>
 		<!-- LOGO -->
-		<a href="#">
+		<a href="#" class="logo">
 			<img src="/icons/lare-logo.svg" alt="" />
 		</a>
 
