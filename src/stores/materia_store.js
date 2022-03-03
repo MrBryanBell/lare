@@ -35,7 +35,7 @@ import { listOfSubjects } from './listOfSubjects';
     let totalUMG = derived(materias, 
                         ($materias) => {
                     	    let UMG = $materias
-                    	    	.map(({ grade, uv }) => grade * uv)
+                    	    	.map(( mat ) => mat.getUMT())
                     	    	.reduce((acc, elem) => {
                     	    		return acc + elem;
                     	    	}, 0);
@@ -50,7 +50,7 @@ import { listOfSubjects } from './listOfSubjects';
     let totalUV = derived(materias, 
                         ($materias) => {
                     	    let TUV = $materias
-                    	    	.map(({ uv }) => uv)
+                    	    	.map(( mat ) => mat.getUV())
                     	    	.reduce((acc, elem) => {
                     	    		return acc + elem;
                     	    	}, 0);
@@ -62,7 +62,7 @@ import { listOfSubjects } from './listOfSubjects';
 
 
 // CALCULA EL PROMEDIO (DERIVADA DE DOS DERIVADAS)
-    let promedio = derived([totalUMG, totalUV], 
+    let cumAcumulado = derived([totalUMG, totalUV], 
                         ($array) => {
                             const [ totalUMG, totalUV ] = $array;
                             return (totalUMG / totalUV);
@@ -71,4 +71,25 @@ import { listOfSubjects } from './listOfSubjects';
 
 
 
-export { materias, promedio, totalUMG };
+    let cumEgresado = derived(materias, 
+        ($materias) => {
+
+            let materiasPasadas = $materias
+                .filter(( mat ) => mat.getGrade() >= 6)
+
+            let total = materiasPasadas
+                .reduce((acc, elem) => {
+                    acc.UMT += elem.getUMT()
+                    acc.UV += elem.getUV()
+                    
+                    return acc;
+
+                }, { UMT: 0, UV: 0 });
+
+
+            return total.UMT / total.UV;
+        }
+    )
+
+
+export { materias, cumAcumulado, totalUMG, cumEgresado, totalUV };

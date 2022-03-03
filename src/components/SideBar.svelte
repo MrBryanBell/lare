@@ -1,7 +1,7 @@
 <script>
     import MetricCard from "./Metric_Card.svelte";   
     import Medal from "./Medal.svelte";
-    import { promedio } from '../stores/materia_store';
+    import { cumAcumulado, cumEgresado } from '../stores/materia_store';
     import { isAdderActive } from "../stores/session_store";
 
 
@@ -13,8 +13,8 @@
 <section
     style:opacity={($isAdderActive) ? 0.5 : 1}
     >
-    <MetricCard isPrimary={false} data={$promedio}/>
-    <MetricCard data={$promedio}/>
+    <MetricCard isPrimary={false} data={$cumAcumulado}/>
+    <MetricCard data={$cumEgresado}/>
     <Medal />
 </section>
 

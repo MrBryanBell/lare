@@ -19,6 +19,14 @@ class MateriaClass {
 		return this.uv * this.grade;
 	}
 
+    getGrade() {
+        return this.grade;
+    }
+
+    getUV() {
+        return this.uv;
+    }
+
 }
  
 
