@@ -1,5 +1,4 @@
 <script>
-    import { options } from "../icons/options-menu";
     import { fade, fly } from "svelte/transition";
 
     export let data = {
