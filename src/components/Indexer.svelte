@@ -47,8 +47,8 @@
         class="cardResult-container" 
         >
         {#key $indexerText}
-            {#each results as materia}
-                <CardResult data={materia}/>
+            {#each results as materia, index}
+                <CardResult data={materia} {index}/>
             {:else}
                 <p>No se encontraron resultados</p>
             {/each}

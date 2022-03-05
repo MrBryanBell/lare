@@ -2,9 +2,13 @@
     import Toggle from './Switch.svelte';
     import { changeNote } from '../algoritmos/changeNote.js'
     import { fly } from 'svelte/transition';
+    // import { showContextMenu } from '../actions/contextMenu';
     
     let Switch;
+
     export let index;
+    let state = false;
+
 
     export let data = {
         id: 'b92ba872-b74d-447b-b33d-970d3b2dc8ef',
@@ -13,7 +17,6 @@
         grade: 9.6,
     }
 
-    let state = false;
 
     function toggleState(){
         state = !state;
@@ -27,7 +30,8 @@
 
 
 <div
-    in:fly={ { y: 20, duration: 250, delay: ++index * 50 }}
+    in:fly={ { y: -20, duration: 300, delay: ++index * 50 }}
+    
     class="main-container" 
     on:wheel|preventDefault={(e) => changeNote(e, data.id)} >
 
@@ -50,8 +54,17 @@
         </div>
         
         <!-- VERTICAL-MENU-ICON -->
-        <span>
-            <img src="/icons/options-menu.svg" alt="">
+        <span>   
+                <button
+                    class="options-menu" 
+                    
+                    >
+                    <img
+                    src="/icons/options-menu.svg" 
+                    alt=""
+                    
+                    >
+                </button>
         </span>
     </div>
     
@@ -74,4 +87,13 @@
 <style lang="scss">
     
     @import '../styles/_card.scss';
+
+    .options-menu {
+        position: relative;
+    }
+
+    button {
+        border: none;
+        background-color: transparent;
+    }
 </style>

@@ -1,6 +1,7 @@
 <script>
     import { listOfSubjects } from '../stores/listOfSubjects';
     import { indexerText } from '../stores/session_store';
+    import Square from './Square.svelte'
     
     $: g1 = $listOfSubjects.filter((sub) => sub.area === 'gc');
     $: g2 = $listOfSubjects.filter((sub) => sub.area === 'fc');
@@ -17,38 +18,28 @@
 </script>
 
 <div class="main-container" >
+    
     <div class="container">
 
         <section class="first-row" >
             <section class="group-1" >
-                {#each g1 as item}
-                     <div 
-                        style:background-color={getColor(item.isAdded)} 
-                        on:click={() => $indexerText = item.name.toLowerCase()}>
-                    </div>
+                {#each g1 as data }
+                    <Square { data } />
                 {/each}
             </section>
 
             <section class="group-3" >
-                {#each g3 as item}
-                    <div 
-                        style:background-color={getColor(item.isAdded)}
-                        on:click={() => $indexerText = item.name.toLowerCase()}
-                        >
-                    </div>
+                {#each g3 as data }
+                    <Square { data } />
                 {/each}
             </section>
         </section>
 
 
         <section class="group-2" >
-            {#each g2 as item}
-                <div 
-                    style:background-color={getColor(item.isAdded)} 
-                    on:click={() => $indexerText = item.name.toLowerCase()}
-                    >
-                </div>
-            {/each}
+            {#each g2 as data }
+                    <Square { data } />
+                {/each}
         </section>
 
 
@@ -74,9 +65,6 @@
         grid-auto-rows: 28px;
         gap: 2px;
 
-        div {
-            border-radius: 2px;
-        }
     }
 
     .container {
@@ -94,9 +82,6 @@
 
         gap: 2px;
 
-        div {
-            border-radius: 2px;
-        }
     }
     
     .first-row {
@@ -105,9 +90,6 @@
         gap: 24px;
     }
 
-    section section div:hover {
-        outline: 2px solid white;
-    }
 </style>
 
 

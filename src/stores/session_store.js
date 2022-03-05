@@ -17,7 +17,7 @@ let userUID = writable(null);
 let currentTab = writable(1);
 let isPopUpActive = writable(false);
 let isAdderActive = writable(false);
-
+let indexerText = writable("");
 
 onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -49,4 +49,4 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 
-export { userUID, currentTab, isPopUpActive, isAdderActive };
+export { userUID, currentTab, isPopUpActive, isAdderActive, indexerText };

@@ -27,6 +27,8 @@
                     >{ $cicloActualEnTexto.toUpperCase() }
                 </h4>
             {/key}
+
+            <img src="/icons/barChart.svg" alt="">
     </div>
 
     <section class="buttons-container">

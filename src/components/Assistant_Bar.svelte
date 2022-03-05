@@ -1,12 +1,14 @@
 <script>
     // your script goes here
     import { isAdderActive } from "../stores/session_store";
+    import { fade, fly } from "svelte/transition";
 </script>
 
 <!-- markup (zero or more items) goes here -->
-
-<div  
-    style:width={($isAdderActive) ? '686px' : '100%'}
+<!-- style:width={($isAdderActive) ? '686px' : '100%'} -->
+<div 
+    in:fly={{y: -50, duration: 800, opacity: 0 }}
+    style:width={'100%'}
     >
     {#if !$isAdderActive}
    

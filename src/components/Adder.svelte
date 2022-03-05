@@ -8,15 +8,15 @@
 
     let outAn = { 
         x: 480, 
-        duration: 500, 
-        opacity: 0.2, 
+        duration: 400, 
+        opacity: 0.5, 
         easing: quartInOut // backInOut
     }
 
     let inAn = { 
         x: 480, 
-        duration: 800, 
-        opacity: 0.8,
+        duration: 400, 
+        opacity: 0.5,
         easing: quartInOut
     };
 
