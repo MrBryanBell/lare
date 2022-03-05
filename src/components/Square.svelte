@@ -1,7 +1,6 @@
 <script>
     import { indexerText } from '../stores/session_store';
-    // import { tooltip } from '../actions/tooltip';
-    // use:tooltip
+    import { tooltip } from '../actions/tooltip.js';
 
     export let data;
 
@@ -20,6 +19,7 @@
 	on:click={() => ($indexerText = data.name.toLowerCase())}
 	data-subject-name={data.name}
 	data-last-update="09/02/22"
+    use:tooltip
 />
 
 
