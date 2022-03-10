@@ -3,18 +3,18 @@ import Tooltip from '../components/Tooltip.svelte';
 
 function tooltip(node) {
 
-	let materiaName;
+	let subjectName;
 	let lastUpdate;
 	let tooltipComponent;
 
 	//FUNCTIONS FOR LISTENERS
 	function onMouseOver(event) {
-		materiaName = node.getAttribute('data-subject-name');
+		subjectName = node.getAttribute('data-subject-name');
 		lastUpdate = node.getAttribute('data-last-update');
 
 		tooltipComponent = new Tooltip({
 			props: {
-				text: materiaName,
+				text: subjectName,
 				lastUpdate,
 				x: ( +event.pageX - 152 ) + 'px',
 				y: ( +event.pageY + 24 ) + 'px',
