@@ -2,7 +2,7 @@
     import Toggle from './Switch.svelte';
     import { changeNote } from '../algoritmos/changeNote.js'
     import { fly } from 'svelte/transition';
-    // import { showContextMenu } from '../actions/contextMenu';
+    import { showContextMenu } from '../actions/cardContextMenu.js';
     
     let Switch;
 
@@ -31,7 +31,6 @@
 
 <div
     in:fly={ { y: -20, duration: 300, delay: ++index * 50 }}
-    
     class="main-container" 
     on:wheel|preventDefault={(e) => changeNote(e, data.id)} >
 
@@ -57,7 +56,7 @@
         <span>   
                 <button
                     class="options-menu" 
-                    
+                    use:showContextMenu={data.id}
                     >
                     <img
                     src="/icons/options-menu.svg" 
@@ -87,13 +86,25 @@
 <style lang="scss">
     
     @import '../styles/_card.scss';
-
-    .options-menu {
-        position: relative;
-    }
-
+    
     button {
         border: none;
         background-color: transparent;
+        position: relative;
+
+        //outline: 1px solid red;
+        height: 28px;
+    }
+
+    :global(.card-overlay) {
+        position: absolute;
+        background: hsla(214, 95%, 68%, 1);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.3;
+	    border-radius: 0.5rem;
+        pointer-events: none;
     }
 </style>
