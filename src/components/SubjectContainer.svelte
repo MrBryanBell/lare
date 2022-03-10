@@ -23,6 +23,7 @@
             forceFallback: true,
             
 	        easing: "cubic-bezier(1, 0, 0, 1)",
+
             onAdd: function (evt) {
                 let index = evt.newIndex;
 
@@ -30,8 +31,8 @@
                 
                 let selectedSubject = $listOfSubjects.find((sub) => sub.code === code );
                 let newSubject = {...selectedSubject, cycle: $cicloActual, id: self.crypto.randomUUID() }
-                delete newSubject.area
-                delete newSubject.isAdded
+                    delete newSubject.area
+                    delete newSubject.additions
                 
                 let newSubjectParsed = new MateriaClass({...newSubject});
                 let otherMaterias = $materias.filter((mt) => mt.cycle !== $cicloActual);
@@ -44,16 +45,8 @@
                 $materias = [...otherMaterias, ...currentMaterias];
 
                 //UPDATE THE $LIST_OF_SUBJECTS
-                listOfSubjects.update((subjects) => {
-                    let index = subjects.findIndex((sub) => sub.code === selectedSubject.code)
-                    subjects[index].isAdded = true;
-                    return subjects;
-                })
-                selectedSubject.isAdded = true;
-                // console.table($listOfSubjects);
+                listOfSubjects.updateAdditions(selectedSubject.code, 1);
 
-                //SIDE EFFECTS
-                $listOfSubjects = $listOfSubjects;
             }
 
         });

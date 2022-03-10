@@ -34,12 +34,8 @@
             console.log('Se añadió con éxito');
             const newSubject = new MateriaClass({...newMateria, ...materiaActual})
             
-            //UPDATE LIST OF SUBJECTS IN APP
-            listOfSubjects.update((subjects) => {
-                let currentSub = subjects.find((sub) => sub.code === newSubject.code)
-                currentSub.isAdded = true;
-                return subjects;
-            })
+            //UPDATE LOCAL LIST OF SUBJECTS
+            listOfSubjects.updateAdditions(newSubject.code, 1);
 
             console.table($listOfSubjects)
             console.log(newSubject);
