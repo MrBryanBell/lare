@@ -16,7 +16,7 @@
         data-subject-code={data.code}
         data-subject-uv={data.uv}
         data-subject-name={data.name}
-        in:fly={ { y: 20, duration: 250, delay: ++index * 50 }}
+        in:fly={ { y: 20, duration: 150, delay: ++index * 30 }}
         >
             <h2>{data.name}</h2>
             <span>
