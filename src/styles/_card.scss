@@ -28,6 +28,8 @@ $vertical-menu-icon: #c5cfe7;
 	background-color: $card-background;
 	border-radius: 0.5rem;
     
+    position: relative;
+
     cursor: pointer;
     // TODO: BORRAR
     //outline: 1px solid red;
@@ -39,7 +41,6 @@ $vertical-menu-icon: #c5cfe7;
     }
 
 }
-
 
 
 
@@ -109,7 +110,7 @@ $vertical-menu-icon: #c5cfe7;
 }
 
 span {
-    @include flex-container(column, flex-end, 0);
+    @include flex-container(column, flex-start, 0);
     height: 44px;
 }
 

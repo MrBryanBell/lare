@@ -148,6 +148,21 @@
   background: transparent;
 }
 
+// INPUT TEXT SELECTION
+
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: #1BD911;
+}
+
+::selection {
+  color: white;
+  background: #1BD911;
+}
+
+
 </style>
+
+
 
 
