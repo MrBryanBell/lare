@@ -1,5 +1,5 @@
 import { get } from 'svelte/store';
-import { materias } from '../stores/materia_store';
+import { materias } from '$lib/stores/materia_store';
 
 
 function changeNote(e, ID){

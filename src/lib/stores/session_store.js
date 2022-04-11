@@ -1,5 +1,5 @@
 import { get, writable } from 'svelte/store';
-import { auth } from '../firebase/firebaseConfig';
+import { auth } from '$lib/firebase/firebaseConfig';
 import {
     GoogleAuthProvider,
     getRedirectResult,
@@ -8,8 +8,8 @@ import {
     onAuthStateChanged,
 } from 'firebase/auth';
 import { getDoc, doc, collection, addDoc, setDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebaseConfig';
-import { bindData } from './materia_store';
+import { db } from '$lib/firebase/firebaseConfig';
+import { bindData } from '$lib/stores/materia_store';
 
 
 

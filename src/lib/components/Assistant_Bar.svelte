@@ -1,6 +1,6 @@
 <script>
     // your script goes here
-    import { isAdderActive } from "../stores/session_store";
+    import { isAdderActive } from "$lib/stores/session_store";
     import { fade, fly } from "svelte/transition";
 </script>
 
@@ -37,4 +37,4 @@
     @import '../styles/assistant_bar.scss';
 </style>
 
-
+    

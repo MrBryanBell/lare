@@ -1,8 +1,8 @@
 import { getDocs, getDoc, collection, doc } from "firebase/firestore";
-import { db } from "./firebaseConfig";
-import { PensumSubjects } from '../classes/pensum_class';
-import { MateriaClass } from '../classes/materia_class';
-import { listOfSubjects } from '../stores/listOfSubjects';
+import { db } from "$lib/firebase/firebaseConfig";
+import { PensumSubjects } from '$lib/classes/pensum_class';
+import { MateriaClass } from '$lib/classes/materia_class';
+import { listOfSubjects } from '$lib/stores/listOfSubjects';
 
 
 

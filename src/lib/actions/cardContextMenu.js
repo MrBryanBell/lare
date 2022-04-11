@@ -1,4 +1,4 @@
-import CardContextMenu from '../components/CardContextMenu.svelte';
+import CardContextMenu from '$lib/components/CardContextMenu.svelte';
 
 
 function showContextMenu(node, currentSubjectID) {

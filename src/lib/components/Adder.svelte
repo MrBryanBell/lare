@@ -1,6 +1,6 @@
 <script>
-    import Indexer from "./Indexer.svelte";
-    import SubjectMap from "./SubjectMap.svelte";
+    import Indexer from "$lib/components/Indexer.svelte";
+    import SubjectMap from "$lib/components/SubjectMap.svelte";
     import { fly } from "svelte/transition";
     import { quartInOut } from 'svelte/easing'
 

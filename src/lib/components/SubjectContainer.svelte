@@ -1,11 +1,11 @@
 <script>
     import Sortable from 'sortablejs';
-    import Card from "./Card.svelte";
+    import Card from "$lib/components/Card.svelte";
     import { onMount } from 'svelte';
-    import { materias } from '../stores/materia_store.js';
-    import { cicloActual } from '../stores/cycle_store';
-    import { MateriaClass } from "../classes/materia_class";
-    import { listOfSubjects } from "../stores/listOfSubjects";
+    import { materias } from '$lib/stores/materia_store.js';
+    import { cicloActual } from '$lib/stores/cycle_store';
+    import { MateriaClass } from "$lib/classes/materia_class";
+    import { listOfSubjects } from "$lib/stores/listOfSubjects";
 
     let domElement;
 

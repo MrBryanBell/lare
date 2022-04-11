@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-import { quintOut } from "svelte/easing";
+    import { quintOut } from "svelte/easing";
     import { tweened } from "svelte/motion";
     import { fade, fly } from "svelte/transition";
 

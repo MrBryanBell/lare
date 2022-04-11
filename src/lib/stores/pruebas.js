@@ -1,4 +1,4 @@
-import { listOfSubjects } from './listOfSubjects';
+import { listOfSubjects } from '$lib/stores/listOfSubjects';
 
 let code = '03GC02';
 

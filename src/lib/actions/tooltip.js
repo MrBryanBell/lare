@@ -1,4 +1,4 @@
-import Tooltip from '../components/Tooltip.svelte';
+import Tooltip from '$lib/components/Tooltip.svelte';
 
 
 function tooltip(node) {

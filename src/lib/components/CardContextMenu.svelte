@@ -1,5 +1,5 @@
 <script>
-    import { deleteSubject } from '../algoritmos/deleteSubject';
+    import { deleteSubject } from '$lib/algoritmos/deleteSubject';
 
     export let display = 'none';
     export let currentSubjectID;

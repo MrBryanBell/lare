@@ -1,8 +1,8 @@
 <script>
-    import Toggle from './Switch.svelte';
-    import { changeNote } from '../algoritmos/changeNote.js'
+    import Toggle from '$lib/components/Switch.svelte';
+    import { changeNote } from '$lib/algoritmos/changeNote.js'
     import { fly } from 'svelte/transition';
-    import { showContextMenu } from '../actions/cardContextMenu.js';
+    import { showContextMenu } from '$lib/actions/cardContextMenu.js';
     
     let Switch;
 

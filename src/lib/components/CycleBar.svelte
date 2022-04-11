@@ -1,7 +1,7 @@
 <script>
-    import CycleChart from './cycleChart.svelte';
-    import { cicloActualEnTexto } from '../stores/cycle_store';
-    import { changeCycle } from '../algoritmos/changeCycle';
+    import CycleChart from '$lib/components/CycleChart.svelte';
+    import { cicloActualEnTexto } from '$lib/stores/cycle_store';
+    import { changeCycle } from '$lib/algoritmos/changeCycle';
     import { fly } from 'svelte/transition';
     import { cubicOut } from 'svelte/easing';
     

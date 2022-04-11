@@ -1,5 +1,5 @@
 <script>
-    import { materias } from "../stores/materia_store";
+    import { materias } from "$lib/stores/materia_store";
 
 </script>
 

@@ -1,5 +1,5 @@
 import { writable, derived, get } from 'svelte/store';
-import { getData } from '../firebase/firebaseFunctions';
+import { getData } from '$lib/firebase/firebaseFunctions';
 
 // HACE LA PETICIÓN AL SERVIDOR Y HACE BIND DE LA DATA
     let materias = writable([]);

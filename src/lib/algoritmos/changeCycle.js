@@ -1,5 +1,5 @@
 import { get } from 'svelte/store';
-import { cicloActual } from '../stores/cycle_store';
+import { cicloActual } from '$lib/stores/cycle_store';
 
 
 function changeCycle(e, qty){

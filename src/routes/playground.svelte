@@ -1,12 +1,13 @@
 <script>
-    import { isPopUpActive } from '../stores/session_store';
-    import { isAdderActive } from "../stores/session_store"; 
+    import { isPopUpActive } from '$lib/stores/session_store';
+    import { isAdderActive } from "$lib/stores/session_store"; 
     
-    import AssistantBar from "../components/Assistant_Bar.svelte";
-    import NoteBook from "../components/NoteBook.svelte"
-    import SideBar from "../components/SideBar.svelte";
-    import PopUp from "../components/PopUp.svelte";
-    import Adder from "../components/Adder.svelte";
+    import AssistantBar from "$lib/components/Assistant_Bar.svelte";
+    import NoteBook from "$lib/components/NoteBook.svelte";
+    import SideBar from "$lib/components/SideBar.svelte";
+    import PopUp from "$lib/components/PopUp.svelte";
+    import Adder from "$lib/components/Adder.svelte";
+
 
     let mostrarTecla = (e) => {
         let target = e.target.nodeName;

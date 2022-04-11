@@ -1,9 +1,9 @@
 <script>
     import { onMount } from "svelte";
-    import { getData } from "../firebase/firebaseFunctions";
+    import { getData } from "$lib/firebase/firebaseFunctions";
     import { updateDoc, doc } from 'firebase/firestore';
-    import { db } from '../firebase/firebaseConfig';
-    import { userUID } from '../stores/session_store';
+    import { db } from '$lib/firebase/firebaseConfig';
+    import { userUID } from '$lib/stores/session_store';
 
     let materias = [];
     

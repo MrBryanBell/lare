@@ -1,8 +1,8 @@
 <script>
-    import MetricCard from "./Metric_Card.svelte";   
-    import Medal from "./Medal.svelte";
-    import { cumAcumulado, cumEgresado } from '../stores/materia_store';
-    import { isAdderActive } from "../stores/session_store";
+    import MetricCard from "$lib/components/Metric_Card.svelte";
+    import Medal from "$lib/components/Medal.svelte";
+    import { cumAcumulado, cumEgresado } from '$lib/stores/materia_store';
+    import { isAdderActive } from "$lib/stores/session_store";
 
 
 </script>

@@ -1,7 +1,7 @@
 <script>
-    import NavBar from "../components/NavBar.svelte";
-    import { userUID } from "../stores/session_store";
-    import SignIn from "../components/SignIn.svelte";
+    import NavBar from "$lib/components/NavBar.svelte";
+    import SignIn from "$lib/components/SignIn.svelte";
+    import { userUID } from "$lib/stores/session_store";
 
     console.log('Hello desde Layout')
 </script>

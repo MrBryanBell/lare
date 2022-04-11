@@ -1,9 +1,9 @@
 <script>
-    import CardResult from './CardResult.svelte';
-    import { listOfSubjects } from '../stores/listOfSubjects';
+    import CardResult from '$lib/components/CardResult.svelte';
+    import { listOfSubjects } from '$lib/stores/listOfSubjects';
     import Sortable from 'sortablejs';
     import { onMount } from 'svelte';
-    import { indexerText } from '../stores/session_store';
+    import { indexerText } from '$lib/stores/session_store';
 
     let cardContainer, input
 

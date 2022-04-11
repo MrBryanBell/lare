@@ -1,5 +1,5 @@
 <script>
-    import MetricContainer from "./MetricContainer.svelte";
+    import MetricContainer from "$lib/components/MetricContainer.svelte";
 </script>
 
 

@@ -1,11 +1,11 @@
 <script>
-    import { cicloActual } from '../stores/cycle_store';
-    import { listOfSubjects } from '../stores/listOfSubjects';
-    import { db } from '../firebase/firebaseConfig';
+    import { cicloActual } from '$lib/stores/cycle_store';
+    import { listOfSubjects } from '$lib/stores/listOfSubjects';
+    import { db } from '$lib/firebase/firebaseConfig';
     import { updateDoc, doc, arrayUnion } from 'firebase/firestore';
-    import { userUID, isPopUpActive } from '../stores/session_store';
-    import { materias } from '../stores/materia_store';
-    import { MateriaClass } from '../classes/materia_class';
+    import { userUID, isPopUpActive } from '$lib/stores/session_store';
+    import { materias } from '$lib/stores/materia_store';
+    import { MateriaClass } from '$lib/classes/materia_class';
 
     let data = {
         code: '',

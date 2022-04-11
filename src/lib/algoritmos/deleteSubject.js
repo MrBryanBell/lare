@@ -1,5 +1,5 @@
-import { materias } from '../stores/materia_store';
-import { listOfSubjects } from '../stores/listOfSubjects';
+import { materias } from '$lib/stores/materia_store';
+import { listOfSubjects } from '$lib/stores/listOfSubjects';
 
 
 function deleteSubject(id) {

@@ -1,5 +1,5 @@
 <script>
-	import { totalUMG as inputValue } from '../stores/materia_store';
+	import { totalUMG as inputValue } from '$lib/stores/materia_store';
 
 	$: console.log($inputValue);
 

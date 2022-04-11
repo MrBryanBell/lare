@@ -1,5 +1,5 @@
 <script>
-	import { auth } from '../firebase/firebaseConfig';
+	import { auth } from '$lib/firebase/firebaseConfig';
 	import {
 		GoogleAuthProvider,
 		getRedirectResult,

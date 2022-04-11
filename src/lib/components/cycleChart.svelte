@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { tweened } from "svelte/motion";
-    import { barPerc } from '../stores/cycle_store';
+    import { barPerc } from '$lib/stores/cycle_store';
     import { cubicOut } from 'svelte/easing';
 
     let localValue = tweened(0, {

@@ -1,7 +1,7 @@
 <script>
-    import { listOfSubjects } from '../stores/listOfSubjects';
-    import { indexerText } from '../stores/session_store';
-    import Square from './Square.svelte'
+    import { listOfSubjects } from '$lib/stores/listOfSubjects';
+    import { indexerText } from '$lib/stores/session_store';
+    import Square from '$lib/components/Square.svelte';
     
     $: g1 = $listOfSubjects.filter((sub) => sub.area === 'gc');
     $: g2 = $listOfSubjects.filter((sub) => sub.area === 'fc');

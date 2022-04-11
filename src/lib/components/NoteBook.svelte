@@ -1,6 +1,6 @@
 <script>
-    import CycleBar from "./CycleBar.svelte";
-    import SubjectContainer from "./SubjectContainer.svelte";
+    import CycleBar from "$lib/components/CycleBar.svelte";
+    import SubjectContainer from "$lib/components/SubjectContainer.svelte";
 </script>
 
 
