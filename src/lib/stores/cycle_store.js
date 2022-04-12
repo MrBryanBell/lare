@@ -1,6 +1,5 @@
 import { derived, writable } from 'svelte/store';
-import * as d3 from 'd3';
-import { scaleBand, scaleLinear, scaleSqrt } from 'd3-scale';
+import { scaleLinear } from 'd3-scale';
 
 let nombreCiclos = [
 	'primero',
@@ -23,7 +22,10 @@ let cicloActualEnTexto = derived(cicloActual, ($cicloActual) => {
 });
 
 let barPerc = derived(cicloActual, ($cicloActual) => {
-	const getPerc = d3.scaleLinear().domain([0, 10]).range([0, 100]);
+	const getPerc = scaleLinear()
+        .domain([0, 10])
+        .range([0, 100]);
+        
 	let num = getPerc($cicloActual);
 	return num;
 });
