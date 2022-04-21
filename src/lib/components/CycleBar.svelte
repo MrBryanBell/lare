@@ -1,5 +1,5 @@
 <script>
-    import CycleChart from '$lib/components/CycleChart.svelte';
+    import CycleChart from '$lib/components/CycleChart2.svelte';
     import { cicloActualEnTexto } from '$lib/stores/cycle_store';
     import { changeCycle } from '$lib/algoritmos/changeCycle';
     import { fly } from 'svelte/transition';
