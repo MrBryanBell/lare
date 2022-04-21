@@ -3,7 +3,7 @@
     import SignIn from "$lib/components/SignIn.svelte";
     import { userUID } from "$lib/stores/session-store";
 
-    console.log('Hello desde Layout')
+    console.log('Hello desde Layouttt')
 </script>
 
 {#if $userUID}
