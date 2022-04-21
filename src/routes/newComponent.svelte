@@ -1,18 +1,21 @@
 <script>
-    // your script goes here
-    import PopUp from "../components/PopUp.svelte";
+    import PopUp from "$lib/components/PopUp.svelte";
+    import student from '../lib/stores/student-store'
+
+
+    let subjects = student.subjects;
+    
+    $: console.log($subjects);
 </script>
 
+<!-- <PopUp /> -->
+
+
+<button on:click={() => console.log($subjects)} >Print</button>
+
+
 <style>
-    /* your styles go here */
-    section {
-        padding-left: 200px;
+    button {
+        margin-left: 100px;
     }
 </style>
-
-<!-- markup (zero or more items) goes here -->
-
-<PopUp />
-<!-- <section></section> -->
-
-

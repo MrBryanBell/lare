@@ -1,0 +1,100 @@
+//------------------------
+// VARIABLES
+//------------------------
+
+// * { outline: 1px solid red; }
+
+//------------------------
+// MAIN-CONTAINER
+//------------------------
+
+div {
+	height: 100vh;
+	padding: 20px 8px 20px;
+	background: linear-gradient(180deg, #1B7EFD 0%, #1B7EFD 100%);
+
+	position: fixed;
+	top: 0;
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+}
+
+.logo {
+    padding-top: 8px;
+    padding-bottom: 16px;
+}
+
+
+//------------------------
+// NAV-BAR
+//------------------------
+
+nav {
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+	gap: 10px;
+
+	position: relative;
+
+
+	a {
+		padding: 6px;
+		border-radius: 0.25rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+        width: 40px;
+
+		svg {
+			width: 28px;
+			height: 28px;
+            fill: #69AEFC;
+		}
+
+        svg.active {
+            fill: #2388fa;
+        }
+
+	}
+}
+
+
+//------------------------
+// DIVIDER
+//------------------------
+
+.box {
+	padding: 4px 10px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	background-color: #4a9ffc;
+    margin-bottom: 12px;
+}
+
+
+
+
+//------------------------
+// ACTIVE-INDICATOR
+//------------------------
+
+.active-indicator {
+	width: 42px;
+	aspect-ratio: 1/1;
+	background: #c3dffe;
+	box-shadow: inset 1px 1px 4px #ebf4ff;
+	border-radius: 0.5rem;
+
+	position: absolute;
+	z-index: -1;
+
+}

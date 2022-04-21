@@ -1,15 +1,18 @@
 
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 
 :root {
+    --barlow-regular: 400;
     --barlow-medium: 500;
     --barlow-semibold: 600;
     --barlow-bold: 700;
 
+    --inter-regular: 400;
     --inter-medium: 500;
     --inter-semibold: 600;
+    --inter-bold: 700;
     --opacity-card: 1;
 }
 
@@ -33,6 +36,10 @@ h1, h2, h3, h4, p {
     opacity: 0.4 !important;
     border: 2px solid #F2B652;
     /* background-color: transparent !important; */
+}
+
+.sortable-ghost h4 {
+    color: transparent !important;
 }
 
 .sortdrag {

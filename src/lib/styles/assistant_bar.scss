@@ -1,0 +1,97 @@
+@import './utils/_mixins.scss';
+
+
+
+//------------------------
+// MAIN CONTAINER
+//------------------------
+
+div {
+    // outline: 1px solid red;
+	grid-area: toolbar;
+
+	padding: 14px 20px;
+	background: #0B84FE;
+	border-radius: 0.25rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    // TODO: BORRAR
+    // max-height: 62px;
+    width: 686px;
+    transition: all 0.6s;
+
+}
+
+
+
+//------------------------
+// SALUDO
+//------------------------
+
+
+.saludo {
+    
+    display: flex;
+    gap: 0.5rem;
+
+    @include text-mixin('Inter', 13px, 1, var(--inter-medium), #FFFFFF, -0.004em );
+    
+    span {
+        font-weight: var(--inter-semibold)
+    }
+
+    p {
+        font-weight: var(--inter-regular);
+        color: #EBF4FE;
+
+        b {
+            font-weight: var(--inter-semibold);
+        }
+        
+    }
+    
+}
+
+
+
+
+//------------------------
+// MAIN CONTAINER
+//------------------------
+
+
+.cta {
+
+    display: flex;
+    gap: 8px;
+
+    button {
+        background-color: transparent;
+        padding: 12px 16px;
+        border: none;
+        @include text-mixin('Inter', 13px, 1, var(--inter-semibold), #FDFDFF, -0.003em );
+        cursor: pointer;
+        //min-width: 104px;
+    }
+
+    .secondary {
+        border: 1px solid #FFFFFF;
+        border-radius: 4px;
+        color: #FFFFFF;
+    }
+
+    .primary {
+        background: #F9F9F9;
+        border-radius: 4px;
+        color: #1B7CFD;
+        padding: 12px 24px;
+    }
+}
+
+
+.meq {
+    @include text-mixin('Inter', 13px, 1, var(--inter-medium), #FDFDFF, -0.004em );
+}

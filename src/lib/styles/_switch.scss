@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+//------------------------
+// VARIABLES
+//------------------------
+    $toggle-bg-disabled: #E8EAED;
+    $toggle-bg-active: #56A9FB;
+    
+    $knob-disabled: #FAFAFA;
+    $knob-active: #F5F5F5;
+
+
+
+//------------------------
+// ESTILOS SWITCH
+//------------------------
+    div {
+        width: 36px;
+        height: 20px;
+        padding: 4px 0.25rem;
+        border-radius: 0.75rem;
+
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .active-sw {
+        background-color: $toggle-bg-active;
+    }
+
+    .disabled-sw {
+        background-color: $toggle-bg-disabled;
+    }
+
+
+    
+//------------------------
+// ESTILOS KNOB
+//------------------------
+    div div {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        
+
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+ 
+    .active-kn {
+        transform: translateX(calc(100% + 4px));
+        background-color: $knob-active;
+    }
+        
+    .disabled-kn {
+        transform: translateX(0);
+        background-color: $knob-disabled;
+    }
+
+
+
+//------------------------
+// PREVENT TEXT SELECTION AFTER DOUBLE CLICK
+// (Aplica para ambos div)
+//------------------------
+
+div {
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+}
