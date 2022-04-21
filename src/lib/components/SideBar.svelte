@@ -1,9 +1,12 @@
-<script>
+<script lang="ts">
     import MetricCard from "$lib/components/Metric_Card.svelte";
     import Medal from "$lib/components/Medal.svelte";
-    import { cumAcumulado, cumEgresado } from '$lib/stores/materia_store';
-    import { isAdderActive } from "$lib/stores/session_store";
+    import student from '../stores/student-store';
+    import { isAdderActive } from "$lib/stores/session-store";
 
+
+    $: CUM_ACUMULADO = $student.CUM_ACUMULADO;
+    $: CUM_EGRESADO = $student.CUM_EGRESADO;
 
 </script>
 
@@ -13,8 +16,8 @@
 <section
     style:opacity={($isAdderActive) ? 0.5 : 1}
     >
-    <MetricCard isPrimary={false} data={$cumAcumulado}/>
-    <MetricCard data={$cumEgresado}/>
+    <MetricCard isPrimary={false} data={CUM_ACUMULADO}/>
+    <MetricCard data={CUM_EGRESADO}/>
     <Medal />
 </section>
 

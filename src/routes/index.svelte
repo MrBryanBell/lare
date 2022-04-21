@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { auth } from '$lib/firebase/firebaseConfig';
-	import {
+	import { auth } from '../lib/firebase/config/firebaseConfig';
+    import{
 		GoogleAuthProvider,
 		getRedirectResult,
 		signInWithRedirect,
 		signOut,
 		onAuthStateChanged,
 	} from 'firebase/auth';
-    import { userUID } from '$lib/stores/session_store';
+    import { userUID } from '$lib/stores/session-store';
 
 	const provider = new GoogleAuthProvider();
 

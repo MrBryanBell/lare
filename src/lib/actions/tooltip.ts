@@ -1,14 +1,14 @@
 import Tooltip from '$lib/components/Tooltip.svelte';
 
 
-function tooltip(node) {
+function tooltip(node: HTMLElement) {
 
-	let subjectName;
-	let lastUpdate;
-	let tooltipComponent;
-
+	let subjectName: string;
+	let lastUpdate: string;
+	let tooltipComponent: Tooltip;
+    
 	//FUNCTIONS FOR LISTENERS
-	function onMouseOver(event) {
+	function onMouseOver(event: MouseEvent) {
 		subjectName = node.getAttribute('data-subject-name');
 		lastUpdate = node.getAttribute('data-last-update');
 
@@ -23,10 +23,9 @@ function tooltip(node) {
 
 		});
 
-        
 	}
 
-	function onMouseMove(event) {
+	function onMouseMove(event: MouseEvent) {
 		tooltipComponent.$set({
 			x: ( +event.pageX - 152 ) + 'px',
 			y: ( +event.pageY + 24 ) + 'px',
@@ -34,7 +33,7 @@ function tooltip(node) {
 
 	}
 
-	function onMouseLeave(event) {
+	function onMouseLeave(event: MouseEvent) {
 		tooltipComponent.$destroy();
 	}
 

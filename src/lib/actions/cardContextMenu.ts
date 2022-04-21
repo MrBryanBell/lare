@@ -1,18 +1,18 @@
 import CardContextMenu from '$lib/components/CardContextMenu.svelte';
 
 
-function showContextMenu(node, currentSubjectID) {
+function showContextMenu(node: HTMLElement, { id, pensumOrder }) {
     
-    let contextMenuComponent;
+    let contextMenuComponent: CardContextMenu;
     let isContextMenuActive = false;
     let fatherNode = node.closest('.main-container');
     let closest = node.closest('.main-container')
 
-    let overlay;
+    let overlay: HTMLElement;
 
 
     // FUNCTIONS
-    function onClick(event) {
+    function onClick(event: MouseEvent) {
         console.log(closest);
 
         if (!isContextMenuActive) {
@@ -20,7 +20,8 @@ function showContextMenu(node, currentSubjectID) {
             contextMenuComponent = new CardContextMenu({
                 props: {
                     display: 'block',
-                    currentSubjectID,
+                    currentSubjectID: id,
+                    currentSubjectOrder: pensumOrder,
                 },
                 target: node,
             })
@@ -30,6 +31,7 @@ function showContextMenu(node, currentSubjectID) {
             isContextMenuActive = true;
 
             //ADDING THE OVERLAY
+            
             overlay = document.createElement('section')
             overlay.classList.add('card-overlay')
             fatherNode.appendChild(overlay);
@@ -37,8 +39,8 @@ function showContextMenu(node, currentSubjectID) {
     }
 
 
-    function onMouseOut(event) {
-        let mouseMovedOut = event.relatedTarget.nodeName === 'DIV'
+    function onMouseOut(event: MouseEvent) {
+        let mouseMovedOut = (event.relatedTarget as HTMLElement).nodeName === 'DIV'
         
         if (mouseMovedOut) { 
             contextMenuComponent.$destroy();

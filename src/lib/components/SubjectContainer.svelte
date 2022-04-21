@@ -1,16 +1,22 @@
-<script>
+<script lang="ts">
+
     import Sortable from 'sortablejs';
     import Card from "$lib/components/Card.svelte";
     import { onMount } from 'svelte';
-    import { materias } from '$lib/stores/materia_store.js';
     import { cicloActual } from '$lib/stores/cycle_store';
-    import { MateriaClass } from "$lib/classes/materia_class";
-    import { listOfSubjects } from "$lib/stores/listOfSubjects";
+    import SubjectStudent from '$lib/classes/subject/student-subject';
+    import pensum from "../stores/pensum-store";
+    import student from "../stores/student-store";
+    import type IStudentSubject from '../models/constructors/subject/subject-student';
 
     let domElement;
 
-    $: materiasAct = $materias.filter((mt) => mt.cycle === $cicloActual);
+    let STUDENT_SUBJECTS = student.subjects;
+    let PENSUM_SUBJECTS = pensum.subjects;
 
+
+    $: materiasAct = $STUDENT_SUBJECTS.filter((mt) => mt.cycle === $cicloActual);
+ 
     onMount(() => {
 
         let sortList = Sortable.create(domElement, {
@@ -29,23 +35,31 @@
 
                 let code = evt.item.getAttribute('data-subject-code');
                 
-                let selectedSubject = $listOfSubjects.find((sub) => sub.code === code );
-                let newSubject = {...selectedSubject, cycle: $cicloActual, id: self.crypto.randomUUID() }
-                    delete newSubject.area
-                    delete newSubject.additions
+                let selectedSubject = $PENSUM_SUBJECTS.find((sub) => sub.code === code );
+
+                let newSubject: IStudentSubject = { 
+                    id: self.crypto.randomUUID(),
+                    name: selectedSubject.name,
+                    code: selectedSubject.code,
+                    uv: selectedSubject.uv,
+                    pensumOrder: selectedSubject.pensumOrder,
+                    isOptative: selectedSubject.isOptative,
+                    grade: 0,
+                    cycle: $cicloActual,
+                }
                 
-                let newSubjectParsed = new MateriaClass({...newSubject});
-                let otherMaterias = $materias.filter((mt) => mt.cycle !== $cicloActual);
-                let currentMaterias = $materias.filter((mt) => mt.cycle === $cicloActual);
+                let newSubjectParsed = new SubjectStudent({...newSubject});
+                let otherMaterias = $STUDENT_SUBJECTS.filter((mt) => mt.cycle !== $cicloActual);
+                let currentMaterias = $STUDENT_SUBJECTS.filter((mt) => mt.cycle === $cicloActual);
                 
                 currentMaterias.splice(index, 0, newSubjectParsed);
  
                 //UPDATE THE DOM
                 evt.item.remove();
-                $materias = [...otherMaterias, ...currentMaterias];
+                $student.subjects = [...otherMaterias, ...currentMaterias];
 
-                //UPDATE THE $LIST_OF_SUBJECTS
-                listOfSubjects.updateAdditions(selectedSubject.code, 1);
+                //UPDATE THE $PENSUM_SUBJECTS (ADDITIONS)
+                pensum.updateSubjectAdditions(selectedSubject.pensumOrder, 1);
 
             }
 
@@ -57,11 +71,11 @@
 
 
 
-<nav>
+<nav on:click={() => console.log($PENSUM_SUBJECTS)} >
     
     <article bind:this={domElement} >
             {#each materiasAct as materia, i (materia.id) }
-                <Card data={{...materia}} index={i}/>
+                <Card data={materia} index={i}/>
             {:else}
                 <p>No hay data aún</p>
             {/each}

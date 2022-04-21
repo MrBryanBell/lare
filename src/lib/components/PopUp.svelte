@@ -1,27 +1,38 @@
-<script>
+<script lang="ts">
     import { cicloActual } from '$lib/stores/cycle_store';
-    import { listOfSubjects } from '$lib/stores/listOfSubjects';
-    import { db } from '$lib/firebase/firebaseConfig';
-    import { updateDoc, doc, arrayUnion } from 'firebase/firestore';
-    import { userUID, isPopUpActive } from '$lib/stores/session_store';
-    import { materias } from '$lib/stores/materia_store';
-    import { MateriaClass } from '$lib/classes/materia_class';
+    import pensum from '../stores/pensum-store';
+    import student from '../stores/student-store'
+    import { db } from '$lib/firebase/config/firebaseConfig';
+    import { updateDoc, doc, arrayUnion } from 'firebase/firestore/lite';
+    import { userUID, isPopUpActive } from '$lib/stores/session-store';
+    import StudentSubject from '$lib/classes/subject/student-subject';
+    import type SubjectStudent from '../models/constructors/subject/subject-student'
 
     let data = {
         code: '',
         grade: '',
     };
+    
+    
+    let STUDENT_SUBJECTS = student.subjects; 
+    let PENSUM_SUBJECTS = pensum.subjects; 
 
-    $: materiaActual = $listOfSubjects[$listOfSubjects.findIndex((mt) => data.code === mt.code)];
+
+    $: materiaActual = $PENSUM_SUBJECTS[$PENSUM_SUBJECTS.findIndex((mt) => data.code === mt.code)];
 
     $: console.log(materiaActual);
     $: console.log($cicloActual);
     
     function addNewMateria() {
-        let newMateria = {
-            cycle: $cicloActual,
+        let newMateria: SubjectStudent  = {
             id: self.crypto.randomUUID(),
-            ...data,
+            name: materiaActual.name,
+            code: data.code,
+            uv: materiaActual.uv,
+            pensumOrder: materiaActual.pensumOrder,
+            isOptative: materiaActual.isOptative,
+            grade: ((+ data.grade) as number),
+            cycle: $cicloActual,
         }
 
         console.log(newMateria);
@@ -32,18 +43,18 @@
         })
         .then(() => {
             console.log('Se añadió con éxito');
-            const newSubject = new MateriaClass({...newMateria, ...materiaActual})
-            
-            //UPDATE LOCAL LIST OF SUBJECTS
-            listOfSubjects.updateAdditions(newSubject.code, 1);
+            const newSubject: StudentSubject  = new StudentSubject({...newMateria})
 
-            console.table($listOfSubjects)
+            //UPDATE LOCAL LIST OF SUBJECTS
+            pensum.updateSubjectAdditions(newSubject.pensumOrder, 1);
+
+            console.table($PENSUM_SUBJECTS)
             console.log(newSubject);
 
             //UPDATE STORED MATERIAS 
-            $materias = [...$materias, newSubject];
+            student.addSubject(newSubject);
             console.log('Se agregó al array');
-            console.table($materias);
+            console.table($STUDENT_SUBJECTS);
             $isPopUpActive = false;
         })
     };
@@ -54,6 +65,8 @@
         }
     };
 </script>
+
+
 
 <!-- markup (zero or more items) goes here -->
 

@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 // IMPORT SERVICES
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore/lite';
 import { getAuth } from "firebase/auth";
 
 

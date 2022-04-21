@@ -1,11 +1,12 @@
 <script>
     import CardResult from '$lib/components/CardResult.svelte';
-    import { listOfSubjects } from '$lib/stores/listOfSubjects';
+    import pensum from '../stores/pensum-store';
     import Sortable from 'sortablejs';
     import { onMount } from 'svelte';
-    import { indexerText } from '$lib/stores/session_store';
+    import { indexerText } from '$lib/stores/session-store';
 
-    let cardContainer, input
+    let subjects = pensum.subjects;
+    let cardContainer, input;
 
     onMount(() => {
         let sortList = Sortable.create(cardContainer, {
@@ -26,7 +27,7 @@
     }
 
 
-    $: results = $listOfSubjects.filter(({name}) => name.toLowerCase().startsWith($indexerText.toLocaleLowerCase()));
+    $: results = $subjects.filter(({name}) => name.toLowerCase().startsWith($indexerText.toLocaleLowerCase()));
 
     // $: console.log(results);
     $: console.log('Indexer text is ' + $indexerText);

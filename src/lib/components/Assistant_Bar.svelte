@@ -1,6 +1,5 @@
 <script>
-    // your script goes here
-    import { isAdderActive } from "$lib/stores/session_store";
+    import { isAdderActive } from "$lib/stores/session-store";
     import { fade, fly } from "svelte/transition";
 </script>
 

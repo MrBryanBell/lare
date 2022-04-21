@@ -1,6 +1,6 @@
 <script>
-    import { indexerText } from '$lib/stores/session_store';
-    import { tooltip } from '$lib/actions/tooltip.js';
+    import { indexerText } from '$lib/stores/session-store';
+    import { tooltip } from '$lib/actions/tooltip';
 
     export let data;
 

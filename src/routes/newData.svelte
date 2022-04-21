@@ -1,14 +1,14 @@
 <script>
     import { onMount } from "svelte";
-    import { getData } from "$lib/firebase/firebaseFunctions";
-    import { updateDoc, doc } from 'firebase/firestore';
-    import { db } from '$lib/firebase/firebaseConfig';
-    import { userUID } from '$lib/stores/session_store';
+    // import { getData } from "$lib/firebase/firebaseFunctions";
+    import { updateDoc, doc } from 'firebase/firestore/lite';
+    import { db } from "$lib/firebase/config/firebaseConfig";
+    import { userUID } from '$lib/stores/session-store';
 
     let materias = [];
     
     onMount(async () => {
-        materias = await getData('lareData', `${$userUID}`);
+        // materias = await getData('lareData', `${$userUID}`);
     });
 
     $: console.log(materias);

@@ -3,6 +3,7 @@
 
     export let display = 'none';
     export let currentSubjectID;
+    export let currentSubjectOrder;
 </script>
 
 
@@ -14,7 +15,7 @@
     <button>Editar Materia</button>
 
     <button
-        on:click={() => deleteSubject(currentSubjectID)}
+        on:click={() => deleteSubject(currentSubjectID, currentSubjectOrder)}
         >Eliminar Materia
     </button>
     

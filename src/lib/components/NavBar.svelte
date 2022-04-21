@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
-	import { currentTab } from '$lib/stores/session_store';
+	import { currentTab } from '$lib/stores/session-store';
     import { fade } from '$lib/animation_store/animations';
 
 	let elem;

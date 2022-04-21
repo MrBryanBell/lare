@@ -1,13 +1,16 @@
-<script>
-    import { listOfSubjects } from '$lib/stores/listOfSubjects';
-    import { indexerText } from '$lib/stores/session_store';
+<script lang="ts">
+    import pensum from "../stores/pensum-store";
     import Square from '$lib/components/Square.svelte';
     
-    $: g1 = $listOfSubjects.filter((sub) => sub.area === 'gc');
-    $: g2 = $listOfSubjects.filter((sub) => sub.area === 'fc');
-    $: g3 = $listOfSubjects.filter((sub) => sub.area === 'pc');
+    let PENSUM_SUBJECTS = pensum.subjects;
+    
+    $: g1 = $PENSUM_SUBJECTS.filter((sub) => sub.area === 'gc');
+    $: g2 = $PENSUM_SUBJECTS.filter((sub) => sub.area === 'fc');
+    $: g3 = $PENSUM_SUBJECTS.filter((sub) => sub.area === 'pc');
 
-    $: console.table($listOfSubjects);
+    
+
+    $: console.table($PENSUM_SUBJECTS);
 
     function getColor(value) {
         if (!value) return "#2982FA"

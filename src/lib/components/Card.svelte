@@ -1,20 +1,25 @@
-<script>
+<script lang="ts">
     import Toggle from '$lib/components/Switch.svelte';
-    import { changeNote } from '$lib/algoritmos/changeNote.js'
+    import { changeNote } from '$lib/algoritmos/changeNote';
     import { fly } from 'svelte/transition';
-    import { showContextMenu } from '$lib/actions/cardContextMenu.js';
+    import { showContextMenu } from '$lib/actions/cardContextMenu';
+    import type SubjectStudent from '../models/constructors/subject/subject-student'
     
-    let Switch;
+    let Switch: Toggle;
 
-    export let index;
+    export let index: number;
     let state = false;
 
 
-    export let data = {
+    export let data: SubjectStudent = {
         id: 'b92ba872-b74d-447b-b33d-970d3b2dc8ef',
         name: 'Introducción a la Comunicación',
         uv: 4,
+        code: 'COM',
         grade: 9.6,
+        cycle: 1,
+        pensumOrder: 1,
+        isOptative: false,
     }
 
 
@@ -56,7 +61,7 @@
         <span>   
                 <button
                     class="options-menu" 
-                    use:showContextMenu={data.id}
+                    use:showContextMenu={ {id: data.id, pensumOrder: data.pensumOrder} }
                     >
                     <img
                     src="/icons/options-menu.svg" 

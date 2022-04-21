@@ -1,6 +1,6 @@
 import anime from 'animejs';
-import { currentTab } from '$lib/stores/session_store';
-import { isAdderActive } from "$lib/stores/session_store"
+import { currentTab } from '$lib/stores/session-store';
+import { isAdderActive } from "$lib/stores/session-store"
 import { get } from 'svelte/store';
 
 

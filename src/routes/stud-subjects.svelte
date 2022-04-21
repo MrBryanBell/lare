@@ -1,14 +1,14 @@
 <script>
-    import { materias } from "$lib/stores/materia_store";
-
+    import student from "../lib/stores/student-store";
+    
+    let subjects = student.subjects;
+    
 </script>
 
 <div>
-    {#each $materias as materia}
-         <!-- content here -->
+    {#each $subjects as materia}
          <p>{materia.name}  --- {materia.grade.toFixed(1)}</p>
     {:else}
-         <!-- empty list -->
          <p>No Data Now</p>
     {/each}
 </div>
