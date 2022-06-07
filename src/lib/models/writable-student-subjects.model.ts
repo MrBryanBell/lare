@@ -1,5 +1,5 @@
 import type { Unsubscriber, Subscriber } from 'svelte/store';
-import type { StudentSubject } from '../classes/subject/student-subject';
+import type StudentSubject from '../classes/subject/student-subject';
 
 
 interface WSS {
