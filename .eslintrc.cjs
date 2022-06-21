@@ -25,6 +25,10 @@ module.exports = {
 	rules: {
 		quotes: ['error', 'single'],
 		camelcase: 'warn',
-    'linebreak-style': ['error', 'windows']
+    'linebreak-style': ['error', 'windows'],
+		'indent': 'off',
+		'no-tabs': 'off',
+		'import/no-extraneous-dependencies': 'off',
+		'import/no-unresolved': 'off',
 	},
 };
