@@ -1,16 +1,18 @@
-import Wr_Pensum from '$lib/classes/custom-stores/pensum';
-import Pensum from '../classes/pensum';
-
+import { PensumStore } from '../models/classes/custom-stores/pensum';
+import { Pensum }      from '../models/classes/pensum';
 
 const initConfig = new Pensum({
-    id: '',
-    university: '',
-    faculty: '',
-    career: '',
-    collaborators: [],
-    subjects: [],
+	id               : '',
+	university       : '',
+	career           : '',
+	collaborators    : [],
+	subjects         : [],
+	createdAt        : new Date(),
+	lastTimeModified : new Date(),
+	usedBy           : [],
+	subjectLength    : 0,
+	cyclesByDefault  : 0,
+	maxUMG           : 0,
 });
 
-const pensum = new Wr_Pensum(initConfig);
-
-export default pensum;
+export const pensum = new PensumStore(initConfig);

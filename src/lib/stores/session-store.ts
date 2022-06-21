@@ -1,6 +1,7 @@
-import getDataFromDB from './initial-request';
+import { getStudentData } from './initial-request';
 import { get, writable } from 'svelte/store';
-import { auth } from "$lib/firebase/config/firebaseConfig";
+import { auth } from "../firebase/config/firebase-config";
+import type { Writable } from 'svelte/store';
 
 import { 
     onAuthStateChanged, 
@@ -21,20 +22,20 @@ onAuthStateChanged(auth, async (user) => {
         // EN CASO QUE SE ACABA DE INICIAR SESIÓN
         const result = await getRedirectResult(auth);
         if (result) {
-            const isNewUser = getAdditionalUserInfo(result).isNewUser;
+            const isNewUser = getAdditionalUserInfo(result)?.isNewUser;
             
             if (isNewUser){
                 goto('/config')
             } 
             
             else {
-                await getDataFromDB('yAK1rqtEwYUQy3uan1Y4iXmojh73');
+                await getStudentData('officialDataTest');
             }
         }
     
         // EN CASO QUE YA HABÍA INICIADO SESIÓN Y SOLO REFRESCÓ LA PÁGINA
         else {
-            await getDataFromDB('yAK1rqtEwYUQy3uan1Y4iXmojh73');
+            await getStudentData('officialDataTest');
             console.log('Data Descargada')
         }
     } 
@@ -46,10 +47,12 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 
+type UserUID = Writable<null | string | undefined>;
+
 let isAdderActive = writable(false);
 
 
-let userUID = writable(null);
+let userUID: UserUID = writable(null);
 let currentTab = writable(1);
 let isPopUpActive = writable(false);
 let indexerText = writable("");

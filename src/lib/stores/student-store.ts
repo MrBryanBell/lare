@@ -1,19 +1,16 @@
-import Wr_Student from '$lib/classes/custom-stores/student';
-import Student from '../classes/student';
+import { StudentStore } from '../models/classes/custom-stores/student';
+import { Student } from '../models/classes/student';
+
 
 const initConfig = new Student({
-    id: '',
-    name: '',
-    lastName: '',
-    email: '',
-    university: '',
-    faculty: '',
-    career: '',
-    subjects: [],
+    id         : '',
+    firstName  : '',
+    lastName   : '',
+    email      : '',
+    university : '',
+    career     : '',
+    subjects   : [],
 }); 
 
 
-const student = new Wr_Student(initConfig);
-
-
-export default student;
+export const student = new StudentStore(initConfig);
