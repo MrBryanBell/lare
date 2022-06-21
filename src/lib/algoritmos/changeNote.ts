@@ -1,41 +1,33 @@
-import { get } from 'svelte/store';
-import student from '../stores/student-store';
+import { get }     from 'svelte/store';
+import { student } from '../stores/student-store';
 
+export function changeNote(event: WheelEvent, subjectId: string) {
+	const shiftPressed = event.shiftKey;
+	const wheelUp      = event.deltaY < 0;
+	const wheelDown    = event.deltaY > 0;
 
-function changeNote(e: WheelEvent, ID: string) {
-    // let { STUDENT_SUBJECTS } = get(STUDENT_STORE);
+	const subject      = student.findSubjectById(subjectId);
+	const subjectGrade = subject!.grade;
 
-    // let currentElement = get(STUDENT_SUBJECTS).find((mt) => mt.id === ID)
-    let currentElement = student.findSubject(ID);
+	if (shiftPressed) {
+		if (wheelUp && subjectGrade <= 9) {
+			student.updateSubjectGrade(subjectId, 1);
+		}
 
-    let currentGrade = currentElement.grade;
+		if (wheelDown && subjectGrade >= 1) {
+			student.updateSubjectGrade(subjectId, -1);
+		}
+	}
 
-    // ¿PRESIONÓ SHIFT?
-    if ((e.shiftKey))
-        {
-            // WHEEL UP && NOTA <= 9
-            if (e.deltaY < 0 && currentGrade <= 9) 
-                return student.updateGrade(ID, 1);
+	if (!shiftPressed) {
+		if (wheelUp && subjectGrade < 10) {
+			student.updateSubjectGrade(subjectId, 0.1);
+		}
 
-            // WHEEL DOWN && NOTA >= 1
-            else if (e.deltaY > 0 && currentGrade >= 1 )
-                return student.updateGrade(ID, -1);
-
-        } 
-     
-
-    else {
-            // WHEEL UP && NOTA MENOR A 10
-            if (e.deltaY < 0 && currentGrade < 10) 
-                return student.updateGrade(ID, 0.1);
-            
-            // WHEEL DOWN && NOTA MENOR A 10
-            else if (e.deltaY > 0 && currentGrade > 0.0 )
-                return student.updateGrade(ID, -0.1);
-        }
-    
-    // console.log(get(materias)[0].nota);
+		if (wheelDown && subjectGrade > 0.0) {
+			student.updateSubjectGrade(subjectId, -0.1);
+		}
+	}
 }
 
-
-export { changeNote };
+// console.log(get(materias)[0].nota);
