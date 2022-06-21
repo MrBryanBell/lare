@@ -1,7 +1,7 @@
 <script>
-    import student from "../lib/stores/student-store";
+    import { student } from "../lib/stores/student-store";
     
-    let subjects = student.subjects;
+    let subjects = student.subjects$;
     
 </script>
 

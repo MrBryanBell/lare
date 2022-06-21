@@ -1,7 +1,7 @@
 <script>
-    import pensum from "../lib/stores/pensum-store";
+    import { pensum } from "../lib/stores/pensum-store";
     
-    let subjects = pensum.subjects;
+    let subjects = pensum.subjects$;
     
 </script>
 
