@@ -1,14 +1,15 @@
-import type SubjectPensum from '$lib/classes/subject/pensum-subject';
+import type { SubjectPensumConstructor } from './subject';
 
-
-interface PensumCSTR {
-    id: string;
-    university: string;
-    faculty: string;
-    career: string;
-    collaborators: string[];
-    subjects: SubjectPensum[];
+export interface PensumConstructor {
+	id               : string;
+	university       : string;
+	career           : string;
+	collaborators    : string[];
+	subjects         : SubjectPensumConstructor[];
+	createdAt        : Date;
+	lastTimeModified : Date;
+	usedBy           : string[];
+	subjectLength    : number;
+	cyclesByDefault  : number;
+	maxUMG           : number;
 }
-
-
-export default PensumCSTR;

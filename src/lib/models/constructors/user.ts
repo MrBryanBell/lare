@@ -1,8 +1,6 @@
-interface UserCSTR {
-    id: string;
-    name: string;
-    lastName: string;
-    email: string;
+export interface UserConstructor {
+	id        : string;
+	firstName : string;
+	lastName  : string;
+	email     : string;
 }
-
-export default UserCSTR;
