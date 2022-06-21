@@ -1,8 +1,6 @@
-interface UserContract {
-    id: string;
-    name: string;
-    lastName: string;
-    email: string;
+export interface UserContract {
+	id        : string;
+	firstName : string;
+	lastName  : string;
+	email     : string;
 }
-
-export default UserContract;
