@@ -1,5 +1,4 @@
-import { doc, getDoc } from 'firebase/firestore/lite';
-import type { Firestore, FirestoreDataConverter } from 'firebase/firestore/lite';
+import { doc, getDoc, type Firestore, type FirestoreDataConverter } from 'firebase/firestore/lite';
 import { db } from '../config/firebase-config';
 import type { Student } from '../../models/classes/student';
 import type { Pensum } from '../../models/classes/pensum';
@@ -18,12 +17,17 @@ export class FirestoreService {
 	static async getDocument<T>(
 		collectionName: string,
 		documentName: string,
-		DataConverter: FirestoreDataConverter<unknown>,
+		DataConverter?: FirestoreDataConverter<unknown>,
 	): Promise<T> {
-		const converter = DataConverter;
+		let docReference;
 
-		const docRefence = doc(this.db, collectionName, documentName).withConverter(converter);
-		const docSnapshot = await getDoc(docRefence);
+		if (DataConverter) {
+			docReference = doc(this.db, collectionName, documentName).withConverter(DataConverter);
+		} else {
+			docReference = doc(this.db, collectionName, documentName);
+		}
+		
+		const docSnapshot = await getDoc(docReference);
 		const data = docSnapshot.data();
 		return data as T;
 	}

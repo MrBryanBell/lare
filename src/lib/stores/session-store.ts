@@ -5,8 +5,8 @@ import type { Writable } from 'svelte/store';
 
 import { 
     onAuthStateChanged, 
-    getRedirectResult, 
-    getAdditionalUserInfo 
+    getRedirectResult,
+    getAdditionalUserInfo
 } from 'firebase/auth';
 
 import { goto } from '$app/navigation';

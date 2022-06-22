@@ -1,11 +1,11 @@
-<script>
+<script lang="ts" >
     import CardResult from '$lib/components/CardResult.svelte';
-    import pensum from '../stores/pensum-store';
     import Sortable from 'sortablejs';
+		import { pensum } from '$lib/stores/pensum-store';
     import { onMount } from 'svelte';
     import { indexerText } from '$lib/stores/session-store';
 
-    let subjects = pensum.subjects;
+    let subjects = pensum.subjects$;
     let cardContainer, input;
 
     onMount(() => {

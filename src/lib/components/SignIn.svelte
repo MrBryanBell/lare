@@ -1,5 +1,5 @@
 <script>
-	import { auth } from '$lib/firebase/config/firebaseConfig';
+	import { auth } from '../firebase/config/firebase-config';
     import{
 		getRedirectResult,
 		signInWithRedirect,

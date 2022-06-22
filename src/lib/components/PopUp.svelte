@@ -1,12 +1,13 @@
 <script lang="ts">
     import { cicloActual } from '$lib/stores/cycle_store';
-    import pensum from '../stores/pensum-store';
-    import student from '../stores/student-store'
-    import { db } from '$lib/firebase/config/firebaseConfig';
+    import { pensum } from '../stores/pensum-store';
+    import { student } from '../stores/student-store'
+    import { db } from '../firebase/config/firebase-config';
     import { updateDoc, doc, arrayUnion } from 'firebase/firestore/lite';
     import { userUID, isPopUpActive } from '$lib/stores/session-store';
-    import StudentSubject from '$lib/classes/subject/student-subject';
-    import type SubjectStudent from '../models/constructors/subject/subject-student'
+    import { SubjectStudent } from '../models/classes/subject-student';
+    import type { SubjectStudentConstructor } from '../models/constructors/subject'
+
 
     let data = {
         code: '',
@@ -14,8 +15,8 @@
     };
     
     
-    let STUDENT_SUBJECTS = student.subjects; 
-    let PENSUM_SUBJECTS = pensum.subjects; 
+    let STUDENT_SUBJECTS = student.subjects$;; 
+    let PENSUM_SUBJECTS = pensum.subjects$; 
 
 
     $: materiaActual = $PENSUM_SUBJECTS[$PENSUM_SUBJECTS.findIndex((mt) => data.code === mt.code)];
@@ -24,7 +25,7 @@
     $: console.log($cicloActual);
     
     function addNewMateria() {
-        let newMateria: SubjectStudent  = {
+        let newMateria: SubjectStudentConstructor  = {
             id: self.crypto.randomUUID(),
             name: materiaActual.name,
             code: data.code,
@@ -43,7 +44,7 @@
         })
         .then(() => {
             console.log('Se añadió con éxito');
-            const newSubject: StudentSubject  = new StudentSubject({...newMateria})
+            const newSubject: SubjectStudent  = new SubjectStudent({...newMateria})
 
             //UPDATE LOCAL LIST OF SUBJECTS
             pensum.updateSubjectAdditions(newSubject.pensumOrder, 1);

@@ -1,8 +1,8 @@
 <script lang="ts">
-    import pensum from "../stores/pensum-store";
+    import { pensum } from "../stores/pensum-store";
     import Square from '$lib/components/Square.svelte';
     
-    let PENSUM_SUBJECTS = pensum.subjects;
+    let PENSUM_SUBJECTS = pensum.subjects$;
     
     $: g1 = $PENSUM_SUBJECTS.filter((sub) => sub.area === 'gc');
     $: g2 = $PENSUM_SUBJECTS.filter((sub) => sub.area === 'fc');

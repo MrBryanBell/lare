@@ -1,6 +1,6 @@
 <script>
-    import { isPopUpActive } from '$lib/stores/session-store';
-    import { isAdderActive } from "$lib/stores/session-store"; 
+    import { isPopUpActive } from '../lib/stores/session-store';
+    import { isAdderActive } from "../lib/stores/session-store"; 
     
     import AssistantBar from "$lib/components/Assistant_Bar.svelte";
     import NoteBook from "$lib/components/NoteBook.svelte";

@@ -4,15 +4,15 @@
     import Card from "$lib/components/Card.svelte";
     import { onMount } from 'svelte';
     import { cicloActual } from '$lib/stores/cycle_store';
-    import SubjectStudent from '$lib/classes/subject/student-subject';
-    import pensum from "../stores/pensum-store";
-    import student from "../stores/student-store";
-    import type IStudentSubject from '../models/constructors/subject/subject-student';
+    import { SubjectStudent } from '../models/classes/subject-student';
+    import { pensum } from "../stores/pensum-store";
+    import { student } from "../stores/student-store";
+    import type { SubjectStudentConstructor } from '../models/constructors/subject';
 
     let domElement;
 
-    let STUDENT_SUBJECTS = student.subjects;
-    let PENSUM_SUBJECTS = pensum.subjects;
+    let STUDENT_SUBJECTS = student.subjects$;
+    let PENSUM_SUBJECTS = pensum.subjects$;
 
 
     $: materiasAct = $STUDENT_SUBJECTS.filter((mt) => mt.cycle === $cicloActual);
@@ -37,7 +37,7 @@
                 
                 let selectedSubject = $PENSUM_SUBJECTS.find((sub) => sub.code === code );
 
-                let newSubject: IStudentSubject = { 
+                let newSubject: SubjectStudentConstructor = { 
                     id: self.crypto.randomUUID(),
                     name: selectedSubject.name,
                     code: selectedSubject.code,

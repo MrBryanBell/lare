@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     // import { getData } from "$lib/firebase/firebaseFunctions";
     import { updateDoc, doc } from 'firebase/firestore/lite';
-    import { db } from "$lib/firebase/config/firebaseConfig";
+    import { db } from "../lib/firebase/config/firebase-config";
     import { userUID } from '$lib/stores/session-store';
 
     let materias = [];

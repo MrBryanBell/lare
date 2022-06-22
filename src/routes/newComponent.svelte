@@ -1,9 +1,9 @@
 <script>
     import PopUp from "$lib/components/PopUp.svelte";
-    import student from '../lib/stores/student-store'
+    import { student } from '../lib/stores/student-store'
 
 
-    let subjects = student.subjects;
+    let subjects = student.subjects$;
     
     $: console.log($subjects);
 </script>

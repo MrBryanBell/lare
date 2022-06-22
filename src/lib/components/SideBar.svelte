@@ -1,12 +1,12 @@
 <script lang="ts">
     import MetricCard from "$lib/components/Metric_Card.svelte";
     import Medal from "$lib/components/Medal.svelte";
-    import student from '../stores/student-store';
+    import { student } from '../stores/student-store';
     import { isAdderActive } from "$lib/stores/session-store";
 
 
-    $: CUM_ACUMULADO = $student.CUM_ACUMULADO;
-    $: CUM_EGRESADO = $student.CUM_EGRESADO;
+    let CUM_ACUMULADO = student.cumAcumulado$;
+    let CUM_EGRESADO = student.cumEgresado$;
 
 </script>
 
