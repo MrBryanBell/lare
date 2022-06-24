@@ -9,6 +9,7 @@
 	id="switch" 
 	type="checkbox" 
 	data-testid="checkbox"
+	style:display="none"
 />
 
 <label

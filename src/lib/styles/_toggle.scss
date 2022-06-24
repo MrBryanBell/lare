@@ -22,7 +22,9 @@ input {
 	display: none;
 }
 
-/* BASE STATES */
+//------------------------
+// SWITCH STYLES
+//------------------------
 
 .switch {
 	border-radius: 12px;
@@ -39,6 +41,10 @@ input {
 .active-switch {
 	background-color: var(--switch-bg-color-active);
 }
+
+//------------------------
+// KNOB STYLES
+//------------------------
 
 .knob {
 	height: var(--knob-size);
