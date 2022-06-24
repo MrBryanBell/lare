@@ -1,29 +1,31 @@
-<script>
-    export let isActive = false;
-
-    export function toggleKnob(){
-        isActive = !isActive;
-    }
-
+<script lang="ts" >
+	export let isActive = false;
 </script>
 
 
 
+<input 
+	bind:checked={isActive} 
+	id="switch" 
+	type="checkbox" 
+	data-testid="checkbox"
+/>
 
-<div
-    class:disabled-sw={!isActive}
-    class:active-sw={isActive}
-    on:click|stopPropagation>
-    <div
-        class:active-kn={isActive}
-        class:disabled-kn={!isActive}>
-    </div>
-</div>
+<label
+	class="switch" 
+	class:active-switch={isActive}
+	data-testid="switch"
+	for="switch" 
+	>
+	<div
+		class="knob" 
+		class:active-knob={isActive}
+		data-testid="knob"
+	/>
+</label>
 
 
 
-
-
-<style lang="scss">
-    @import "../styles/_switch.scss";
+<style lang="scss" >
+	@import '../styles/_toggle.scss';
 </style>
