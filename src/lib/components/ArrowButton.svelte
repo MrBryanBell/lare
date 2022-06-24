@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { getTestId, type ActionType } from '$lib/actions/get-test-id';
+	import type { ActionType } from '$lib/actions/get-test-id';
 	import { changeCycleByClick } from '$lib/actions/change-cycle';
 
 	export let actionType: ActionType = 'goNext';
+	// 	data-testid={getTestId(actionType)}
 </script>
 
 
@@ -10,7 +11,7 @@
 	on:click={changeCycleByClick}
 	class:rotate-80deg={actionType === 'goNext'}
 	data-action-type={actionType}
-	data-testid={getTestId(actionType)}
+	data-testid={`${actionType}-button`}
 	src="/icons/arrow-circle.svg"
 	alt=""
 />
