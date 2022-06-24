@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Toggle from '$lib/components/Switch.svelte';
+    import Toggle from '$lib/components/Toggle.svelte';
     import { changeNote } from '$lib/algoritmos/changeNote';
     import { fly } from 'svelte/transition';
     import { showContextMenu } from '$lib/actions/cardContextMenu';
