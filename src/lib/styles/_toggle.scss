@@ -1,16 +1,20 @@
 :root {
 	--component-easing-transition: cubic-bezier(0.16, 1, 0.3, 1);
 
-	--switch-bg-color-active: #56a9fb;
-	--switch-bg-color-disabled: #e8eaed;
+	--switch-bg-color-active: #2084E9;
+	--switch-bg-color-disabled: #D4DAE2;
+	--switch-border-color-active: #1266BA;
+	--switch-border-color-disabled: #C4CBD4;
 
-	--knob-size: 12px;
-	--knob-isActive-position: translateX(calc(100% + 4px));
-	--knob-bg-color-disabled: #fafafa;
-	--knob-bg-color-active: #f5f5f5;
+	--knob-size: 14px;
+	--knob-isActive-position: translateX(100%);
+	--knob-bg-color-disabled: #FFFFFF;
+	--knob-bg-color-active: #FFFFFF;
+	--knob-border-color-disabled: #BAC1C9;
+	--knob-border-color-active: #1266BA;
 	/* --knob-bg-color-hover: #666;
 		--knob-bg-color-isActive: #333; */
-}
+}	
 
 :global(*) {
 	box-sizing: border-box;
@@ -29,10 +33,12 @@ input {
 .switch {
 	border-radius: 12px;
 	height: 20px;
-	width: 36px;
+	width: 34px;
 	display: flex;
-	padding: 0 4px;
+	padding: 0 3px;
 	background-color: var(--switch-bg-color-disabled);
+	border: 0.5px solid var(--switch-border-color-disabled);
+
 	align-items: center;
 	transition: all 0.5s var(--component-easing-transition);
 	cursor: pointer;
@@ -40,6 +46,7 @@ input {
 
 .active-switch {
 	background-color: var(--switch-bg-color-active);
+	border: 0.5px solid var(--switch-border-color-active);
 }
 
 //------------------------
@@ -51,12 +58,15 @@ input {
 	width: var(--knob-size);
 	border-radius: 50%;
 	background-color: hsla(0, 0%, 98%, 1);
+	border: 0.5px solid var(--knob-border-color-disabled);
+
 	transition: all 0.5s var(--component-easing-transition);
 }
 
 .active-knob {
 	transform: var(--knob-isActive-position);
 	background-color: var(--knob-bg-color-active);
+	border: 0.5px solid var(--knob-border-color-active);
 }
 
 //------------------------
