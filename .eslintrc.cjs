@@ -75,6 +75,8 @@ module.exports = {
 		'no-tabs': 'off',
 		// 'import/no-extraneous-dependencies': 'off',
 		'import/no-unresolved': 'off',
-		"space-in-parens": ["warn", "always"]
+		// "space-in-parens": ["warn", "always"]
+		'no-underscore-dangle' : 'off',
+		'import/no-mutable-exports': 'off',
 	},
 };

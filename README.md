@@ -1,3 +1,42 @@
+### TODO: 30-JUN-2022
+
+[] -Que las materias se puedan agregar
+[] -Que las materias se puedan borrar
+
+
+
+
+
+
+
+
+
+### TODO: 30-JUN-2022
+
+[-] -Refactorizar UI del MetricCard
+[-] -Hacer interativo el Componente de Calculator (la imagen de la calculadora)
+[-] -Convertir el info-icon que usa cada MetricCard, SubjectCard en un iconComponent,
+		tengo 6 diferentes ícones de ese símbolo porque son diferentes colores, 
+		esto no puede seguir así.
+[] -Crear tooltip para funcional para los infos de los componentes, 
+		se me ocurre que cada info-icon podría tener un atributo con un código y 
+		ese código se utilizaría para buscar entre un array con mensajes. Ese array
+		de mensajes sería un array de objetos {code, message...}, el componente tooltip
+		podría validar si es hay información extra con un {#if}.
+[-] -Cambiar el color de los ArrowButtons, convertirlos a componentes con svg para 
+		su fácil manipulación, estudiar cómo Johnny Hopkins importa sus SVG, tiene un video
+		en Youtube.
+
+
+
+
+
+
+
+
+
+
+
 # Aprendizaje
 ---
 
