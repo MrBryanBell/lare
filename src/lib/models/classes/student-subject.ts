@@ -1,8 +1,8 @@
-import { Subject }                        from './subject';
-import type { SubjectStudentConstructor } from '../constructors/subject';
-import type { SubjectStudentContract }    from '../contracts/subject-student';
+import { Subject }                     from './subject';
+import type { StudentSubjectProps }    from '../constructors/subject-props';
+import type { SubjectStudentContract } from '../contracts/subject-student';
 
-class SubjectStudent extends Subject implements SubjectStudentContract {
+class StudentSubject extends Subject implements SubjectStudentContract {
 	public grade : number;
 	public cycle : number;
 
@@ -15,7 +15,7 @@ class SubjectStudent extends Subject implements SubjectStudentContract {
 		isOptative  = false,
 		grade       = 7.5,
 		cycle       = 1,
-	}: SubjectStudentConstructor) {
+	}: StudentSubjectProps) {
 		super({
 			id, name, code, uv, pensumOrder, isOptative,
 		});
@@ -43,10 +43,6 @@ class SubjectStudent extends Subject implements SubjectStudentContract {
 			cycle       : this.cycle,
 		};
 	}
-
-	updateGrade(newGrade: number) {
-		this.grade = newGrade;
-	}
 }
 
-export { SubjectStudent };
+export { StudentSubject };

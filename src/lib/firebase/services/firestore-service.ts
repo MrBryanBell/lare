@@ -1,15 +1,12 @@
-import { doc, getDoc, type Firestore, type FirestoreDataConverter } from 'firebase/firestore/lite';
+/* eslint-disable align-import/align-import */
+import {
+ doc, getDoc, type Firestore, type FirestoreDataConverter,
+} from 'firebase/firestore/lite';
 import { db } from '../config/firebase-config';
 import type { Student } from '../../models/classes/student';
-import type { Pensum } from '../../models/classes/pensum';
 import { studentDocConverter } from '../../models/firestore/converters/student-doc-converter';
 
-interface LareBigObject {
-	student: Student;
-	pensum: Pensum;
-}
-
-type StudentDocConverterResult = Promise<{ student: Student; pensum: Pensum }>;
+type StudentDocConverterResult = Promise<Student>;
 
 export class FirestoreService {
 	private static readonly db: Firestore = db;
@@ -26,18 +23,15 @@ export class FirestoreService {
 		} else {
 			docReference = doc(this.db, collectionName, documentName);
 		}
-		
+
 		const docSnapshot = await getDoc(docReference);
 		const data = docSnapshot.data();
 		return data as T;
 	}
 
 	static async getStudentDocument(studentId: string): StudentDocConverterResult {
-		const data = await this.getDocument<LareBigObject>('lareData', studentId, studentDocConverter);
-		return {
-			student : data.student,
-			pensum  : data.pensum,
-		};
+		const studentData = await this.getDocument<Student>('lareData', studentId, studentDocConverter);
+		return studentData;
 	}
 }
 

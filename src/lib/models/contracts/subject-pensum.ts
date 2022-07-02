@@ -1,9 +1,7 @@
-import type { SubjectContract }                         from './subject';
-import type { PensumSubject as FirestorePensumSubject } from '../firestore/students-collection/pensum-field';
+import type { SubjectContract } from './subject';
 
 export interface PensumSubjectContract extends SubjectContract {
-    cycleOrigin       : number;
-    inscriptions      : number;
-    area              : string;
-    toFirestoreObject : () => FirestorePensumSubject;
+  cycleOrigin       : number;
+  enrollments       : number;
+  area              : string;
 }

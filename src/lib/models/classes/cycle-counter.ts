@@ -3,8 +3,8 @@
 import {
 	writable, type Writable, type Subscriber,
 } from 'svelte/store';
-import { getCycleInString } from '../actions/get-cycle-in-string';
-import { getCycleProgressPercentage } from '../actions/get-cycle-progress-percentage';
+import { getCycleInString } from '../../actions/get-cycle-in-string';
+import { getCycleProgressPercentage } from '../../actions/get-cycle-progress-percentage';
 
 
 export class Cycle {

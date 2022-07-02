@@ -1,30 +1,48 @@
+/* eslint-disable */
 import { User }                               from './user';
-import { SubjectStudent }                     from './subject-student';
-import type { StudentContract }               from '../contracts/student';
-import type { StudentConstructor }            from '../constructors/students';
-import type { Student as StudentInFirestore } from '../firestore/students-collection/student-field';
+import { StudentSubject }                     from './student-subject';
+import { Pensum }                             from './pensum';
 import { Calculate }                          from './calculate';
+import type { StudentProps }            from '../constructors/students-props';
+import type { StudentContract }               from '../contracts/student';
+import type { StudentSubjectProps } from '../constructors/subject-props';
+import { round } from '../../actions/round-number';
 
 class Student extends User implements StudentContract {
 	public university : string;
 	public career     : string;
-	public subjects   : SubjectStudent[];
+	public subjects   : StudentSubject[];
+	public pensum     : Pensum;
 
 	constructor({
-		id         = '',
-		firstName  = '',
-		lastName   = '',
-		email      = '',
-		university = '',
-		career     = '',
+		id         = 'NO DATA',
+		firstName  = 'NO DATA',
+		lastName   = 'NO DATA',
+		email      = 'NO DATA',
+		university = 'NO DATA',
+		career     = 'NO DATA',
 		subjects   = [],
-	}: StudentConstructor) {
+		pensum     = {
+			id               : 'NO DATA',
+			university       : 'NO DATA',
+			career           : 'NO DATA',
+			collaborators    : [],
+			createdAt        : undefined,
+			lastTimeModified : undefined,
+			usedBy           : [],
+			subjects         : [],
+			subjectLength    : 0,
+			cyclesByDefault  : 0,
+			maxUMG           : 0,
+		},
+	}: StudentProps) {
 		super({
 			id, firstName, lastName, email,
 		});
 		this.university = university;
 		this.career     = career;
-		this.subjects   = subjects.map((subject) => new SubjectStudent(subject));
+		this.subjects   = subjects.map((subject) => new StudentSubject(subject));
+		this.pensum     = new Pensum(pensum);
 	}
 
 	get totalUv() {
@@ -43,17 +61,39 @@ class Student extends User implements StudentContract {
 		return Calculate.cum_egresado(this.subjects);
 	}
 
-	toFirestoreObject(): StudentInFirestore {
-		return {
-			id         : this.id,
-			firstName  : this.firstName,
-			lastName   : this.lastName,
-			email      : this.email,
-			university : this.university,
-			career     : this.career,
-			subjects   : this.subjects.map((subject) => subject.toFirestoreObject()),
-		};
+	enroll(newSubject: StudentSubjectProps) {
+		this.subjects = [...this.subjects, new StudentSubject(newSubject)];
+		this.pensum.addEnrollment(newSubject.name);
 	}
+
+	private _findSubject(subjectId: string) {
+		return this.subjects.find((subject) => subject.id === subjectId);
+	}
+
+	shiftGrade(subjectId: string, value: number) {
+		const currentGrade = this._findSubject(subjectId)!.grade;
+		const result = round(currentGrade + value, 1);
+		this._findSubject(subjectId)!.grade = result;
+		return this;
+	}
+
+	// addSubject(subject: StudentSubject) {
+	//     this.update((student) => {
+	//         student.subjects = [...student.subjects, subject];
+	//         return student;
+	//     });
+	// }
+
+	// deleteSubject(id: string) {
+	//     this.update((student) => {
+	//         let index = student.subjects.findIndex((subject) => subject.id === id);
+	//         let [ removedItem ] = student.subjects.splice(index, 1);
+
+	//         console.log('Se removió ' + removedItem.name);
+	//         console.table(student.subjects);
+	//         return student;
+	//     });
+	// }
 }
 
 export { Student };

@@ -1,8 +1,5 @@
 import type { QueryDocumentSnapshot } from 'firebase/firestore/lite';
 import { Student }                    from '../../classes/student';
-import { Pensum }                     from '../../classes/pensum';
-import type { PensumStore }           from '../../classes/custom-stores/pensum';
-import type { StudentStore }          from '../../classes/custom-stores/student';
 import type { StudentDocument }       from '../students-collection/student-document';
 
 /*
@@ -12,26 +9,12 @@ A pesar que Student y Pensum son objetos distintos,
 solo puedo enviar un objeto en los métodos setDoc, updateDoc...
 */
 
-type StoresToConvert = {
-	studentStore : StudentStore;
-	pensumStore  : PensumStore;
-};
-
 export const studentDocConverter = {
-	toFirestore: ({ studentStore, pensumStore }: StoresToConvert) => ({
-		student : studentStore.toFirestoreObject(),
-		pensum  : pensumStore.toFirestoreObject(),
-	}),
 
 	fromFirestore: (snapshot: QueryDocumentSnapshot<StudentDocument>) => {
-		const DocData = snapshot.data();
-
-		const student = new Student(DocData.student);
-		const pensum  = new Pensum(DocData.pensum);
-
-		return {
-			student,
-			pensum,
-		};
+		const docSnap = snapshot.data();
+		return new Student(docSnap);
 	},
+
+	toFirestore: () => ({ nada: 'nada' }),
 };

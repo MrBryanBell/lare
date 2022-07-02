@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
-import type { SubjectStudent } from './subject-student';
+import type { StudentSubject } from './student-subject';
 
 export class Calculate {
-	static total_umg(subjects: SubjectStudent[]) {
+	static total_umg(subjects: StudentSubject[]) {
 		const result = subjects.map((subject) => subject.umg).reduce((acc, curr) => acc + curr, 0);
 
 		return result;
 	}
 
-	static total_uv(subjects: SubjectStudent[]) {
+	static total_uv(subjects: StudentSubject[]) {
 		const result = subjects.map((subject) => subject.uv).reduce((acc, curr) => acc + curr, 0);
 
 		return result;
@@ -19,7 +19,7 @@ export class Calculate {
 		return result;
 	}
 
-	static cum_egresado(subjects: SubjectStudent[]) {
+	static cum_egresado(subjects: StudentSubject[]) {
 		const approvedSubjects = subjects.filter((mat) => mat.isPassed);
 
 		const total = approvedSubjects.reduce(

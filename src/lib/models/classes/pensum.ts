@@ -1,16 +1,18 @@
-import { SubjectPensum }          from './subject-pensum';
-import type { PensumConstructor } from '../constructors/pensum';
-import type { PensumContract }    from '../contracts/pensum';
+/* eslint-disable space-in-parens */
+/* eslint-disable align-import/align-import */
+import { PensumSubject } from './pensum-subject';
+import type { PensumProps }  from '../constructors/pensum-props';
+import type { PensumContract }     from '../contracts/pensum';
 
 class Pensum implements PensumContract {
 	public id                  : string;
 	public university          : string;
 	public career              : string;
 	public collaborators       : string[];
-	public subjects            : SubjectPensum[];
 	public createdAt           : Date;
 	public lastTimeModified    : Date;
 	public usedBy              : string[];
+	public subjects            : PensumSubject[];
 	public subjectLength       : number;
 	public cyclesByDefault     : number;
 	public maxUMG              : number;
@@ -20,22 +22,22 @@ class Pensum implements PensumContract {
 		university       = '',
 		career           = '',
 		collaborators    = [],
-		subjects         = [],
 		createdAt        = new Date(),
 		lastTimeModified = new Date(),
 		usedBy           = [],
+		subjects         = [],
 		subjectLength    = 0,
 		cyclesByDefault  = 0,
 		maxUMG           = 0,
-	}: PensumConstructor) {
+	}: PensumProps) {
 		this.id               = id;
 		this.university       = university;
 		this.career           = career;
 		this.collaborators    = collaborators;
-		this.subjects         = subjects.map((subject) => new SubjectPensum(subject));
 		this.createdAt        = createdAt;
 		this.lastTimeModified = lastTimeModified;
 		this.usedBy           = usedBy;
+		this.subjects         = subjects.map((subject) => new PensumSubject(subject));
 		this.subjectLength    = subjectLength;
 		this.cyclesByDefault  = cyclesByDefault;
 		this.maxUMG           = maxUMG;
@@ -55,6 +57,17 @@ class Pensum implements PensumContract {
 			cyclesByDefault  : this.cyclesByDefault,
 			maxUMG           : this.maxUMG,
 		};
+	}
+
+	findSubject( subjectName: string ) {
+		return this.subjects.find((subject) => subject.name === subjectName);
+	}
+
+	addEnrollment( subjectName: string ) {
+		const subject = this.findSubject(subjectName);
+		if (subject) {
+			subject.enrollments += 1;
+		}
 	}
 }
 

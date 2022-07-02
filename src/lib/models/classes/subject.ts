@@ -1,5 +1,5 @@
-import type { SubjectConstructor } from '../constructors/subject';
-import type { SubjectContract }    from '../contracts/subject';
+import type { SubjectProps }    from '../constructors/subject-props';
+import type { SubjectContract } from '../contracts/subject';
 
 abstract class Subject implements SubjectContract {
 	public id          : string;
@@ -11,7 +11,7 @@ abstract class Subject implements SubjectContract {
 
 	constructor({
 		id, name, code, uv, pensumOrder, isOptative,
-	}: SubjectConstructor) {
+	}: SubjectProps) {
 		this.id          = id;
 		this.name        = name;
 		this.code        = code;

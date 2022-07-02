@@ -1,14 +1,5 @@
-import { StudentStore } from '../models/classes/custom-stores/student';
-import { Student } from '../models/classes/student';
+/* eslint-disable */
+import { StudenStore } from '../models/classes/custom-stores/student-store';
+import { studentMock } from '../mocks/student-class-mock';
 
-const initConfig = new Student({
-  id         : '',
-  firstName  : '',
-  lastName   : '',
-  email      : '',
-  university : '',
-  career     : '',
-  subjects   : [],
-});
-
-export const student = new StudentStore(initConfig);
+export const student = new StudenStore(studentMock);

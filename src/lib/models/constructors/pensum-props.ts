@@ -1,14 +1,14 @@
-import type { SubjectPensumConstructor } from './subject';
+import type { PensumSubjectProps } from './subject-props';
 
-export interface PensumConstructor {
+export interface PensumProps {
 	id               : string;
 	university       : string;
 	career           : string;
 	collaborators    : string[];
-	subjects         : SubjectPensumConstructor[];
-	createdAt        : Date;
-	lastTimeModified : Date;
+	createdAt        : Date | undefined;
+	lastTimeModified : Date | undefined;
 	usedBy           : string[];
+	subjects         : PensumSubjectProps[];
 	subjectLength    : number;
 	cyclesByDefault  : number;
 	maxUMG           : number;
