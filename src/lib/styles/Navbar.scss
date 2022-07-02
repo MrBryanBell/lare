@@ -14,6 +14,7 @@ div {
 	background: linear-gradient(180deg, #1B7EFD 0%, #1B7EFD 100%);
 
 	position: fixed;
+	z-index: 30;
 	top: 0;
 
 	section {
@@ -40,7 +41,6 @@ nav {
 	gap: 10px;
 
 	position: relative;
-
 
 	a {
 		padding: 6px;
