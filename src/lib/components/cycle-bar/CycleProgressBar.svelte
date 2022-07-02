@@ -4,7 +4,7 @@
 	import { cycle } from '$lib/stores/cycle-counter-store';
 
 	let progressValue = tweened(0, {
-		duration: 400,
+		duration: 300,
 		easing: cubicOut,
 	});
 
@@ -24,11 +24,11 @@
 	div {
 		width: 100%;
 		height: 3px;
-		background-color: #F1F3F7;
+		background-color: transparent;
 		border-radius: 4px;
 
 		position: absolute;
-		top: 0;
+		top: 0px;
 		left: 0;
 		z-index: 10;
 

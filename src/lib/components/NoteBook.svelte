@@ -1,5 +1,5 @@
 <script>
-    import CycleBar from "$lib/components/CycleBar.svelte";
+    import CycleHeader from "$lib/components/cycle-bar/CycleBar.svelte";
     import SubjectContainer from "$lib/components/SubjectContainer.svelte";
 </script>
 
@@ -7,7 +7,7 @@
 
 
 <div>
-    <CycleBar />
+    <CycleHeader />
     <SubjectContainer /> 
 
     <!-- <button
@@ -19,11 +19,8 @@
 
 
 <style lang="scss" >
-    div{
-        margin-bottom: 100px;
-        grid-area: materias;
-        
-        // outline: 1px solid red;
-
-    }
+  div{
+    margin-bottom: 100px;
+    grid-area: materias;
+  }
 </style>

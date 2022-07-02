@@ -42,7 +42,7 @@
         padding-right: 48px;
         padding-top: 28px;
         min-height: 100vh;
-        background: #EDF1F3;
+        background: #E8EFF8;
         // background: linear-gradient(228.58deg, #E3EBFC 0%, #FFFFFF 62.57%);
 
         display: grid;

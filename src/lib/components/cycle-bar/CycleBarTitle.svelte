@@ -11,15 +11,17 @@
 	<h4
 		in:fly={{ duration: 260, easing: cubicOut }}
 		data-testid="current-cycle-in-string"
-			>{$cycle.inString.toUpperCase()}
+			>{$cycle.inString}
 	</h4>
 {/key}
 
 <style lang="scss">
-	@import '../styles/utils/_mixins.scss';
+	@import '../../styles/utils/_mixins.scss';
 
 	h4 {
-		@include text-mixin('Barlow', 24px, 1, var(--barlow-bold), #3b4768, 0.05em);
+		@include text-mixin('Archivo', 28px, 1, 600, #0E1F44, -0.005em);
 		margin-right: 16px;
+		font-stretch: 94%;
+		/* font-variation-settings: 'wdth' 94; */
 	}
 </style>

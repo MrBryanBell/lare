@@ -2,6 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
+/* 500, 520, 560, 600, 650, 580  */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,520;0,560;0,580;0,600;0,650;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@94,600&display=swap');
 
 :root {
     --barlow-regular: 400;
@@ -14,6 +18,10 @@
     --inter-semibold: 600;
     --inter-bold: 700;
     --opacity-card: 1;
+
+		--archivo-medium: 500;
+		--archivo-560: 560;
+		--archivo-semibold: 600;
 }
 
 * {
