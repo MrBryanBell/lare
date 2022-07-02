@@ -1,21 +1,21 @@
 <script>
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
-	import { currentTab } from '$lib/stores/session-store';
-    import { fade } from '$lib/animation_store/animations';
+	// import { currentTab } from '$lib/stores/session-store';
+    // import { fade } from '$lib/animation_store/animations';
 
 	let elem;
     let routes = [ '/', '/newComponent', '/playground' ];
 
-	function setCurrentTab(x){
-        $currentTab = x;
-        fade(elem);
-    };
+	// function setCurrentTab(x){
+  //       $currentTab = x;
+  //       fade(elem);
+  //   };
 
     onMount(() => {
         let currentURL = $page.url.pathname;
         let initialNum = routes.indexOf(currentURL) + 1;
-        setCurrentTab(initialNum);
+        // setCurrentTab(initialNum);
 
         console.log('Mounted Component')
     });
@@ -39,11 +39,12 @@
 		<!-- MENU DE NAVEGACIÓN -->
 		<nav>
 			<!-- HOME ICON -->
-			<a href="/" on:click={() => setCurrentTab(1)} >
+			<!-- on:click={() => setCurrentTab(1)} -->
+			<!-- class:active={$currentTab === 1} -->
+			<a href="/"  >
 				<svg
 					width="28"
 					height="28"
-					class:active={$currentTab === 1}
 					viewBox="0 0 28 28"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -57,12 +58,13 @@
 			</a>
 
 			<!-- METRICS ICON -->
-			<a href="/newComponent" on:click={() => setCurrentTab(2)}>
+			<!-- on:click={() => setCurrentTab(2)} -->
+			<!-- class:active={$currentTab === 2} -->
+			<a href="/newComponent" >
 				<svg
 					width="28"
 					height="28"
 					viewBox="0 0 28 28"
-					class:active={$currentTab === 2}
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 				>
@@ -75,12 +77,14 @@
 			</a>
 
 			<!-- MATERIAS ICON -->
-			<a href="/playground" on:click={() => setCurrentTab(3)} >
+			<!-- on:click={() => setCurrentTab(3)} -->
+			<!-- class:active={$currentTab === 3} -->
+
+			<a href="/playground"  >
 				<svg
 					width="28"
 					height="28"
 					viewBox="0 0 28 28"
-					class:active={$currentTab === 3}
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
 				>

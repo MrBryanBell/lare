@@ -1,12 +1,12 @@
-<script lang="ts">
-    import { cicloActual } from '$lib/stores/cycle_store';
+<!-- <script lang="ts">
     import { pensum } from '../stores/pensum-store';
-    import { student } from '../stores/student-store'
+    import { student } from '../stores/old-student-store'
     import { db } from '../firebase/config/firebase-config';
     import { updateDoc, doc, arrayUnion } from 'firebase/firestore/lite';
     import { userUID, isPopUpActive } from '$lib/stores/session-store';
-    import { SubjectStudent } from '../models/classes/subject-student';
-    import type { SubjectStudentConstructor } from '../models/constructors/subject'
+    import { SubjectStudent } from '../models/classes/student-subject';
+    import type { SubjectStudentConstructor } from '../models/constructors/subject-props';
+		import { cycle } from '../stores/cycle-counter-store'
 
 
     let data = {
@@ -15,14 +15,14 @@
     };
     
     
-    let STUDENT_SUBJECTS = student.subjects$;; 
+    let STUDENT_SUBJECTS = student.subjects$;
     let PENSUM_SUBJECTS = pensum.subjects$; 
 
 
     $: materiaActual = $PENSUM_SUBJECTS[$PENSUM_SUBJECTS.findIndex((mt) => data.code === mt.code)];
 
     $: console.log(materiaActual);
-    $: console.log($cicloActual);
+    $: console.log($cycle.number);
     
     function addNewMateria() {
         let newMateria: SubjectStudentConstructor  = {
@@ -33,7 +33,7 @@
             pensumOrder: materiaActual.pensumOrder,
             isOptative: materiaActual.isOptative,
             grade: ((+ data.grade) as number),
-            cycle: $cicloActual,
+            cycle: $cycle.number,
         }
 
         console.log(newMateria);
@@ -65,13 +65,13 @@
             $isPopUpActive = false;
         }
     };
-</script>
+</script> -->
 
 
 
 <!-- markup (zero or more items) goes here -->
 
-<svelte:window on:keydown={(e) => goOut(e) }/>
+<!-- <svelte:window on:keydown={(e) => goOut(e) }/>
 <div class="overlay" >
     <div class="main-container" >
 
@@ -87,10 +87,10 @@
 
         <button on:click={addNewMateria} >SEND DATA</button>
     </div>
-</div>
+</div> -->
 
 
-<style lang="scss" >
+<!-- <style lang="scss" >
     /* your styles go here */
     @import '../styles/popUp.scss';
-</style>
+</style> -->

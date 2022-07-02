@@ -1,6 +1,6 @@
 /* eslint-disable */
 // import { it, expect, beforeEach } from 'vitest';
-import { render, screen, type RenderResult, fireEvent, cleanup } from '@testing-library/svelte';
+import { render, screen, type RenderResult, fireEvent } from '@testing-library/svelte';
 import PruebaCounter from '../../components/PruebaCounter.svelte';
 
 

@@ -1,5 +1,5 @@
 <script>
-    import CycleHeader from "$lib/components/cycle-bar/CycleBar.svelte";
+    import CycleBar from "$lib/components/cyclebar/CycleBar.svelte";
     import SubjectContainer from "$lib/components/SubjectContainer.svelte";
 </script>
 
@@ -7,7 +7,7 @@
 
 
 <div>
-    <CycleHeader />
+    <CycleBar />
     <SubjectContainer /> 
 
     <!-- <button

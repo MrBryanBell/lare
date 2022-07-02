@@ -1,20 +1,10 @@
-<script>
-    import { pensum } from "../lib/stores/pensum-store";
-    
-    let subjects = pensum.subjects$;
-    
+<script lang="ts">
+	import { student } from '../lib/stores/student-store';
+
 </script>
 
-<div>
-    {#each $subjects as materia}
-         <p>{materia.name}  --- {materia.code}</p>
-    {:else}
-         <p>No Data Now</p>
-    {/each}
-</div>
-
-<style>
-    div {
-        padding-left: 150px;
-    }
-</style>
+{#each $student.subjects as {id, name}}
+	<p>{name}</p>
+	{:else}
+	<p>No subjects</p>
+{/each}

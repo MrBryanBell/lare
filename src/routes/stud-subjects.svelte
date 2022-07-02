@@ -1,20 +1,18 @@
 <script>
-    import { student } from "../lib/stores/student-store";
-    
-    let subjects = student.subjects$;
-    
+  
 </script>
 
 <div>
-    {#each $subjects as materia}
-         <p>{materia.name}  --- {materia.grade.toFixed(1)}</p>
-    {:else}
-         <p>No Data Now</p>
-    {/each}
+	<h1>Hello World</h1>
 </div>
 
+
 <style>
-    div {
-        padding-left: 150px;
-    }
+  div {
+    padding-left: 150px;
+  }
+
+	h1 {
+		font-family: 'Archivo';
+	}
 </style>

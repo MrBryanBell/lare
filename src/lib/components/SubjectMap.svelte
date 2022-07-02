@@ -1,16 +1,16 @@
 <script lang="ts">
-    import { pensum } from "../stores/pensum-store";
+    import { student } from "../stores/student-store";
     import Square from '$lib/components/Square.svelte';
     
-    let PENSUM_SUBJECTS = pensum.subjects$;
+    $: PENSUM_SUBJECTS = student.pensum.subjects;
     
-    $: g1 = $PENSUM_SUBJECTS.filter((sub) => sub.area === 'gc');
-    $: g2 = $PENSUM_SUBJECTS.filter((sub) => sub.area === 'fc');
-    $: g3 = $PENSUM_SUBJECTS.filter((sub) => sub.area === 'pc');
+    $: g1 = PENSUM_SUBJECTS.filter((sub) => sub.area === 'gc');
+    $: g2 = PENSUM_SUBJECTS.filter((sub) => sub.area === 'fc');
+    $: g3 = PENSUM_SUBJECTS.filter((sub) => sub.area === 'pc');
 
     
 
-    $: console.table($PENSUM_SUBJECTS);
+    $: console.table(PENSUM_SUBJECTS);
 
     function getColor(value) {
         if (!value) return "#2982FA"

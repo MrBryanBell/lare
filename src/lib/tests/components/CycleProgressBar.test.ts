@@ -1,7 +1,7 @@
 /* eslint-disable */
 // import { it, expect, beforeEach } from 'vitest';
 import { render, screen, type RenderResult, fireEvent, cleanup } from '@testing-library/svelte';
-import CycleProgressBar from '../../components/CycleProgressBar.svelte';
+import CycleProgressBar from '../../components/cyclebar/CycleProgressBar.svelte';
 
 let cycleProgressBar: RenderResult;
 let progressBar: HTMLElement;

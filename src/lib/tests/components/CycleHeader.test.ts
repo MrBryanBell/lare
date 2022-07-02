@@ -1,7 +1,7 @@
 /* eslint-disable */
 // import { it, expect, beforeEach } from 'vitest';
 import { render, screen, type RenderResult, fireEvent, cleanup } from '@testing-library/svelte';
-import CycleHeader from '../../components/CycleHeader.svelte';
+import CycleHeader from '../../components/cyclebar/CycleBar.svelte';
 
 let cycleHeader: RenderResult;
 let cycleHeaderTitle: HTMLElement;
