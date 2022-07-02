@@ -1,12 +1,11 @@
 /* eslint-disable */
 import { cycle } from '../stores/cycle-counter-store';
+import { getScrollDirection } from './get-scroll-direction';
 
 type ActionType = 'goNext' | 'goPrevious';
 type ScrollDirection = 'up' | 'down';
 
-export function changeCycleByClick(event: MouseEvent) {
-	const actionType: ActionType = <ActionType>(event.target as HTMLElement).dataset.actionType;
-
+export function changeCycleByClick(actionType: ActionType) {
 	if (actionType === 'goNext') return cycle.goNext();
 
 	return cycle.goPrevious();
@@ -17,8 +16,4 @@ export function changeCycleByScroll(event: WheelEvent) {
 	if (scrollDirection === 'up') return cycle.goNext();
 	
 	return cycle.goPrevious();
-};
-
-export function getScrollDirection(event: WheelEvent): ScrollDirection {
-	return (event.deltaY < 0) ? 'up' : 'down';
 };
