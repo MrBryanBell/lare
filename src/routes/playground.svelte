@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { isPopUpActive } from '../lib/stores/session-store';
     import { isAdderActive } from "../lib/stores/session-store"; 
     
@@ -9,12 +9,12 @@
     import Adder from "$lib/components/SideBar.svelte";
 
 
-    let mostrarTecla = (e) => {
-        let target = e.target.nodeName;
-        
-        if(e.which === 81 && target !== 'INPUT') {
-            $isAdderActive = !$isAdderActive;
-        }
+    let mostrarTecla = (event: KeyboardEvent) => {
+      let target = event.target.nodeName;
+      
+      if(event.which === 81 && target !== 'INPUT') {
+          $isAdderActive = !$isAdderActive;
+      }
     };
 
 </script>

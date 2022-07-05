@@ -35,7 +35,7 @@
 
 <style lang="scss">
 	div {
-		background: linear-gradient(180deg, #1b7efd 0%, #2163f1 51.04%, #1b7efd 100%);
+		background-color: #0171F4;
 		padding: 40px 24px 48px;
 		padding-right: 96px;
 		height: 100vh;

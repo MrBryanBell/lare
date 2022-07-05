@@ -43,9 +43,8 @@
 	}
 
 	div {
-		background: linear-gradient(0deg, #2479f9, #2479f9),
-			linear-gradient(134.59deg, #f2f4f7 -4.92%, #ffffff 51.15%, #f2f4f7 104.93%);
-		border-radius: 8px;
+		background-color: #0171F4;
+		border-radius: 8px;	
 		padding: 24px 20px;
 
 		position: relative;

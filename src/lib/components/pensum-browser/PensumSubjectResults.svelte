@@ -51,7 +51,7 @@
 		height: 400px;
 		overflow-y: scroll;
 
-		background-color: #4b9efb;
+		background-color: #75B3FA;
 		border-radius: 8px 8px 0px 0px;
 		padding: 20px 16px;
 		

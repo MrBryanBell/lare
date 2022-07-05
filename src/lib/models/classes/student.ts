@@ -1,12 +1,14 @@
 /* eslint-disable */
 import { User }                               from './user';
 import { StudentSubject }                     from './student-subject';
+import type { PensumSubject } from './pensum-subject';
 import { Pensum }                             from './pensum';
 import { Calculate }                          from './calculate';
 import type { StudentProps }            from '../constructors/students-props';
 import type { StudentContract }               from '../contracts/student';
 import type { StudentSubjectProps } from '../constructors/subject-props';
 import { round } from '../../actions/round-number';
+import { cycle } from '../../stores/cycle-counter-store';
 
 class Student extends User implements StudentContract {
 	public university : string;
@@ -61,9 +63,34 @@ class Student extends User implements StudentContract {
 		return Calculate.cum_egresado(this.subjects);
 	}
 
-	enroll(newSubject: StudentSubjectProps) {
-		this.subjects = [...this.subjects, new StudentSubject(newSubject)];
-		this.pensum.addEnrollment(newSubject.name);
+	createSubject(pensumSubject: PensumSubject) {
+		const newSubject = new StudentSubject({
+			id: self.crypto.randomUUID(),
+			name: pensumSubject.name,
+			code: pensumSubject.code,
+			uv: pensumSubject.uv,
+			pensumOrder: pensumSubject.pensumOrder,
+			isOptative: pensumSubject.isOptative,
+			grade: 0,
+			cycle: cycle.number,
+		});
+
+		return newSubject;
+	}
+
+	enroll(subjectCode: string, subjectIndex: number) {
+		const pensumSubject = this.pensum.findSubject(subjectCode)!;
+		const newSubject = this.createSubject(pensumSubject);
+
+		// this workaround is because of problems between Sortable and Svelte
+		let todasLasMateriasMenosEsteCiclo = this.subjects.filter((subject) => subject.cycle !== cycle.number);
+		let materiasCicloActual = this.subjects.filter((subject) => subject.cycle === cycle.number);
+		materiasCicloActual.splice(subjectIndex, 0, newSubject);
+		this.subjects = [...todasLasMateriasMenosEsteCiclo, ...materiasCicloActual];
+
+		this.pensum.addEnrollment(pensumSubject.code);
+		
+		return this;
 	}
 
 	private _findSubject(subjectId: string) {
@@ -76,13 +103,6 @@ class Student extends User implements StudentContract {
 		this._findSubject(subjectId)!.grade = result;
 		return this;
 	}
-
-	// addSubject(subject: StudentSubject) {
-	//     this.update((student) => {
-	//         student.subjects = [...student.subjects, subject];
-	//         return student;
-	//     });
-	// }
 
 	// deleteSubject(id: string) {
 	//     this.update((student) => {

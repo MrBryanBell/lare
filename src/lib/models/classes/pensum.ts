@@ -59,12 +59,12 @@ class Pensum implements PensumContract {
 		};
 	}
 
-	findSubject( subjectName: string ) {
-		return this.subjects.find((subject) => subject.name === subjectName);
+	findSubject( subjectCode: string ) {
+		return this.subjects.find((subject) => subject.code === subjectCode);
 	}
 
-	addEnrollment( subjectName: string ) {
-		const subject = this.findSubject(subjectName);
+	addEnrollment( subjectCode: string ) {
+		const subject = this.findSubject(subjectCode);
 		if (subject) {
 			subject.enrollments += 1;
 		}

@@ -27,13 +27,14 @@
 	@import '../styles/utils/_mixins.scss';
 
 	.main-container {
+		margin-top: 200px;
 		position: relative;
 	}
 
 	.container-overlay {
 		width: 100%;
 		height: 86px;
-		background: linear-gradient(180deg, rgba(30, 114, 248, 0) 0%, #1e74f9 100%);
+		background: linear-gradient(180deg, rgba(33, 99, 241, 0) 0%, #0171F4 100%);
 		position: absolute;
 		bottom: 0;
 		left: 0;
