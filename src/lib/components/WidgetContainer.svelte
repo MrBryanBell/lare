@@ -15,10 +15,10 @@
 
 
 <section
-	class="side-bar"
+	class="widget-container"
 	style:opacity={($isAdderActive) ? 0.5 : 1}
 	>
-	<div class="widget-wrapper">
+	<div class="metric-card-container">
 		
 		<MetricCard 
 			metricName="Cum Acumulado"
@@ -55,13 +55,13 @@
 
 <style lang="scss">
 
-	.widget-wrapper {
+	.metric-card-container {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 8px;
 	}
 
-	.side-bar {
+	.widget-container {
 		grid-area: metrics;
 
 		display: grid;

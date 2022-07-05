@@ -34,6 +34,10 @@ export class StudenStore {
 		return derived(this, ($this) => $this.cumEgresado);
 	}
 
+	get pensumSubjects$() {
+		return derived(this, ($this) => $this.pensum.subjects);
+	}
+
 	shiftGrade(subjectId: string, value: number) {
 		this.update((student) => student.shiftGrade(subjectId, value));
 	}

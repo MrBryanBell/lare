@@ -18,7 +18,7 @@
 
         let sortList = Sortable.create(domElement, {
 	        group: {
-	        	name: 'cuteList',
+	        	name: 'pensumSubjects',
 	        },
 
             dragClass: "sortdrag",

@@ -4,9 +4,9 @@
     
     import AssistantBar from "$lib/components/Assistant_Bar.svelte";
     import NoteBook from "$lib/components/NoteBook.svelte";
-    import SideBar from "$lib/components/SideBar.svelte";
+    import WidgetContainer from "$lib/components/WidgetContainer.svelte";
     import PopUp from "$lib/components/PopUp.svelte";
-    import Adder from "$lib/components/Adder.svelte";
+    import Adder from "$lib/components/SideBar.svelte";
 
 
     let mostrarTecla = (e) => {
@@ -23,7 +23,7 @@
 <main>
     <AssistantBar />
     <NoteBook />
-    <SideBar />
+    <WidgetContainer />
 </main>
 
 

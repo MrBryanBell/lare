@@ -9,7 +9,7 @@ type UserUID = Writable<null | string | undefined>;
 
 const userUID: UserUID = writable(null);
 const isAdderActive = writable(false);
-const indexerText = writable('');
+const searchBoxText = writable('');
 const isPopUpActive = writable(false);
 const currentTab = writable(1);
 
@@ -38,7 +38,7 @@ onAuthStateChanged(auth, async (user) => {
 export {
 	isAdderActive,
 	isPopUpActive,
-	indexerText,
+	searchBoxText,
 	userUID,
 	currentTab,
 };
