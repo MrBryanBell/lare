@@ -31,7 +31,7 @@
 
 	<div class="card-data">
 		<SubjectCardMetrics uv={subject.uv} grade={subject.grade} />
-		<SubjectCardOptions />
+		<SubjectCardOptions subjectId={subject.id} />
 	</div>
 
 	<div class="card-footer">

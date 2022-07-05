@@ -75,7 +75,7 @@
 		/* pantalla negra: 460px y reducir el espacio entre AssitanBar y Notebook */
 		min-height: 500px;
 		background-color: $skyblue-wrapper-bg;
-		padding: 20px 16px;
+		padding: 24px 20px;
 		border-radius: 8px;
 
 		display: grid;

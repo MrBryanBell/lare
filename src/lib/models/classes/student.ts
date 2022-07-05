@@ -6,7 +6,6 @@ import { Pensum }                             from './pensum';
 import { Calculate }                          from './calculate';
 import type { StudentProps }            from '../constructors/students-props';
 import type { StudentContract }               from '../contracts/student';
-import type { StudentSubjectProps } from '../constructors/subject-props';
 import { round } from '../../actions/round-number';
 import { cycle } from '../../stores/cycle-counter-store';
 
@@ -104,16 +103,12 @@ class Student extends User implements StudentContract {
 		return this;
 	}
 
-	// deleteSubject(id: string) {
-	//     this.update((student) => {
-	//         let index = student.subjects.findIndex((subject) => subject.id === id);
-	//         let [ removedItem ] = student.subjects.splice(index, 1);
-
-	//         console.log('Se removió ' + removedItem.name);
-	//         console.table(student.subjects);
-	//         return student;
-	//     });
-	// }
+	unenroll(subjectId: string) {
+		const subject = this._findSubject(subjectId)!;
+		this.subjects = this.subjects.filter((subject) => subject.id !== subjectId);
+		this.pensum.removeEnrollment(subject.code);
+		return this;
+	}
 }
 
 export { Student };

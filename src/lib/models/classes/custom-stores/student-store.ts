@@ -45,4 +45,8 @@ export class StudenStore {
 	shiftGrade(subjectId: string, value: number) {
 		this.update((student) => student.shiftGrade(subjectId, value));
 	}
+
+	unenroll(subjectId: string) {
+		this.update((student) => student.unenroll(subjectId));
+	}
 }

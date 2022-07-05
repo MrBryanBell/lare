@@ -69,6 +69,13 @@ class Pensum implements PensumContract {
 			subject.enrollments += 1;
 		}
 	}
+
+	removeEnrollment( subjectCode: string ) {
+		const subject = this.findSubject(subjectCode);
+		if (subject) {
+			subject.enrollments -= 1;
+		}
+	}
 }
 
 export { Pensum };
