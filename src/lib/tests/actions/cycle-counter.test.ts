@@ -1,6 +1,6 @@
 /* eslint-disable */
 // import { it, expect, beforeEach } from 'vitest';
-import { Cycle } from '../../stores/cycle-counter';
+import { Cycle } from '../../models/classes/cycle-counter';
 
 
 let cycle: Cycle;
@@ -22,7 +22,7 @@ it('cycle.number should have an initial state of 1', () => {
 
 it('should increase cycle.number value by 1 after .goNext() method', () => {
 	const expected = 2;
-	cycle.goNext();
+	cycle.goNext(); 
 
 	expect(currentCycle).toBe(expected);
 });

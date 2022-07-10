@@ -1,14 +1,19 @@
 ### TODO: 30-JUN-2022
 
-[] -Que las materias se puedan agregar
-[] -Que las materias se puedan borrar
+[] -Editor de Pensum
+[] -Añadir un Pensum sin materias desde la interfaz
+[] -Enviar el Pensum a la base de datos
+[] -Añadir materias al Pensum
+[] -Actualizar una materia del pensum
+[] -Eliminar una materia del pensum
+[] -Ver Pensum creados
 
 
 
+### TODO: 30-JUN-2022
 
-
-
-
+[-] -Que las materias se puedan agregar
+[-] -Que las materias se puedan borrar
 
 
 ### TODO: 30-JUN-2022

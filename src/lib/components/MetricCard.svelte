@@ -130,16 +130,5 @@
 		font-feature-settings: 'tnum' on, 'lnum' on;
 	}
 
-	.metric-value {
-		color: #FFFFFF;
-
-		font-family: 'Archivo';
-		font-size: 26px;
-		line-height: 100%;
-		font-weight: 500;
-		letter-spacing: -0.025em;
-		font-feature-settings: 'tnum' on, 'lnum' on;
-	}
-
 
 </style>
